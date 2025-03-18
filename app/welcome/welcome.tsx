@@ -13,12 +13,17 @@ export function Welcome() {
         <section className="current-city">
 
           <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
+
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"} cityName={"Malmö"} />
+
+          
           
           
         </section>
 
         <ul className="city-list">
           <CityCard
+          
             name={"Stockholm"}
             latitude={"59.334591"}
             longitude={"18.063240"}
