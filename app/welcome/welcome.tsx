@@ -1,4 +1,5 @@
 import { CityCard } from "../components/CityCard";
+import  StockholmPollenTest  from "../components/PollenAPI";
 
 export function Welcome() {
   return (
@@ -19,6 +20,7 @@ export function Welcome() {
           </p>
           <p>Test</p>
           <p>test2</p>
+          <StockholmPollenTest/>
         </section>
 
         <ul className="city-list">
