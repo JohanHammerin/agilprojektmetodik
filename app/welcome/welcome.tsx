@@ -1,5 +1,6 @@
+
+import { PollenData } from "~/components/PollenData";
 import { CityCard } from "../components/CityCard";
-import  StockholmPollenTest  from "../components/PollenAPI";
 
 export function Welcome() {
   return (
@@ -10,21 +11,19 @@ export function Welcome() {
 
       <main className="index-main">
         <section className="current-city">
-          <h1>10</h1>
-          <h2>Träd/Gräs</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            vero optio ipsum expedita. Non architecto voluptas molestiae
-            perferendis iure similique incidunt ad molestias autem doloremque
-            veritatis facere, voluptatibus, eligendi voluptatum?
-          </p>
-          <p>Test</p>
-          <p>test2</p>
-          <StockholmPollenTest/>
+
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
+
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"} cityName={"Malmö"} />
+
+          
+          
+          
         </section>
 
         <ul className="city-list">
           <CityCard
+          
             name={"Stockholm"}
             latitude={"59.334591"}
             longitude={"18.063240"}
