@@ -58,7 +58,7 @@ export function Welcome() {
       const response = await fetch(apiUrl);
 
       const data = await response.json();
-      setPollenData(data.dailyInfo?.[0]); // Spara första dagens data
+      setPollenData(data.dailyInfo?.[0]); // Spara dagens data
     } catch (error) {
       console.error("Error fetching pollen data:", error);
     }
@@ -73,9 +73,6 @@ export function Welcome() {
       <main className="index-main">
         <section className="current-city">
           <h1>{city.name}</h1>
-          <h2>
-            Lat: {city.latitude}, Lon: {city.longitude}
-          </h2>
 
           {pollenData ? (
             <div>
