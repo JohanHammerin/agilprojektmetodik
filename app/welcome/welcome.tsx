@@ -59,7 +59,7 @@ export function Welcome() {
 
         <footer className="footer">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3> 
-        <h3>Om oss</h3>
+        <h3><a href= "/about">Om oss</a></h3>
         </footer>
       </main>
     </div>
