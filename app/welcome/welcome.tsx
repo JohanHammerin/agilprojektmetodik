@@ -1,6 +1,5 @@
 
 import { PollenData } from "~/components/PollenData";
-import { CityCard } from "../components/CityCard";
 
 export function Welcome() {
   return (
@@ -11,50 +10,48 @@ export function Welcome() {
 
       <main className="index-main">
         <section className="current-city">
-
-          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
-
-          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"} cityName={"Malmö"} />
-
-          
-          
-          
+          <h1>Nuvarande Stad: </h1>
+          <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, perferendis? Quibusdam, commodi similique. Nam placeat quasi exercitationem consectetur perspiciatis laudantium explicabo perferendis 
+            illum distinctio quo, veritatis repellat, voluptate ab quis.</h1>
         </section>
 
-        <ul className="city-list">
-          <CityCard
-          
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
+        <section className="other-cities">
+          <article className="other-cities-article">
+            <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
 
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-        </ul>
+          </article>
+
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"} cityName={"Malmö"} />
+          </article>
+
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"} cityName={"Göteborg"} /> 
+          </article>
+
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"} cityName={"Göteborg"} /> 
+          </article>
+          
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"} cityName={"Göteborg"} /> 
+          </article>
+          
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3130"} cityName={"Hässelholm"} /> 
+          </article>
+
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3232"} cityName={"Kiruna"} /> 
+          </article>
+
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3132"} cityName={"Kristandstad"} /> 
+          </article>
+
+        </section>
+
+        
       </main>
     </div>
   );

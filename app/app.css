@@ -26,9 +26,15 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  margin-bottom: 30px;
 }
 
+/**========================================================================
+ *                           Nuvarande Stad
+ *========================================================================**/
+
 .current-city {
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,6 +42,7 @@ body {
   background-color: #ffd65a;
   border-radius: 8px;
   padding: 20px;
+  
 }
 
 .current-city h1 {
@@ -43,3 +50,59 @@ body {
   padding: 20px;
   border-radius: 20px;
 }
+
+/**========================================================================
+ *                           Andra Städer - DIV
+ *========================================================================**/
+
+ .other-cities{
+  background-color: #ffd65a;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+
+  /* Avstånd */
+  gap: 20px;
+  padding: 5px;
+  border: solid yellow;
+ }
+
+ .other-cities-article{
+  border: dotted black;
+  
+ }
+
+ .pollen-data{
+  text-align: end;
+  
+  border: double red;
+  
+ }
+
+ .pollen-data h1{
+  background-color: #ff9d23;
+  border-radius: 20px;
+  text-align: center;
+  color: red;
+ }
+
+ .pollen-data ul{
+  border: groove purple;
+  text-align: start;
+ 
+  list-style: none;
+
+
+ }
+
+ .pollen-data ul li{
+ 
+  
+ 
+ }
+
+ 
+
+
+
