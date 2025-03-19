@@ -1,4 +1,9 @@
-html,
+
+.header {
+  padding: auto;
+  text-align: center;
+
+}
 body {
   font-family: "Helvetica";
 }
