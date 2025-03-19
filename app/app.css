@@ -55,53 +55,77 @@ body {
  *                           Andra Städer - DIV
  *========================================================================**/
 
- .other-cities{
+ .other-cities-section{
   background-color: #ffd65a;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-
-  /* Avstånd */
-  gap: 20px;
-  padding: 5px;
-  border: solid yellow;
+  padding: 5px
  }
 
- .other-cities-article{
-  border: dotted black;
-  
- }
-
- .pollen-data{
-  text-align: end;
-  
-  border: double red;
-  
- }
-
- .pollen-data h1{
+ .other-cities-header{
   background-color: #ff9d23;
   border-radius: 20px;
+  margin: 30px auto 0;
   text-align: center;
-  color: red;
+  width: 70%;
+  padding: 20px;
  }
 
- .pollen-data ul{
-  border: groove purple;
-  text-align: start;
- 
-  list-style: none;
-
-
+ .other-cities-article-section{
+  background-color: #ffd65a;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 30px;
+  gap: 20px;
  }
 
- .pollen-data ul li{
- 
+ /* Artikel rutan */
+ .other-cities-article{
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  border-radius: 30px;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 150px;
+  min-height: 200px;
+ }
+
+ /* Rubrik på staden */
+ .pollen-header{
+  background-color: #ff9d23;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 0.0006em;
+  text-align: center;
+ }
+
+ .pollen-list{
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  margin-top: 30px;
+  border-radius: 20px
   
- 
  }
 
+ .pollen-list ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0 ;
+  
+ }
+
+ .pollen-list li {
+  background-color: #f4f4f4; /* Ljus bakgrund för varje item */
+  padding: 10px;
+  margin: 5px 0; /* Lägg till lite avstånd mellan varje element */
+  border-radius: 8px;
+  text-align: center; /* Textcentrering för bättre utseende */
+}
+
+ 
+
+ 
  
 
 

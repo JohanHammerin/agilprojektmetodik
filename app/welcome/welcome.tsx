@@ -15,11 +15,16 @@ export function Welcome() {
             illum distinctio quo, veritatis repellat, voluptate ab quis.</h1>
         </section>
 
-        <section className="other-cities">
-          <article className="other-cities-article">
-            <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
+       
 
-          </article>
+        <section className="other-cities-section">
+          <div className="other-cities-header">
+            <h1>Andra städer</h1>
+            </div>
+            <section className="other-cities-article-section">
+              <article className="other-cities-article">
+                <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
+              </article>
 
           <article className="other-cities-article">
           <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"} cityName={"Malmö"} />
@@ -27,29 +32,38 @@ export function Welcome() {
 
           <article className="other-cities-article">
           <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"} cityName={"Göteborg"} /> 
-          </article>
+          </article>      
 
           <article className="other-cities-article">
-          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"} cityName={"Göteborg"} /> 
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3231"} cityName={"Piteå"} /> 
           </article>
           
           <article className="other-cities-article">
-          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"} cityName={"Göteborg"} /> 
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3137"} cityName={"Sundsvall"} /> 
           </article>
           
           <article className="other-cities-article">
           <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3130"} cityName={"Hässelholm"} /> 
           </article>
 
-          <article className="other-cities-article">
-          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3232"} cityName={"Kiruna"} /> 
-          </article>
 
           <article className="other-cities-article">
           <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3132"} cityName={"Kristandstad"} /> 
           </article>
 
+
+          <article className="other-cities-article">
+          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3139"} cityName={"Västervik"} /> 
+          </article>
+          
+          </section>
+
         </section>
+          
+          
+
+
+        
 
         
       </main>

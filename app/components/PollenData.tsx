@@ -1,15 +1,27 @@
-import type { index } from "@react-router/dev/routes";
 import { useEffect, useState } from "react";
-
 // Import för pollendata interfacet vi kommer att använda
 import type { PollenCityAndRegion, PollenData} from "~/types/pollen-interface";
-
 // För att få ID -> Namn
 import { PollenTypes } from "~/types/pollen-types";
 
 export function PollenData({regionId, cityName}: PollenCityAndRegion) {
     // Används för att spara pollen datan
     const [pollenLevels, setpollenLevels] = useState<PollenData[]>([]);
+
+    // Funktion som returnerar en nivåtext baserat på låg, medel eller hög 
+    function getLevelText(level: number) {
+        if (level === 0) {
+            return "Ingen nivå";
+        }
+        else if (level <= 1) {
+            return "Låg nivå";
+        }
+        else if (level <= 2) {
+            return "Medel nivå";
+        } else {
+            return "Hög nivå";
+        }
+    };
     
     useEffect(() => {
         // Fetch 
@@ -40,10 +52,6 @@ export function PollenData({regionId, cityName}: PollenCityAndRegion) {
 
             setpollenLevels(uniqueData);
                 
-        
-            
-
-
             // Ofiltrerad data = Allt visas: 
 
             // const levelSeries = data.items[0]?.levelSeries || [];
@@ -57,28 +65,33 @@ export function PollenData({regionId, cityName}: PollenCityAndRegion) {
 
     
         }
-
         fetchData();
-
-
     }, [regionId]);
 
     // Returnera 
     return (
-        <article className="pollen-data">
-            <h1>{cityName}</h1>
+       
+         
+        <article>
+            {/* Rubrik på Stad på Pollen */}
+            <div className="pollen-header">
+               <h1>{cityName}</h1>
 
-             {/* Visa pollenprognosdata i en lista */}
-           <ul>
-             {pollenLevels.map((item) => (
-          
-          <li key={item.pollenId}>
-            {/* Visa pollenId och nivåer */}
-            {PollenTypes[item.pollenId as keyof typeof PollenTypes]} - Level: {item.level}
-          </li>
-          ))}
-         </ul>
+            </div>
 
+            {/* Visa PollenNivåer */}
+            <div className="pollen-list">
+                <ul>
+                    {pollenLevels.map((item) => (
+
+                    <li key={item.pollenId}>    
+                        {PollenTypes[item.pollenId as keyof typeof PollenTypes]} - {getLevelText(item.level)} 
+                    </li>
+                ))}
+            </ul>
+
+            </div>
+            
         </article>
         
 
