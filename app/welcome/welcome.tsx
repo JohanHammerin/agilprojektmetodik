@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { CityCard } from "../components/CityCard";
-import StockholmPollenTest from "../components/PollenAPI";
 import type { City } from "~/types/city";
-
 import { PollenData } from "~/components/PollenData";
-import { CityCard } from "../components/CityCard";
 
 export function Welcome() {
   const [city, setCity] = useState<City>({
@@ -98,50 +95,16 @@ export function Welcome() {
           <CityCard name={"Stockholm"} latitude={"59.33"} longitude={"18.06"} />
           <CityCard name={"Göteborg"} latitude={"57.71"} longitude={"11.97"} />
           <CityCard name={"Malmö"} latitude={"55.61"} longitude={"13.00"} />
-
-          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
-
-          <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"} cityName={"Malmö"} />
-
-          
-          
-          
-        </section>
-
-        <ul className="city-list">
-          <CityCard
-          
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
-          <CityCard
-            name={"Stockholm"}
-            latitude={"59.334591"}
-            longitude={"18.063240"}
-          />
         </ul>
+        <PollenData
+          regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"}
+          cityName={"Stockholm"}
+        />
+
+        <PollenData
+          regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"}
+          cityName={"Malmö"}
+        />
       </main>
     </div>
   );
