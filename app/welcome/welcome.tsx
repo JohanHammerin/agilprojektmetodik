@@ -6,6 +6,7 @@ export function Welcome() {
     <div className="index-container">
       <header>
         <h1>Pollenkollen</h1>
+        <h2>Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser pollenhalter i din närhet</h2>
       </header>
 
       <main className="index-main">
