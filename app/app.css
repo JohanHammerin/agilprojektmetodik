@@ -43,3 +43,11 @@ body {
   padding: 20px;
   border-radius: 20px;
 }
+
+.pollen-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
