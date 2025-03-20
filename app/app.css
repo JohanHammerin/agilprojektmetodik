@@ -72,8 +72,11 @@ body {
  .other-cities-article-section{
   background-color: #ffd65a;
   border-radius: 30px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   padding: 30px;
   gap: 20px;
  }
