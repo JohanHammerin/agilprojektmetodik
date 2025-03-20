@@ -80,7 +80,7 @@ export function Welcome() {
     <div className="index-container">
       <header className="header">
         <ul>
-          <img src="app/img/pklogoblack.png" alt="logo" />
+          <img src="../app/img/pklogoblack.png" alt="logo" />
         </ul>
         <h2>
           Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
