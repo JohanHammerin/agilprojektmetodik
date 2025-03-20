@@ -66,45 +66,60 @@ export function Welcome() {
 
   return (
     <div className="index-container">
-      
       <header className="header">
         <h1>Pollenkollen</h1>
-        <h2>Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser pollenhalter i din närhet</h2>
+        <h2>
+          Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
+          pollenhalter i din närhet
+        </h2>
       </header>
 
       <main className="index-main">
         <section className="current-city">
-          <h1>{city.name}</h1>
+          <PollenData
+            regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"}
+            cityName={"Stockholm"}
+          />
 
-          {pollenData ? (
-            <div>
-              <h3>Dagens pollennivåer:</h3>
-              <ul className="pollen-list">
-                {pollenData.pollenTypeInfo?.map((pollen: any) => (
-                  <li key={pollen.code}>
-                    <strong>{pollen.displayName}</strong> -{" "}
-                    {pollen.indexInfo?.value || "0"}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <p>Laddar pollendata...</p>
-          )}
+          <PollenData
+            regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"}
+            cityName={"Malmö"}
+          />
         </section>
 
         <ul className="city-list">
-          <CityCard name={"Stockholm"} latitude={"59.33"} longitude={"18.06"} />
-          <CityCard name={"Göteborg"} latitude={"57.71"} longitude={"11.97"} />
-          <CityCard name={"Malmö"} latitude={"55.61"} longitude={"13.00"} />
-        </ul>
+          <CityCard
+            name={"Stockholm"}
+            latitude={"59.334591"}
+            longitude={"18.063240"}
+          />
+          <CityCard
+            name={"Stockholm"}
+            latitude={"59.334591"}
+            longitude={"18.063240"}
+          />
+          <CityCard
+            name={"Stockholm"}
+            latitude={"59.334591"}
+            longitude={"18.063240"}
+          />
 
-        <footer className="footer">
-          <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
-          <h3>
-            <a href="/about">Om oss</a>
-          </h3>
-        </footer>
+          <CityCard
+            name={"Stockholm"}
+            latitude={"59.334591"}
+            longitude={"18.063240"}
+          />
+          <CityCard
+            name={"Stockholm"}
+            latitude={"59.334591"}
+            longitude={"18.063240"}
+          />
+          <CityCard
+            name={"Stockholm"}
+            latitude={"59.334591"}
+            longitude={"18.063240"}
+          />
+        </ul>
       </main>
     </div>
   );
