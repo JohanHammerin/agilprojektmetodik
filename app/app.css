@@ -86,10 +86,11 @@ body {
   display: flex;
   flex-direction: column;
   background-color: lightgray;
+  width: 300px;
   border-radius: 30px;
   justify-content: space-between;
   padding: 20px;
-  max-width: 150px;
+  
   min-height: 200px;
  }
 
