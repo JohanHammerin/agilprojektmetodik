@@ -121,7 +121,10 @@ export function Welcome() {
         </section>
       </main>
 
-      <footer>Pollenkollen</footer>
+      <footer className="footer">
+        <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
+        <h3>Om oss</h3>
+      </footer>
     </div>
   );
 }
