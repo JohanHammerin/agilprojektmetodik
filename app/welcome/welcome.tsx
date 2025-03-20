@@ -79,7 +79,9 @@ export function Welcome() {
   return (
     <div className="index-container">
       <header className="header">
-        <h1>Pollenkollen</h1>
+        <ul>
+          <img src="app/img/pklogoblack.png" alt="logo" />
+        </ul>
         <h2>
           Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
           pollenhalter i din närhet

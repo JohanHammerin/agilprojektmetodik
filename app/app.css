@@ -2,8 +2,20 @@
   padding: auto;
   text-align: center;
 }
+
+.header ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 body {
   font-family: "Helvetica";
+}
+
+header img {
+  display: flex;
+  justify-content: start;
+  height: 100px;
 }
 
 .city-list {
