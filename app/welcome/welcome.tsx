@@ -96,15 +96,13 @@ export function Welcome() {
           <CityCard name={"Göteborg"} latitude={"57.71"} longitude={"11.97"} />
           <CityCard name={"Malmö"} latitude={"55.61"} longitude={"13.00"} />
         </ul>
-        <PollenData
-          regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"}
-          cityName={"Stockholm"}
-        />
 
-        <PollenData
-          regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"}
-          cityName={"Malmö"}
-        />
+        <footer className="footer">
+          <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
+          <h3>
+            <a href="/about">Om oss</a>
+          </h3>
+        </footer>
       </main>
     </div>
   );
