@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { CityCard } from "../components/CityCard";
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
+import { NavLink } from "react-router";
 
 export function AboutPage() {
   
@@ -35,7 +36,7 @@ export function AboutPage() {
 
       <footer className="footer">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
-        <h3>Om oss</h3>
+        <NavLink to="/">Hem</NavLink>
       </footer>
     </div>
   );
