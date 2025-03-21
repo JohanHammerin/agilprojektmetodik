@@ -3,7 +3,7 @@ import { CityCard } from "../components/CityCard";
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 
-export function Welcome() {
+export function HomePage() {
   const [city, setCity] = useState<City>({
     name: "Nuvarande plats",
     latitude: "",
