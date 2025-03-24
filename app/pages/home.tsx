@@ -134,26 +134,27 @@ export function HomePage() {
             <h1>Andra städer</h1>
           </div>
 
-          <div className="other-cities-menu">
+          <div className="other-cities-filter">
             {/* Titel för menyn */}
             <h3 className="other-cities-title">
               Välj vilka städer du vill ska visas: 
             </h3>
 
-            {/* Knapp för att välja vilken stad som ska visas */}
-            <div className="other-cities-button"> 
+            
+            <div className="other-cities-squares"> 
             {CityID.map((city) => (
+
+              // Knapp för att fil
               <button
                 key={city.regionId}
                 onClick={() => setSelectedCity((prev) => cityToggle(prev, city.regionId))}
-                
-                
+                className={`other-cities-button ${
+                  selectedCity.includes(city.regionId) ? "active" : ""
+                }`}
               >
-                
                 {city.name}
               </button>
             ))}
-
             </div>
             
             

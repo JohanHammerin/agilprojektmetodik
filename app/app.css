@@ -90,12 +90,15 @@ header img {
  *                           Andra Städer - DIV
  *========================================================================**/
 
+ /* HuvudKategori på andra städer sektionen: */
+
 .other-cities-section {
   background-color: #ffd65a;
   border-radius: 8px;
   padding: 5px;
 }
 
+/* Header på andra städer sektionen */
 .other-cities-header {
   background-color: #ff9d23;
   
@@ -106,6 +109,8 @@ header img {
   padding: 20px;
 }
 
+/* Sektionen där alla pollenartiklarna hamnar i en rad på mobilskärm 
+                                                      eller flera på rad på datorn */
 .other-cities-article-section {
   background-color: #ffd65a;
   border-radius: 30px;
@@ -119,7 +124,7 @@ header img {
   gap: 10px;
 }
 
-/* Artikel rutan */
+/* I själva artikeln där pollendatan står */
 .other-cities-article {
   display: flex;
   flex-direction: column;
@@ -132,7 +137,62 @@ header img {
   min-height: 200px;
 }
 
-/* Rubrik på staden */
+
+/* TextKategori  */
+
+/* Välj vilka städer du vill ska visas: */
+.other-cities-title {
+  /* Textstorlek */
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Knappar och annat */
+
+
+/* Filter sektionen med alla nman på städer */
+.other-cities-filter{
+  max-width: 60%;
+  margin: 0 auto;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+
+}
+
+/* Områden kring varje knapp */
+.other-cities-squares {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+
+}
+
+/* Styling för själva knappen */
+.other-cities-button {
+  background-color: #ffd65a;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.5s ease;
+}
+
+/* Stilen som sker när varje stad väljs och är "aktiv" */
+.other-cities-button.active {
+  color: white;
+  background-color: brown;
+  
+  
+}
+
+/*========================================================================
+ *                           Pollendatan
+ *========================================================================**/
+
+/* Datan som hämtas från POLLENAPI och läggs in i varje  */
+/* Ruta för varje stad som väljs */
 .pollen-header {
   background-color: #ff9d23;
   border-radius: 20px;
@@ -149,7 +209,9 @@ header img {
   border-radius: 20px;
 }
 
+/* Pollennamn & Nivå */
 .pollen-list ul {
+  font-size: 1.5rem;
   list-style-type: none;
   padding: 0;
   margin: 0;
