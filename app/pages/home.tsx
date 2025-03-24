@@ -1,10 +1,21 @@
-import { useEffect, useState } from "react";
-import { CityCard } from "../components/CityCard";
+import { useEffect, useState, type SetStateAction } from "react";
+import { CityID } from "~/types/city-id";
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
+import { cityToggle } from "~/components/cityToggle";
+
+/**------------------------------------------------------------------------
+ *                           HuvudSidan 
+ *------------------------------------------------------------------------**/
 
 export function HomePage() {
+  
+  // State för att kunna ändra vilka städer som ska visas
+  // Under "Andra städer" 
+  const [selectedCity, setSelectedCity] = useState<string[]>([]);
+
+  // State för att se din nuvarande stad: 
   const [city, setCity] = useState<City>({
     name: "Nuvarande plats",
     latitude: "",
@@ -93,6 +104,8 @@ export function HomePage() {
         </h2>
       </header>
 
+      {/* Huvudsektion */}
+
       <main className="index-main">
         <section className="current-city">
           <h1>{city.name}</h1>
@@ -114,67 +127,53 @@ export function HomePage() {
           )}
         </section>
 
+        {/* Sektion för de andra städerna (fasta platserna) */}
+        
+        
+        
         <section className="other-cities-section">
           <div className="other-cities-header">
             <h1>Andra städer</h1>
           </div>
+
+          <div className="other-cities-menu">
+            {/* Titel för menyn */}
+            <h3 className="other-cities-title">
+              Välj vilka städer du vill ska visas: 
+            </h3>
+
+            {/* Knapp för att välja vilken stad som ska visas */}
+            <div className="other-cities-button"> 
+            {CityID.map((city) => (
+              <button
+                key={city.regionId}
+                onClick={() => setSelectedCity((prev) => cityToggle(prev, city.regionId))}
+                
+                
+              >
+                
+                {city.name}
+              </button>
+            ))}
+
+            </div>
+            
+            
+          </div>
+
+          
           <section className="other-cities-article-section">
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"}
-                cityName={"Stockholm"}
-              />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"}
-                cityName={"Malmö"}
-              />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"}
-                cityName={"Göteborg"}
-              />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3231"}
-                cityName={"Piteå"}
-              />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3137"}
-                cityName={"Sundsvall"}
-              />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3130"}
-                cityName={"Hässelholm"}
-              />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3132"}
-                cityName={"Kristianstad"}
-              />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData
-                regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3139"}
-                cityName={"Västervik"}
-              />
-            </article>
-          </section>
+            {CityID.filter((city) =>
+                selectedCity.includes(city.regionId)
+            ).map((city) => (
+              <article className="other-cities-article" 
+              key={city.regionId}>
+                <PollenData 
+                     regionId={city.regionId} 
+                     cityName={city.name} />
+              </article>
+            ))}
+          </section> 
         </section>
       </main>
 

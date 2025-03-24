@@ -4,6 +4,10 @@ import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 
+/**------------------------------------------------------------------------
+ *                          AboutSidan
+ *------------------------------------------------------------------------**/
+
 export function AboutPage() {
   
   return (
