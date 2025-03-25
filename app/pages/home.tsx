@@ -144,12 +144,15 @@ export function HomePage() {
             <div className="other-cities-squares"> 
             {CityID.map((city) => (
 
-              // Knapp för att fil
+              
               <button
                 key={city.regionId}
                 onClick={() => setSelectedCity((prev) => cityToggle(prev, city.regionId))}
-                className={`other-cities-button ${
-                  selectedCity.includes(city.regionId) ? "active" : ""
+                className={
+                  `other-cities-button ${
+                  selectedCity.includes
+                        (city.regionId) 
+                  ? "active" : ""
                 }`}
               >
                 {city.name}
