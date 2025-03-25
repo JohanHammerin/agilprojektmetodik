@@ -127,14 +127,12 @@ export function HomePage() {
           )}
         </section>
 
-        {/* Sektion för de andra städerna (fasta platserna) */}
-        
-        
-        
         <section className="other-cities-section">
           <div className="other-cities-header">
             <h1>Andra städer</h1>
           </div>
+          
+
 
           <div className="other-cities-filter">
             {/* Titel för menyn */}
@@ -164,6 +162,7 @@ export function HomePage() {
             
             
           </div>
+          </section> 
 
           
           <section className="other-cities-article-section">
@@ -178,7 +177,6 @@ export function HomePage() {
               </article>
             ))}
           </section> 
-        </section>
       </main>
 
       <footer className="footer">
