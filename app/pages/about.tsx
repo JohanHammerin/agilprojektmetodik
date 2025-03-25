@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { CityCard } from "../components/CityCard";
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
