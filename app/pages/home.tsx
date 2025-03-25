@@ -38,7 +38,7 @@ export function HomePage() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error);
     } else {
-      alert("Geolocation not supported");
+      alert("Geolokalisering stöds inte");
     }
 
     function success(position: {
@@ -55,7 +55,7 @@ export function HomePage() {
     }
 
     function error() {
-      alert("Unable to retrieve your location");
+      alert("Kunde inte hämta din plats");
     }
   }
 
@@ -71,20 +71,24 @@ export function HomePage() {
         return;
       }
 
-      // Filtrera ut bara GRASS, TREE och WEED
+      const pollenTranslation: Record<string, string> = {
+        GRASS: "Gräs",
+        TREE: "Träd",
+        WEED: "Ogräs",
+      };
+
       const relevantPollen = data.dailyInfo[0].pollenTypeInfo?.filter(
         (pollen: any) => ["GRASS", "TREE", "WEED"].includes(pollen.code)
       );
 
-      // Skapa en ny lista där vi endast sparar kod, namn och värde
       const extractedData = relevantPollen.map((pollen: any) => ({
-        name: pollen.displayName,
-        value: pollen.indexInfo?.value ?? "Ingen data", // Om indexInfo saknas, visa "Ingen data"
+        name: pollenTranslation[pollen.code] || pollen.displayName,
+        value: pollen.indexInfo?.value ?? "Ingen data",
       }));
 
       setPollenData(extractedData);
     } catch (error) {
-      console.error("Error fetching pollen data:", error);
+      console.error("Fel vid hämtning av pollendata:", error);
     }
   }
 
@@ -96,7 +100,7 @@ export function HomePage() {
         </ul>
         <h2>
           Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
-          pollenhalter i din närhet
+          pollenhalter i din närhet.
         </h2>
       </header>
 
@@ -105,9 +109,6 @@ export function HomePage() {
       <main className="index-main">
         <section className="current-city">
           <h1>{city.name}</h1>
-          <h2>
-            Lat: {city.latitude}, Lon: {city.longitude}
-          </h2>
 
           {pollenData ? (
             <div>
@@ -115,7 +116,8 @@ export function HomePage() {
               <ul>
                 {pollenData.map((pollen: any) => (
                   <li key={pollen.name}>
-                    <strong>{pollen.name}</strong>: {pollen.value}
+                    <strong>{pollen.name}</strong>:{" "}
+                    <strong>{pollen.value}</strong>
                   </li>
                 ))}
               </ul>
@@ -125,14 +127,13 @@ export function HomePage() {
           )}
         </section>
 
-        {/* Sektion för de andra städerna (fasta platserna) */}
-        
-        
-        
+
         <section className="other-cities-section">
           <div className="other-cities-header">
             <h1>Andra städer</h1>
           </div>
+          
+
 
           <div className="other-cities-filter">
             {/* Titel för menyn */}
@@ -176,7 +177,7 @@ export function HomePage() {
               </article>
             ))}
           </section> 
-        </section>
+
       </main>
 
       <footer className="footer">
