@@ -103,7 +103,8 @@ export function HomePage() {
               <ul>
                 {pollenData.map((pollen: any) => (
                   <li key={pollen.name}>
-                    <strong>{pollen.name}</strong>: {pollen.value}
+                    <strong>{pollen.name}</strong>:{" "}
+                    <strong>{pollen.value}</strong>
                   </li>
                 ))}
               </ul>

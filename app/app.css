@@ -105,7 +105,7 @@ header img {
 
 .other-cities-header {
   background-color: #ff9d23;
-  
+
   border-radius: 20px;
   margin: 30px auto 0;
   text-align: center;
@@ -163,9 +163,9 @@ header img {
 }
 
 .pollen-list li {
-  background-color: #f4f4f4; 
+  background-color: #f4f4f4;
   padding: 10px;
-  margin: 5px 0; 
+  margin: 5px 0;
   border-radius: 8px;
-  text-align: center; 
+  text-align: center;
 }
