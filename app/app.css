@@ -27,7 +27,6 @@ header img {
   text-align: center;
 }
 
-
 .index-main {
   width: 100%;
   max-width: 1000px;
@@ -94,7 +93,7 @@ header img {
  *                           Andra Städer - DIV
  *========================================================================**/
 
- /* HuvudKategori på andra städer sektionen: */
+/* HuvudKategori på andra städer sektionen: */
 
 .other-cities-section {
   background-color: #ffd65a;
@@ -142,7 +141,6 @@ eller flera på rad på datorn */
   min-height: 200px;
 }
 
-
 /* TextKategori  */
 
 /* Välj vilka städer du vill ska visas: */
@@ -155,15 +153,13 @@ eller flera på rad på datorn */
 
 /* Knappar och annat */
 
-
 /* Filter sektionen med alla nman på städer */
-.other-cities-filter{
+.other-cities-filter {
   max-width: 60%;
   margin: 0 auto;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 /* Områden kring varje knapp */
@@ -172,7 +168,6 @@ eller flera på rad på datorn */
   flex-wrap: wrap;
   justify-content: center;
   gap: 5px;
-
 }
 
 /* Styling för själva knappen */
@@ -200,11 +195,9 @@ eller flera på rad på datorn */
 .other-cities-button.active {
   color: white;
   background-color: brown;
-  font-size: 1.0rem;
+  font-size: 1rem;
   border-radius: 15px;
   font-weight: 600;
-  
-  
 }
 
 /*========================================================================
@@ -223,31 +216,36 @@ eller flera på rad på datorn */
 
 .pollen-list {
   display: flex;
-  flex-direction: column;
-  justify-self: start;
+  flex-wrap: wrap; /* Gör att de går på en ny rad om det inte får plats */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   margin-top: 30px;
   border-radius: 20px;
 }
 
-/* Pollennamn & Nivå */
 .pollen-list ul {
-  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
   margin: 0;
+  gap: 10px;
 }
 
 .pollen-list li {
-  background-color: lightgray; 
+  background-color: lightgray;
   padding: 10px;
-  margin: 5px 0;
   border-radius: 8px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
 }
 
-
-
-.pollen-logo{
-  max-width: 100px;
-  max-height: 100px;
+.pollen-logo {
+  width: 100px;
+  height: 100px;
 }
