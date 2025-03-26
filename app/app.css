@@ -23,13 +23,10 @@ header img {
   height: 100px;
 }
 
-.city-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 15px;
-  padding: 0;
-  list-style: none;
+.api-section {
+  text-align: center;
 }
+
 
 .index-main {
   width: 100%;
@@ -114,15 +111,19 @@ header img {
  *                           Andra Städer - DIV
  *========================================================================**/
 
+ /* HuvudKategori på andra städer sektionen: */
+
 .other-cities-section {
   background-color: #ffd65a;
+  text-align: center;
   border-radius: 8px;
   padding: 5px;
 }
 
+/* Header på andra städer sektionen */
 .other-cities-header {
   background-color: #ff9d23;
-  
+
   border-radius: 20px;
   margin: 30px auto 0;
   text-align: center;
@@ -130,6 +131,8 @@ header img {
   padding: 20px;
 }
 
+/* Sektionen där alla pollenartiklarna hamnar i en rad på mobilskärm 
+eller flera på rad på datorn */
 .other-cities-article-section {
   background-color: #ffd65a;
   border-radius: 30px;
@@ -143,12 +146,12 @@ header img {
   gap: 10px;
 }
 
-/* Artikel rutan */
+/* I själva artikeln där pollendatan står */
 .other-cities-article {
   display: flex;
   flex-direction: column;
   background-color: lightgray;
-  width: 300px;
+  width: 800px;
   border-radius: 30px;
   justify-content: space-between;
   padding: 20px;
@@ -156,7 +159,77 @@ header img {
   min-height: 200px;
 }
 
-/* Rubrik på staden */
+
+/* TextKategori  */
+
+/* Välj vilka städer du vill ska visas: */
+.other-cities-title {
+  /* Textstorlek */
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Knappar och annat */
+
+
+/* Filter sektionen med alla nman på städer */
+.other-cities-filter{
+  max-width: 60%;
+  margin: 0 auto;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+
+}
+
+/* Områden kring varje knapp */
+.other-cities-squares {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+
+}
+
+/* Styling för själva knappen */
+.other-cities-button {
+  background-color: #ffd65a;
+  color: black;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  transition: 0.4s ease;
+}
+
+/* Hovereffekt för knappen */
+/* Alltså vad som händer när man har muspekaren över knappen */
+.other-cities-button:hover {
+  font-size: 1.3rem;
+  border-radius: 15px;
+  font-weight: 600;
+  transform: scale(1.03);
+}
+
+/* Stilen som sker när varje stad väljs och är "aktiv" */
+.other-cities-button.active {
+  color: white;
+  background-color: brown;
+  font-size: 1.0rem;
+  border-radius: 15px;
+  font-weight: 600;
+  
+  
+}
+
+/*========================================================================
+ *                           Pollendatan
+ *========================================================================**/
+
+/* Datan som hämtas från POLLENAPI och läggs in i varje  */
+/* Ruta för varje stad som väljs */
 .pollen-header {
   background-color: #ff9d23;
   border-radius: 20px;
@@ -173,18 +246,20 @@ header img {
   border-radius: 20px;
 }
 
+/* Pollennamn & Nivå */
 .pollen-list ul {
+  font-size: 1.5rem;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
 .pollen-list li {
-  background-color: #f4f4f4; 
+  background-color: lightgray; 
   padding: 10px;
-  margin: 5px 0; 
+  margin: 5px 0;
   border-radius: 8px;
-  text-align: center; 
+  text-align: center;
 }
 
 /**========================================================================
@@ -202,4 +277,11 @@ header img {
   .footer a {
     margin-top: 10px; 
   }
+
+
+
+.pollen-logo{
+  max-width: 100px;
+  max-height: 100px;
+
 }

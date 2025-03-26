@@ -37,7 +37,7 @@ export function PollenData({regionId, cityName}: PollenCityAndRegion) {
             // Filtrera data = Visa bara data som har en nivå över 0
             const filtreradData = data.items[0].levelSeries.filter(
                 
-                (item: PollenData) => item.level > 0) || [];
+                (item: PollenData) => item.level >0) || [];
 
                 // Koppla PollenNummber -> PollenNamn från pollentypes.ts
             setpollenLevels(filtreradData);
@@ -82,14 +82,26 @@ export function PollenData({regionId, cityName}: PollenCityAndRegion) {
             {/* Visa PollenNivåer */}
             <div className="pollen-list">
                 <ul>
-                    {pollenLevels.map((item) => (
+                   
+                    {pollenLevels.map((item) => {
+                        const pollen = PollenTypes[item.pollenId];
+                        return(
+                            <li key={item.pollenId}>
+                                <img 
+                                src={pollen.img}
+                                alt={pollen.name} 
+                                className="pollen-logo"/>
 
-                    <li key={item.pollenId}>    
-                        {PollenTypes[item.pollenId as keyof typeof PollenTypes]} - {getLevelText(item.level)} 
-                    </li>
-                ))}
-            </ul>
+                                <div className="pollen-type-text">
+                                    {pollen.name} - {getLevelText(item.level)}
 
+                                </div>
+
+                            </li>
+
+                        );
+                    })}
+                </ul>
             </div>
             
         </article>

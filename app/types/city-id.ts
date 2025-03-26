@@ -1,26 +1,27 @@
 // Konstanter för alla olika typer av StadID som finns i API:et
 
-export const CityID = {
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a33": "Borlänge",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3131": "Bräkne-Hoby",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3134": "Eskilstuna",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a34": "Forshaga",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a35": "Gävle",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38": "Göteborg",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3130": "Hässleholm",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a36": "Jönköping",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3232": "Kiruna",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3132": "Kristianstad",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3233": "Ljusdal",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39": "Malmö",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3135": "Norrköping",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3133": "Nässjö",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3231": "Piteå",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3136": "Skövde",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3137": "Sundsvall",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3138": "Umeå",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a37": "Visby",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3139": "Västervik",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3230": "Östersund",
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32": "Stockholm"
-};
+export const CityID = [
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a33", name: "Borlänge"},
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3131", name: "Bräkne-Hoby" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3134", name: "Eskilstuna" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a34", name: "Forshaga" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a35", name: "Gävle" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38", name: "Göteborg" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3130", name: "Hässleholm" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a36", name: "Jönköping" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3232", name: "Kiruna" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3132", name: "Kristianstad" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3233", name: "Ljusdal" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39", name: "Malmö" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3135", name: "Norrköping" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3133", name: "Nässjö" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3231", name: "Piteå" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3136", name: "Skövde" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3137", name: "Sundsvall" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3138", name: "Umeå" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a37", name: "Visby" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3139", name: "Västervik" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3230", name: "Östersund" },
+  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32", name: "Stockholm" }
+];
+ 
