@@ -169,3 +169,23 @@ header img {
   border-radius: 8px;
   text-align: center; 
 }
+
+/**========================================================================
+ *                            Section Button
+ *========================================================================**/
+ .custom-button {
+  background-color: #ff9d23; /* Ändra till en ljusare färg */
+  color: white;
+  border: none;
+  border: 2px solid rgb(89, 255, 0);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #e68a1e; /* Ändra hover-färgen */
+  border: 2px solid red; /* Lägg till en röd kant för att se var knappen är */
+}

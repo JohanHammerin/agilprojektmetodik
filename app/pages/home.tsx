@@ -3,6 +3,10 @@ import { CityCard } from "../components/CityCard";
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
+import { Button } from "../components/Button"; 
+
+
+
 
 export function HomePage() {
   const [city, setCity] = useState<City>({
@@ -96,7 +100,8 @@ export function HomePage() {
       <main className="index-main">
         <section className="current-city">
           <h1>{city.name}</h1>
-
+          <p>Här ska knappen synas:</p>
+          <Button text="Uppdatera plats" onClick={getPosition} />
           {pollenData ? (
             <div>
               <h3>Dagens pollenhalter:</h3>
