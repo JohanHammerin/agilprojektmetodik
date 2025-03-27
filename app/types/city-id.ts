@@ -9,7 +9,6 @@ export const CityID = [
   { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38", name: "Göteborg" },
   { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3130", name: "Hässleholm" },
   { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a36", name: "Jönköping" },
-  { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3232", name: "Kiruna" },
   { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3132", name: "Kristianstad" },
   { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3233", name: "Ljusdal" },
   { regionId: "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39", name: "Malmö" },
