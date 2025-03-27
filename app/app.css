@@ -49,7 +49,7 @@ header img {
 /* Styling för footer bakgrund + copyright text */
 .footer {
   /* Här kan ni ändra bakgrundsfärg */
-  background-color: #ffd65a; 
+  background-color: #ffd65a;
   width: 100%;
   justify-content: space-between;
   border-radius: 8px;
@@ -63,8 +63,8 @@ header img {
 }
 
 /* Styling på länken */
-.footer a { 
-    /* Ändra textfärg */
+.footer a {
+  /* Ändra textfärg */
   color: black;
   text-decoration: none;
   font-size: 12px;
@@ -75,7 +75,7 @@ header img {
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
 .footer a:hover {
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
 
 /**========================================================================
@@ -269,21 +269,17 @@ eller flera på rad på datorn */
 /* Iphone 14 Pro Max*/
 @media screen and (max-width: 430px) {
   .footer {
-    flex-direction: column; 
+    flex-direction: column;
     text-align: center;
-    padding: 15px; 
+    padding: 15px;
   }
 
   .footer a {
-    margin-top: 10px; 
+    margin-top: 10px;
   }
 
-
-
-.pollen-logo{
-  max-width: 100px;
-  max-height: 100px;
-
+  .pollen-logo {
+    max-width: 100px;
+    max-height: 100px;
+  }
 }
-
-
