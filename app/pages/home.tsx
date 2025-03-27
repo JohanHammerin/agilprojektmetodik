@@ -1,9 +1,21 @@
-import { useEffect, useState } from "react";
-import { CityCard } from "../components/CityCard";
+import { useEffect, useState, type SetStateAction } from "react";
+import { CityID } from "~/types/city-id";
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
+import { NavLink } from "react-router";
+import { cityToggle } from "~/components/cityToggle";
 
-export function Welcome() {
+/**------------------------------------------------------------------------
+ *                           HuvudSidan 
+ *------------------------------------------------------------------------**/
+
+export function HomePage() {
+  
+  // State för att kunna ändra vilka städer som ska visas
+  // Under "Andra städer" 
+  const [selectedCity, setSelectedCity] = useState<string[]>([]);
+
+  // State för att se din nuvarande stad: 
   const [city, setCity] = useState<City>({
     name: "Nuvarande plats",
     latitude: "",
@@ -26,7 +38,7 @@ export function Welcome() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error);
     } else {
-      alert("Geolocation not supported");
+      alert("Geolokalisering stöds inte");
     }
 
     function success(position: {
@@ -43,7 +55,7 @@ export function Welcome() {
     }
 
     function error() {
-      alert("Unable to retrieve your location");
+      alert("Kunde inte hämta din plats");
     }
   }
 
@@ -59,20 +71,24 @@ export function Welcome() {
         return;
       }
 
-      // Filtrera ut bara GRASS, TREE och WEED
+      const pollenTranslation: Record<string, string> = {
+        GRASS: "Gräs",
+        TREE: "Träd",
+        WEED: "Ogräs",
+      };
+
       const relevantPollen = data.dailyInfo[0].pollenTypeInfo?.filter(
         (pollen: any) => ["GRASS", "TREE", "WEED"].includes(pollen.code)
       );
 
-      // Skapa en ny lista där vi endast sparar kod, namn och värde
       const extractedData = relevantPollen.map((pollen: any) => ({
-        name: pollen.displayName,
-        value: pollen.indexInfo?.value ?? "Ingen data", // Om indexInfo saknas, visa "Ingen data"
+        name: pollenTranslation[pollen.code] || pollen.displayName,
+        value: pollen.indexInfo?.value ?? "Ingen data",
       }));
 
       setPollenData(extractedData);
     } catch (error) {
-      console.error("Error fetching pollen data:", error);
+      console.error("Fel vid hämtning av pollendata:", error);
     }
   }
 
@@ -84,16 +100,15 @@ export function Welcome() {
         </ul>
         <h2>
           Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
-          pollenhalter i din närhet
+          pollenhalter i din närhet.
         </h2>
       </header>
+
+      {/* Huvudsektion */}
 
       <main className="index-main">
         <section className="current-city">
           <h1>{city.name}</h1>
-          <h2>
-            Lat: {city.latitude}, Lon: {city.longitude}
-          </h2>
 
           {pollenData ? (
             <div>
@@ -101,7 +116,8 @@ export function Welcome() {
               <ul>
                 {pollenData.map((pollen: any) => (
                   <li key={pollen.name}>
-                    <strong>{pollen.name}</strong>: {pollen.value}
+                    <strong>{pollen.name}</strong>:{" "}
+                    <strong>{pollen.value}</strong>
                   </li>
                 ))}
               </ul>
@@ -110,56 +126,62 @@ export function Welcome() {
             <p>Laddar pollendata...</p>
           )}
         </section>
-        
-        
+
         <section className="other-cities-section">
           <div className="other-cities-header">
             <h1>Andra städer</h1>
           </div>
+          
+
+
+          <div className="other-cities-filter">
+            {/* Titel för menyn */}
+            <h3 className="other-cities-title">
+              Välj vilka städer du vill ska visas: 
+            </h3>
+
+            
+            <div className="other-cities-squares"> 
+            {CityID.map((city) => (
+
+              
+              <button
+                key={city.regionId}
+                onClick={() => setSelectedCity((prev) => cityToggle(prev, city.regionId))}
+                className={
+                  `other-cities-button ${
+                  selectedCity.includes
+                        (city.regionId) 
+                  ? "active" : ""
+                }`}
+              >
+                {city.name}
+              </button>
+            ))}
+            </div>
+            
+            
+          </div>
+          </section> 
+
+          
           <section className="other-cities-article-section">
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a32"} cityName={"Stockholm"} />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39"} cityName={"Malmö"} />
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a38"} cityName={"Göteborg"} /> 
-            </article>      
-
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3231"} cityName={"Piteå"} /> 
-            </article>
-          
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3137"} cityName={"Sundsvall"} /> 
-            </article>
-          
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3130"} cityName={"Hässelholm"} /> 
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3132"} cityName={"Kristandstad"} /> 
-            </article>
-
-            <article className="other-cities-article">
-              <PollenData regionId={"2a2a2a2a-2a2a-4a2a-aa2a-2a2a303a3139"} cityName={"Västervik"} /> 
-            </article>
-          </section>
-        
-
-          
-          
-          </section>
-
+            {CityID.filter((city) =>
+                selectedCity.includes(city.regionId)
+            ).map((city) => (
+              <article className="other-cities-article" 
+              key={city.regionId}>
+                <PollenData 
+                     regionId={city.regionId} 
+                     cityName={city.name} />
+              </article>
+            ))}
+          </section> 
       </main>
 
       <footer className="footer">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
-        <h3>Om oss</h3>
+        <NavLink to="/about">Om oss</NavLink>
       </footer>
     </div>
   );

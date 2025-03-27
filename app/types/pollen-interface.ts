@@ -7,4 +7,10 @@ export interface PollenData {
 export interface PollenCityAndRegion{
     regionId: string;
     cityName: string;
+} 
+
+export interface PollenTypeAndImage {
+    img: string; 
+    id: string; 
+    type: string;
 }
