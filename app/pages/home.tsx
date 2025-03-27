@@ -6,16 +6,15 @@ import { NavLink } from "react-router";
 import { cityToggle } from "~/components/cityToggle";
 
 /**------------------------------------------------------------------------
- *                           HuvudSidan 
+ *                           HuvudSidan
  *------------------------------------------------------------------------**/
 
 export function HomePage() {
-  
   // State för att kunna ändra vilka städer som ska visas
-  // Under "Andra städer" 
+  // Under "Andra städer"
   const [selectedCity, setSelectedCity] = useState<string[]>([]);
 
-  // State för att se din nuvarande stad: 
+  // State för att se din nuvarande stad:
   const [city, setCity] = useState<City>({
     name: "Nuvarande plats",
     latitude: "",
@@ -155,52 +154,40 @@ export function HomePage() {
           <div className="other-cities-header">
             <h1>Andra städer</h1>
           </div>
-          
-
 
           <div className="other-cities-filter">
             {/* Titel för menyn */}
             <h3 className="other-cities-title">
-              Välj vilka städer du vill ska visas: 
+              Välj vilka städer du vill ska visas:
             </h3>
 
-            
-            <div className="other-cities-squares"> 
-            {CityID.map((city) => (
-
-              
-              <button
-                key={city.regionId}
-                onClick={() => setSelectedCity((prev) => cityToggle(prev, city.regionId))}
-                className={
-                  `other-cities-button ${
-                  selectedCity.includes
-                        (city.regionId) 
-                  ? "active" : ""
-                }`}
-              >
-                {city.name}
-              </button>
-            ))}
+            <div className="other-cities-squares">
+              {CityID.map((city) => (
+                <button
+                  key={city.regionId}
+                  onClick={() =>
+                    setSelectedCity((prev) => cityToggle(prev, city.regionId))
+                  }
+                  className={`other-cities-button ${
+                    selectedCity.includes(city.regionId) ? "active" : ""
+                  }`}
+                >
+                  {city.name}
+                </button>
+              ))}
             </div>
-            
-            
           </div>
-          </section> 
+        </section>
 
-          
-          <section className="other-cities-article-section">
-            {CityID.filter((city) =>
-                selectedCity.includes(city.regionId)
-            ).map((city) => (
-              <article className="other-cities-article" 
-              key={city.regionId}>
-                <PollenData 
-                     regionId={city.regionId} 
-                     cityName={city.name} />
+        <section className="other-cities-article-section">
+          {CityID.filter((city) => selectedCity.includes(city.regionId)).map(
+            (city) => (
+              <article className="other-cities-article" key={city.regionId}>
+                <PollenData regionId={city.regionId} cityName={city.name} />
               </article>
-            ))}
-          </section> 
+            )
+          )}
+        </section>
       </main>
 
       <footer className="footer">
