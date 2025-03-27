@@ -4,6 +4,7 @@ import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { cityToggle } from "~/components/cityToggle";
+import { Button } from "../components/Button";
 
 /**------------------------------------------------------------------------
  *                           HuvudSidan
@@ -22,6 +23,7 @@ export function HomePage() {
   });
 
   const [pollenData, setPollenData] = useState<any>(null);
+  const [showOtherCities, setShowOtherCities] = useState(false); // State för att visa/dölja andra städer
 
   useEffect(() => {
     getPosition();
@@ -32,6 +34,10 @@ export function HomePage() {
       getGoogleAPIData(city.latitude, city.longitude);
     }
   }, [city]);
+
+  function toggleOtherCities() {
+    setShowOtherCities((prev) => !prev);
+  }
 
   function getPosition() {
     if (navigator.geolocation) {
@@ -89,6 +95,11 @@ export function HomePage() {
     } catch (error) {
       console.error("Fel vid hämtning av pollendata:", error);
     }
+
+    // Toggle funktionen för att visa/dölja andra städer
+    const toggleOtherCities = () => {
+      setShowOtherCities(!showOtherCities);
+    };
   }
 
   return (
@@ -108,15 +119,17 @@ export function HomePage() {
       <main className="index-main">
         <section className="current-city">
           <h1>{city.name}</h1>
-
+          <Button
+            text={showOtherCities ? "Dölj andra städer" : "Visa andra städer"}
+            onClick={toggleOtherCities}
+          />
           {pollenData ? (
             <div>
               <h3>Dagens pollenhalter:</h3>
               <ul>
                 {pollenData.map((pollen: any) => (
                   <li key={pollen.name}>
-                    <strong>{pollen.name}</strong>:{" "}
-                    <strong>{pollen.value}</strong>
+                    <strong>{pollen.name}</strong>: {pollen.value}
                   </li>
                 ))}
               </ul>
@@ -126,46 +139,42 @@ export function HomePage() {
           )}
         </section>
 
-        <section className="other-cities-section">
-          <div className="other-cities-header">
+        {showOtherCities && (
+          <section className="other-cities-section">
             <h1>Andra städer</h1>
-          </div>
-
-          <div className="other-cities-filter">
-            {/* Titel för menyn */}
-            <h3 className="other-cities-title">
-              Välj vilka städer du vill ska visas:
-            </h3>
-
-            <div className="other-cities-squares">
-              {CityID.map((city) => (
-                <button
-                  key={city.regionId}
-                  onClick={() =>
-                    setSelectedCity((prev) => cityToggle(prev, city.regionId))
-                  }
-                  className={`other-cities-button ${
-                    selectedCity.includes(city.regionId) ? "active" : ""
-                  }`}
-                >
-                  {city.name}
-                </button>
-              ))}
+            <div className="other-cities-filter">
+              <h3 className="other-cities-title">
+                Välj vilka städer du vill ska visas:
+              </h3>
+              <div className="other-cities-squares">
+                {CityID.map((city) => (
+                  <button
+                    key={city.regionId}
+                    onClick={() =>
+                      setSelectedCity((prev) => cityToggle(prev, city.regionId))
+                    }
+                    className={`other-cities-button ${
+                      selectedCity.includes(city.regionId) ? "active" : ""
+                    }`}
+                  >
+                    {city.name}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
 
-        <section className="other-cities-article-section">
-          {CityID.filter((city) => selectedCity.includes(city.regionId)).map(
-            (city) => (
-              <article className="other-cities-article" key={city.regionId}>
-                <PollenData regionId={city.regionId} cityName={city.name} />
-              </article>
-            )
-          )}
-        </section>
+            <section className="other-cities-article-section">
+              {CityID.filter((city) =>
+                selectedCity.includes(city.regionId)
+              ).map((city) => (
+                <article className="other-cities-article" key={city.regionId}>
+                  <PollenData regionId={city.regionId} cityName={city.name} />
+                </article>
+              ))}
+            </section>
+          </section>
+        )}
       </main>
-
       <footer className="footer">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
         <NavLink to="/about">Om oss</NavLink>

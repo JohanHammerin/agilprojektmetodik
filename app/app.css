@@ -262,6 +262,11 @@ eller flera på rad på datorn */
   width: 150px;
 }
 
+.pollen-logo {
+  width: 100px;
+  height: 100px;
+}
+
 /**========================================================================
  *                           Media Querries
  *========================================================================**/
@@ -282,4 +287,20 @@ eller flera på rad på datorn */
     max-width: 100px;
     max-height: 100px;
   }
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: green;
 }
