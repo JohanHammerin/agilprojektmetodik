@@ -119,10 +119,7 @@ export function HomePage() {
       <main className="index-main">
         <section className="current-city">
           <h1>{city.name}</h1>
-          <Button
-            text={showOtherCities ? "Dölj andra städer" : "Visa andra städer"}
-            onClick={toggleOtherCities}
-          />
+
           {pollenData ? (
             <div>
               <h3>Dagens pollenhalter:</h3>
@@ -137,6 +134,10 @@ export function HomePage() {
           ) : (
             <p>Laddar pollendata...</p>
           )}
+          <Button
+            text={showOtherCities ? "Dölj andra städer" : "Visa andra städer"}
+            onClick={toggleOtherCities}
+          />
         </section>
 
         {showOtherCities && (
