@@ -50,7 +50,8 @@ header img {
  *                           Nuvarande Stad
  *========================================================================**/
 
-.current-city {
+
+ .current-city {
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -66,6 +67,60 @@ header img {
   padding: 20px;
   border-radius: 20px;
 }
+
+/* Container för där Dagens Pollenhalter för den aktuella positionen kommer upp */
+.current-location-container {
+  
+  
+  
+  
+}
+
+/* Ändra texten på "Dagens pollenhalter:" */
+.current-location-container h3 {
+  
+  
+}
+
+/* Regler för själva pollenlistan */
+.current-location-pollen {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  
+}
+
+/* Rutan om all pollen information */
+.pollen-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  
+}
+
+.pollen-info img {
+  width: 100px;
+  height: 100px;
+  
+}
+
+/* Själva texten för pollen */
+.pollen-info-text {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
 
 .footer {
   background-color: #ffd65a;
@@ -178,7 +233,7 @@ eller flera på rad på datorn */
   cursor: pointer;
   border-radius: 5px;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 600;
   transition: 0.4s ease;
 }
 
@@ -187,7 +242,6 @@ eller flera på rad på datorn */
 .other-cities-button:hover {
   font-size: 1.3rem;
   border-radius: 15px;
-  font-weight: 600;
   transform: scale(1.03);
 }
 
