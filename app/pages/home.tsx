@@ -110,7 +110,7 @@ export function HomePage() {
       case "Träd":
         return "/img-pollenIcons/Björk.svg";
     }
-  }
+  };
 
   return (
     <div className="index-container">
@@ -133,31 +133,23 @@ export function HomePage() {
           {pollenData ? (
             <div className="current-location-container">
               <h3>Dagens pollenhalter:</h3>
-              
+
               <div className="current-location-pollen">
-              
                 {pollenData.map((pollen: any) => (
-                    <div key={pollen.name} className="pollen-info">
-
-                     {/* Pollen ikon för Gräs eller Träd */}
-                     <div>
+                  <div key={pollen.name} className="pollen-info">
+                    {/* Pollen ikon för Gräs eller Träd */}
+                    <div>
                       <img src={getImageIcon(pollen.name)} alt="" />
-                      </div>
+                    </div>
 
-                      <div className="pollen-info-text">
-                         {/* Polleninformation från det aktuella stället */}
-                         <strong>{pollen.name}</strong>:{" "}
-                         <strong>{pollen.value}</strong>
-                         </div>
-
+                    <div className="pollen-info-text">
+                      {/* Polleninformation från det aktuella stället */}
+                      <strong>{pollen.name}</strong>:{" "}
+                      <strong>{pollen.value}</strong>
+                    </div>
                   </div>
-
-
-                
                 ))}
-              
               </div>
-              
             </div>
           ) : (
             <p>Laddar pollendata...</p>
