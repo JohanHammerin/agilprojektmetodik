@@ -83,7 +83,8 @@ export function HomePage() {
       };
 
       const relevantPollen = data.dailyInfo[0].pollenTypeInfo?.filter(
-        (pollen: any) => ["GRASS", "TREE", "WEED"].includes(pollen.code)
+        // Lägg till , "WEED" för nedan för att lägga till ogräs
+        (pollen: any) => ["GRASS", "TREE"].includes(pollen.code)
       );
 
       const extractedData = relevantPollen.map((pollen: any) => ({
@@ -101,6 +102,15 @@ export function HomePage() {
       setShowOtherCities(!showOtherCities);
     };
   }
+
+  const getImageIcon = (name: string) => {
+    switch (name) {
+      case "Gräs":
+        return "/img-pollenIcons/Gräs.svg";
+      case "Träd":
+        return "/img-pollenIcons/Björk.svg";
+    }
+  };
 
   return (
     <div className="index-container">
@@ -121,15 +131,25 @@ export function HomePage() {
           <h1>{city.name}</h1>
 
           {pollenData ? (
-            <div>
+            <div className="current-location-container">
               <h3>Dagens pollenhalter:</h3>
-              <ul>
+
+              <div className="current-location-pollen">
                 {pollenData.map((pollen: any) => (
-                  <li key={pollen.name}>
-                    <strong>{pollen.name}</strong>: {pollen.value}
-                  </li>
+                  <div key={pollen.name} className="pollen-info">
+                    {/* Pollen ikon för Gräs eller Träd */}
+                    <div>
+                      <img src={getImageIcon(pollen.name)} alt="" />
+                    </div>
+
+                    <div className="pollen-info-text">
+                      {/* Polleninformation från det aktuella stället */}
+                      <strong>{pollen.name}</strong>:{" "}
+                      <strong>{pollen.value}</strong>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ) : (
             <p>Laddar pollendata...</p>
