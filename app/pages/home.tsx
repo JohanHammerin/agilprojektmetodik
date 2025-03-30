@@ -84,7 +84,7 @@ export function HomePage() {
 
       const relevantPollen = data.dailyInfo[0].pollenTypeInfo?.filter(
         // Lägg till , "WEED" för nedan för att lägga till ogräs
-        (pollen: any) => ["GRASS", "TREE"].includes(pollen.code)
+        (pollen: any) => ["GRASS", "TREE", "WEED"].includes(pollen.code)
       );
 
       const extractedData = relevantPollen.map((pollen: any) => ({
@@ -109,6 +109,8 @@ export function HomePage() {
         return "/img-pollenIcons/Gräs.svg";
       case "Träd":
         return "/img-pollenIcons/Björk.svg";
+      case "Ogräs":
+        return "/img-pollenIcons/Ogräs.svg";
     }
   };
 
