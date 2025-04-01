@@ -22,90 +22,78 @@ export function HomePage() {
     longitude: "",
   });
 
-  // Hämtar nuvarande position från användare
+  // Hämtar användarens position
   function getPosition(): void {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setCity({
+            name: "Nuvarande plats",
+            latitude: latitude.toString(),
+            longitude: longitude.toString(),
+          });
+        },
+        () => alert("Kunde inte hämta din plats")
+      );
     } else {
       alert("Geolokalisering stöds inte");
     }
-
-    function success(position: {
-      coords: { latitude: number; longitude: number };
-    }) {
-      const latitude = position.coords.latitude.toString();
-      const longitude = position.coords.longitude.toString();
-
-      setCity({
-        name: "Nuvarande plats",
-        latitude: latitude,
-        longitude: longitude,
-      });
-    }
-
-    function error() {
-      alert("Kunde inte hämta din plats");
-    }
   }
 
-  // Funktion för att hämta pollen information från Googles API
+  // Hämtar polleninformation från Googles API
   async function getGoogleAPIData(latitude: string, longitude: string) {
     try {
       const apiUrl = `https://pollen.googleapis.com/v1/forecast:lookup?key=AIzaSyCtlLqFo0V5PsARcnkEztv1kBXBt0xhYQk&location.longitude=${longitude}&location.latitude=${latitude}&days=1`;
-
       const response = await fetch(apiUrl);
       const data = await response.json();
 
       if (!data.dailyInfo?.[0]) {
         console.warn("Ingen pollendata hittades.");
+        setPollenData(null);
         return;
       }
 
+      // Översättning av pollen-typer
       const pollenTranslation: Record<string, string> = {
         GRASS: "Gräs",
         TREE: "Träd",
         WEED: "Ogräs",
       };
 
-      const relevantPollen = data.dailyInfo[0].pollenTypeInfo?.filter(
-        (pollen: any) => ["GRASS", "TREE", "WEED"].includes(pollen.code)
-      );
+      // Filtrerar och extraherar relevant pollendata
+      const extractedData = data.dailyInfo[0].pollenTypeInfo
+        ?.filter((pollen: any) => pollenTranslation[pollen.code])
+        .map((pollen: any) => ({
+          name: pollenTranslation[pollen.code],
+          value: pollen.indexInfo?.value ?? "Ingen data",
+        }));
 
-      const extractedData = relevantPollen.map((pollen: any) => ({
-        name: pollenTranslation[pollen.code] || pollen.displayName,
-        value: pollen.indexInfo?.value ?? "Ingen data",
-      }));
-
-      setPollenData(extractedData);
+      setPollenData(extractedData || []);
     } catch (error) {
       console.error("Fel vid hämtning av pollendata:", error);
+      setPollenData(null);
     }
   }
 
-  // Bestämmer vilken ikon som ska visas upp beroende pollen
-  const getImageIcon = (name: string) => {
-    switch (name) {
-      case "Gräs":
-        return "/img-pollenIcons/Gräs.svg";
-      case "Träd":
-        return "/img-pollenIcons/Björk.svg";
-      case "Ogräs":
-        return "/img-pollenIcons/Ogräs.svg";
-    }
-  };
+  // Returnerar bildikon för pollen
+  const getImageIcon = (name: string) =>
+    ({
+      Gräs: "/img-pollenIcons/Gräs.svg",
+      Träd: "/img-pollenIcons/Björk.svg",
+      Ogräs: "/img-pollenIcons/Ogräs.svg",
+    }[name]);
 
-  // USE-EFFECT
-  useEffect(() => {
-    getPosition();
-  }, []);
+  // Hämtar position vid sidladdning
+  useEffect(getPosition, []);
 
+  // Hämtar polleninfo när positionen uppdateras
   useEffect(() => {
-    if (city.latitude && city.longitude) {
+    if (city.latitude && city.longitude)
       getGoogleAPIData(city.latitude, city.longitude);
-    }
   }, [city]);
 
-  // Funktion för att sätta på/ stänga av andra städer funktion
+  // Växlar visning av andra städer
   function toggleOtherCities() {
     setShowOtherCities((prev) => !prev);
   }
