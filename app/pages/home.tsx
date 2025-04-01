@@ -6,37 +6,23 @@ import { NavLink } from "react-router";
 import { cityToggle } from "~/components/cityToggle";
 import { Button } from "../components/Button";
 
-/**------------------------------------------------------------------------
- *                           HuvudSidan
- *------------------------------------------------------------------------**/
-
 export function HomePage() {
-  // State för att kunna ändra vilka städer som ska visas
-  // Under "Andra städer"
+  // useState för att lagra valda städer i en string array
   const [selectedCity, setSelectedCity] = useState<string[]>([]);
+  // useState för att lagra pollenData
+  const [pollenData, setPollenData] = useState<any>();
+  // useState för att visa/dölja andra städer
+  const [showOtherCities, setShowOtherCities] = useState(false);
 
-  const [pollenData, setPollenData] = useState<any>(null);
-  const [showOtherCities, setShowOtherCities] = useState(false); // State för att visa/dölja andra städer
-
-  // CURRENT POSITION
-  // State för att se din nuvarande stad:
+  // State för att se din nuvarande stad/position:
   const [city, setCity] = useState<City>({
     name: "Nuvarande plats",
     latitude: "",
     longitude: "",
   });
 
-  useEffect(() => {
-    getPosition();
-  }, []);
-
-  useEffect(() => {
-    if (city.latitude && city.longitude) {
-      getGoogleAPIData(city.latitude, city.longitude);
-    }
-  }, [city]);
-
-  function getPosition() {
+  // Hämtar nuvarande position från användare
+  function getPosition(): void {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error);
     } else {
@@ -61,6 +47,7 @@ export function HomePage() {
     }
   }
 
+  // Funktion för att hämta pollen information från Googles API
   async function getGoogleAPIData(latitude: string, longitude: string) {
     try {
       const apiUrl = `https://pollen.googleapis.com/v1/forecast:lookup?key=AIzaSyCtlLqFo0V5PsARcnkEztv1kBXBt0xhYQk&location.longitude=${longitude}&location.latitude=${latitude}&days=1`;
@@ -80,7 +67,6 @@ export function HomePage() {
       };
 
       const relevantPollen = data.dailyInfo[0].pollenTypeInfo?.filter(
-        // Lägg till , "WEED" för nedan för att lägga till ogräs
         (pollen: any) => ["GRASS", "TREE", "WEED"].includes(pollen.code)
       );
 
@@ -95,6 +81,7 @@ export function HomePage() {
     }
   }
 
+  // Bestämmer vilken ikon som ska visas upp beroende pollen
   const getImageIcon = (name: string) => {
     switch (name) {
       case "Gräs":
@@ -106,7 +93,18 @@ export function HomePage() {
     }
   };
 
-  // CITY POSITION
+  // USE-EFFECT
+  useEffect(() => {
+    getPosition();
+  }, []);
+
+  useEffect(() => {
+    if (city.latitude && city.longitude) {
+      getGoogleAPIData(city.latitude, city.longitude);
+    }
+  }, [city]);
+
+  // Funktion för att sätta på/ stänga av andra städer funktion
   function toggleOtherCities() {
     setShowOtherCities((prev) => !prev);
   }
@@ -138,7 +136,7 @@ export function HomePage() {
                   <div key={pollen.name} className="pollen-info">
                     {/* Pollen ikon för Gräs eller Träd */}
                     <div>
-                      <img src={getImageIcon(pollen.name)} alt="" />
+                      <img src={getImageIcon(pollen.name)} alt="pollen-image" />
                     </div>
 
                     <div className="pollen-info-text">

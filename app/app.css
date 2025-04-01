@@ -54,7 +54,7 @@ ul.api-info {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .api-link {
@@ -62,10 +62,9 @@ ul.api-info {
   font-size: 1.2rem;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
-  
 }
 
-li{
+li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,26 +74,17 @@ li{
   margin: 10px 0;
 }
 
-li a{
+li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
-  
-  
 }
 
-li a:hover{
+li a:hover {
   color: purple;
-  
 }
-
-
-
-
-
 
 /* För NavLänkarna */
-
 
 .index-main {
   width: 100%;
@@ -104,7 +94,6 @@ li a:hover{
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   margin: 15px;
-  
 }
 
 .index-container {
@@ -130,7 +119,6 @@ li a:hover{
   font-size: 12px;
   padding: 0 25px;
   font-weight: bold;
-
 }
 
 /* Styling på länken */
@@ -153,8 +141,7 @@ li a:hover{
  *                           Nuvarande Stad
  *========================================================================**/
 
-
- .current-city {
+.current-city {
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -165,12 +152,12 @@ li a:hover{
   padding: 20px;
 }
 
-.current-location-container{
+.current-location-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  gap: 20px; 
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .current-city h1 {
@@ -179,12 +166,12 @@ li a:hover{
   border-radius: 20px;
 }
 
-.current-location-pollen{
+.current-location-pollen {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .pollen-list {
@@ -195,7 +182,7 @@ li a:hover{
   text-decoration: none;
 }
 
-.pollen-info{
+.pollen-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -204,8 +191,8 @@ li a:hover{
   border: solid 1px black;
   border-radius: 10px;
   padding: 10px;
-  width: 150px; 
-  height: 150px; 
+  width: 150px;
+  height: 150px;
 }
 
 .pollen-info h2 {
@@ -271,7 +258,6 @@ eller flera på rad på datorn */
   border-radius: 30px;
   justify-content: space-between;
   padding: 20px;
-  
 
   min-height: 200px;
 }
@@ -321,7 +307,7 @@ eller flera på rad på datorn */
 /* Hovereffekt för knappen */
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
-  border-radius: 15px
+  border-radius: 15px;
 }
 
 /* Stilen som sker när varje stad väljs och är "aktiv" */
@@ -331,7 +317,6 @@ eller flera på rad på datorn */
   font-size: 1.6rem;
   border-radius: 15px;
   font-weight: 600;
- 
 }
 
 /*========================================================================
@@ -350,7 +335,7 @@ eller flera på rad på datorn */
 
 .pollen-list {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -377,7 +362,6 @@ eller flera på rad på datorn */
   flex-direction: column;
   align-items: center;
   width: 150px;
-  
 }
 
 .pollen-logo {
@@ -395,7 +379,6 @@ eller flera på rad på datorn */
     flex-direction: column;
     text-align: center;
     padding: 15px;
-
   }
 
   .footer a {
