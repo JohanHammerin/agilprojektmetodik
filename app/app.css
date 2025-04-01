@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
+
 .header {
   display: flex;
   flex-direction: column;
@@ -84,8 +86,15 @@ li a:hover {
   color: purple;
 }
 
-/* För NavLänkarna */
-
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-family: "Figtree", sans-serif;
+}
 .index-main {
   width: 100%;
   max-width: 1000px;
@@ -94,15 +103,6 @@ li a:hover {
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   margin: 15px;
-}
-
-.index-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  margin-bottom: 30px;
 }
 
 /* Styling för footer bakgrund + copyright text */
