@@ -15,15 +15,16 @@ export function HomePage() {
   // Under "Andra städer"
   const [selectedCity, setSelectedCity] = useState<string[]>([]);
 
+  const [pollenData, setPollenData] = useState<any>(null);
+  const [showOtherCities, setShowOtherCities] = useState(false); // State för att visa/dölja andra städer
+
+  // CURRENT POSITION
   // State för att se din nuvarande stad:
   const [city, setCity] = useState<City>({
     name: "Nuvarande plats",
     latitude: "",
     longitude: "",
   });
-
-  const [pollenData, setPollenData] = useState<any>(null);
-  const [showOtherCities, setShowOtherCities] = useState(false); // State för att visa/dölja andra städer
 
   useEffect(() => {
     getPosition();
@@ -34,10 +35,6 @@ export function HomePage() {
       getGoogleAPIData(city.latitude, city.longitude);
     }
   }, [city]);
-
-  function toggleOtherCities() {
-    setShowOtherCities((prev) => !prev);
-  }
 
   function getPosition() {
     if (navigator.geolocation) {
@@ -96,11 +93,6 @@ export function HomePage() {
     } catch (error) {
       console.error("Fel vid hämtning av pollendata:", error);
     }
-
-    // Toggle funktionen för att visa/dölja andra städer
-    const toggleOtherCities = () => {
-      setShowOtherCities(!showOtherCities);
-    };
   }
 
   const getImageIcon = (name: string) => {
@@ -113,6 +105,11 @@ export function HomePage() {
         return "/img-pollenIcons/Ogräs.svg";
     }
   };
+
+  // CITY POSITION
+  function toggleOtherCities() {
+    setShowOtherCities((prev) => !prev);
+  }
 
   return (
     <div className="index-container">
