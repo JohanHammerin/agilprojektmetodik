@@ -7,14 +7,15 @@ import { cityToggle } from "~/components/cityToggle";
 import { Button } from "../components/Button";
 
 export function HomePage() {
-  // useState för att lagra valda städer i en string array
+  // State för valda städer
   const [selectedCity, setSelectedCity] = useState<string[]>([]);
-  // useState för att lagra pollenData
-  const [pollenData, setPollenData] = useState<any>();
-  // useState för att visa/dölja andra städer
+  // State för pollendata
+  const [pollenData, setPollenData] = useState<
+    { name: string; value: string }[] | null
+  >(null);
+  // State för att visa/dölja andra städer
   const [showOtherCities, setShowOtherCities] = useState(false);
-
-  // State för att se din nuvarande stad/position:
+  // State för nuvarande position
   const [city, setCity] = useState<City>({
     name: "Nuvarande plats",
     latitude: "",
