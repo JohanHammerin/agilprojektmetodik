@@ -1,4 +1,4 @@
-import { useEffect, useState, type SetStateAction } from "react";
+import { useEffect, useState } from "react";
 import { CityID } from "~/types/city-id";
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
