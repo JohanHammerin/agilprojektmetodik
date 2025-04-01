@@ -167,7 +167,7 @@ export function HomePage() {
       </main>
 
       <footer className="footer">
-        <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
+        <p>&#169;2025 Copyright Pollenkollen | All Rights Reserved</p>
         <NavLink to="/about">Om oss</NavLink>
       </footer>
     </div>

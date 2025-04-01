@@ -55,8 +55,8 @@ export function AboutPage() {
       </main>
 
       <footer className="footer">
-        <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
-        <NavLink to="/">Hem</NavLink>
+        <p>&#169;2025 Copyright Pollenkollen | All Rights Reserved</p>
+        <p><NavLink to="/">Hem</NavLink></p>
       </footer>
     </div>
   );
