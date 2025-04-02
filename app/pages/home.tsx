@@ -4,7 +4,10 @@ import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { cityToggle } from "~/components/cityToggle";
+import { ActionButton } from "../components/ActionButton"; 
 import { Button } from "../components/Button";
+import "@fontsource/figtree"; 
+
 
 /**------------------------------------------------------------------------
  *                           HuvudSidan
@@ -17,13 +20,20 @@ export function HomePage() {
 
   // State för att se din nuvarande stad:
   const [city, setCity] = useState<City>({
-    name: "Nuvarande plats",
+    name: "Aktuella pollen halter i mitt område",
     latitude: "",
     longitude: "",
   });
 
   const [pollenData, setPollenData] = useState<any>(null);
   const [showOtherCities, setShowOtherCities] = useState(false); // State för att visa/dölja andra städer
+
+  const [showPollenSection, setShowPollenSection] = useState<boolean>(false); // State för actionknapp 
+  const togglePollenSection = () => {
+    setShowPollenSection((prev) => !prev); // Växlar mellan true och false
+  };
+  
+ 
 
   useEffect(() => {
     getPosition();
@@ -124,11 +134,18 @@ export function HomePage() {
           Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
           pollenhalter i din närhet.
         </h2>
+     <ActionButton 
+  text={showPollenSection ? "Dölj pollenhalter" : "Se pollenhalter i ditt område"} 
+  onClick={togglePollenSection} 
+/>
+
+
       </header>
 
       {/* Huvudsektion */}
 
       <main className="index-main">
+      {showPollenSection && (
         <section className="current-city">
           <h1>{city.name}</h1>
 
@@ -156,11 +173,15 @@ export function HomePage() {
           ) : (
             <p>Laddar pollendata...</p>
           )}
-          <Button
-            text={showOtherCities ? "Dölj andra städer" : "Visa andra städer"}
-            onClick={toggleOtherCities}
-          />
         </section>
+        )}
+
+        <Button
+  text={showOtherCities ? "Dölj andra städer" : "Visa andra städer"}
+  onClick={toggleOtherCities}
+  className="city-button"
+/>
+
 
         {showOtherCities && (
           <section className="other-cities-section">
