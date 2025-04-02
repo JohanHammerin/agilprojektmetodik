@@ -13,12 +13,10 @@ export interface PollenTypeAndImage {
     
     name: string; 
     images: {
-        none:string; 
-        low:string; 
-        medium:string; 
-        high:string;
-        unknown:string;
-
+        ingen:string; 
+        låg:string; 
+        mellan:string; 
+        hög:string;
     };
 
 }

@@ -98,12 +98,12 @@ li a:hover{
 
 .index-main {
   width: 100%;
-  max-width: 1000px;
+  
   background: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 15px;
+  
   
 }
 
@@ -230,98 +230,66 @@ li a:hover{
 /* HuvudKategori på andra städer sektionen: */
 
 .other-cities-section {
-  background-color: darkgray;
-  text-align: center;
-  border-radius: 8px;
-  padding: 5px;
-}
-
-/* Header på andra städer sektionen */
-.other-cities-header {
-  background-color: #ff9d23;
-
-  border-radius: 20px;
-  margin: 30px auto 0;
-  text-align: center;
-  width: 70%;
-  padding: 20px;
-}
-
-/* Sektionen där alla pollenartiklarna hamnar i en rad på mobilskärm 
-eller flera på rad på datorn */
-.other-cities-article-section {
-  background-color: darkgray;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  padding: 30px;
-  gap: 10px;
-}
-
-/* I själva artikeln där pollendatan står */
-.other-cities-article {
-  display: flex;
-  flex-direction: column;
-  background-color: lightgray;
-  width: 800px;
-  border-radius: 30px;
-  justify-content: space-between;
-  padding: 20px;
   
-
-  min-height: 200px;
-}
-
-/* TextKategori  */
-
-/* Välj vilka städer du vill ska visas: */
-.other-cities-title {
-  /* Textstorlek */
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 20px;
-}
-
-/* Knappar och annat */
-
-/* Filter sektionen med alla nman på städer */
-.other-cities-filter {
-  max-width: 60%;
-  margin: 0 auto;
+  
+  
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background-color: black;
+  border-radius: 8px;
+  padding: 20px;
 }
 
-/* Områden kring varje knapp */
-.other-cities-squares {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
+
+/* Header där Andra Städer text ligger */
+.other-cities-header{
+  background-color: #ff9d23;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.other-cities-header h2{
+  font-size: 2rem;
+  margin: 0;
+  color: black;
+  text-align: center;
+  font-weight: 600;
 }
 
 /* Styling för själva knappen */
-.other-cities-button {
-  background-color: #ffd65a;
-  color: black;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  transition: 0.4s ease;
-  border: solid 1px black;
+.other-cities-button-container {
+  
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    align-content: center;
+    width: 100%; 
+    margin: 20px;
+  
+  
 }
+
+.other-cities-button{
+  background-color: black;
+  gap: 15px;
+  border: solid 2px yellow;
+  font-weight: 500;
+
+}
+
 
 /* Hovereffekt för knappen */
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
-  border-radius: 15px
+  border-radius: 15px;
+  background-color: black;
+  color: yellow; 
+
 }
 
 /* Stilen som sker när varje stad väljs och är "aktiv" */
@@ -330,7 +298,7 @@ eller flera på rad på datorn */
   background-color: brown;
   font-size: 1.6rem;
   border-radius: 15px;
-  font-weight: 600;
+  
  
 }
 
@@ -338,51 +306,57 @@ eller flera på rad på datorn */
  *                           Pollendatan
  *========================================================================**/
 
-/* Datan som hämtas från POLLENAPI och läggs in i varje  */
-/* Ruta för varje stad som väljs */
-.pollen-header {
-  background-color: #ff9d23;
-  border-radius: 20px;
-  margin: 0 auto;
-  padding: 0.0006em;
-  text-align: center;
-}
-
-.pollen-list {
-  display: flex;
-  flex-wrap: wrap; 
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 30px;
-  border-radius: 20px;
-}
-
-.pollen-list ul {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  gap: 10px;
-}
-
-.pollen-list li {
-  background-color: lightgray;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
+ .pollen-data {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 150px;
   
 }
 
-.pollen-logo {
-  width: 100px;
-  height: 100px;
+.pollen-data ul {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 20px;
+  max-width: 1200px; 
+}
+
+.pollen-data .pollen-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: lightgray;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.pollen-data .pollen-list .pollen-logo {
+  
+  width: 150px;
+  height: 150px;
+}
+
+.pollen-data .pollen-list .pollen-name {
+
+  font-size: 1.5rem;
+}
+
+.pollen-data .pollen-list .pollen-level {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.pollen-data .city-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 /**========================================================================
@@ -402,10 +376,13 @@ eller flera på rad på datorn */
     margin-top: 10px;
   }
 
-  .pollen-logo {
+  .pollen-type img{
     max-width: 100px;
     max-height: 100px;
+    background-color: black;
+    border-radius: 30px;
   }
+  
 }
 
 button {
