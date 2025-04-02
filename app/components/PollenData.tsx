@@ -8,20 +8,24 @@ export function PollenData({regionId, cityName}: PollenCityAndRegion) {
     // Används för att spara pollen datan
     const [pollenLevels, setpollenLevels] = useState<PollenData[]>([]);
 
+    // TypeScript behöver att typen specificeras och kan inte vara tom 
+    type PollenLevel = "none" | "low" | "medium" | "high" | "unknown";
+
     // Funktion som returnerar en nivåtext baserat på låg, medel eller hög 
-    function getLevelText(level: number) {
-        if (level === 0) {
-            return "Ingen nivå";
+    function getLevelText(level: number): PollenLevel{
+        switch (true){
+            case level == 0 :
+            return "none"
+            case level <= 2: 
+            return "low"
+            case level <=4: 
+            return "medium"
+            case level <=6: 
+            return "high"
+            default: 
+            return "unknown"
         }
-        else if (level <= 1) {
-            return "Låg nivå";
-        }
-        else if (level <= 2) {
-            return "Medel nivå";
-        } else {
-            return "Hög nivå";
-        }
-    };
+    }
     
     useEffect(() => {
         // Fetch 
@@ -35,27 +39,21 @@ export function PollenData({regionId, cityName}: PollenCityAndRegion) {
             const data = await response.json();
             
             // Filtrera data = Visa bara data som har en nivå över 0
-            const filtreradData = data.items[0].levelSeries.filter(
-                
-                (item: PollenData) => item.level >0) || [];
+            const filtreradData = data.items[0]?.levelSeries || [];
+            
+            // Filter unique values based on pollenId
+            const uniqueData = filtreradData.filter(
+                (item: PollenData, index: number, self: PollenData[]) =>
+                    index === self.findIndex((t) => t.pollenId === item.pollenId)
+            );
 
-                // Koppla PollenNummber -> PollenNamn från pollentypes.ts
-            setpollenLevels(filtreradData);
+            setpollenLevels(uniqueData);
 
             // Filtera datan så att det blir unika värden för att undvika att samma värde kommer '
             // upp flera gånger 
 
-            const uniqueData = filtreradData.filter(
-                (obj: PollenData, index: number, self:PollenData[]) =>
-                index === self.findIndex((t: PollenData)=> t.pollenId === obj.pollenId)
-            )
+            // Removed unused uniqueData variable
 
-            setpollenLevels(uniqueData);
-                
-            // Ofiltrerad data = Allt visas: 
-
-            // const levelSeries = data.items[0]?.levelSeries || [];
-            // setpollenLevels(levelSeries);
 
             } 
             
@@ -85,15 +83,16 @@ export function PollenData({regionId, cityName}: PollenCityAndRegion) {
                    
                     {pollenLevels.map((item) => {
                         const pollen = PollenTypes[item.pollenId];
+                        
                         return(
                             <li key={item.pollenId}>
                                 <img 
-                                src={pollen.img}
+                                src={pollen.images[getLevelText(item.level)]}
                                 alt={pollen.name} 
                                 className="pollen-logo"/>
 
                                 <div className="pollen-type-text">
-                                    {pollen.name} - {getLevelText(item.level)}
+                                    {pollen.name} 
 
                                 </div>
 

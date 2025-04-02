@@ -10,7 +10,15 @@ export interface PollenCityAndRegion{
 } 
 
 export interface PollenTypeAndImage {
-    img: string; 
-    id: string; 
-    type: string;
+    
+    name: string; 
+    images: {
+        none:string; 
+        low:string; 
+        medium:string; 
+        high:string;
+        unknown:string;
+
+    };
+
 }
