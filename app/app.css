@@ -1,10 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background-color: #000000;
+  overflow-x: hidden;
+}
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Figtree", sans-serif;
+  background-color: #000000;
+}
+
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: darkgray;
-  border-radius: 8px;
   padding: 20px;
 }
 
@@ -37,16 +53,13 @@ header img {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: darkgray;
   margin: 20px;
-  border-radius: 20px;
 }
 
 /* Texten */
 .api-info h1 {
   background-color: #ff9d23;
   padding: 20px;
-  border-radius: 20px;
 }
 
 ul.api-info {
@@ -54,7 +67,7 @@ ul.api-info {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .api-link {
@@ -62,10 +75,9 @@ ul.api-info {
   font-size: 1.2rem;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
-  
 }
 
-li{
+li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,36 +87,20 @@ li{
   margin: 10px 0;
 }
 
-li a{
+li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
-  
-  
 }
 
-li a:hover{
+li a:hover {
   color: purple;
-  
 }
-
-
-
-
-
 
 /* För NavLänkarna */
 
-
 .index-main {
   width: 100%;
-  max-width: 1000px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 15px;
-  
 }
 
 .index-container {
@@ -122,7 +118,6 @@ li a:hover{
   background-color: darkgray;
   width: 55%;
   justify-content: space-between;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   /* Ändra textfärg */
@@ -130,7 +125,6 @@ li a:hover{
   font-size: 12px;
   padding: 0 25px;
   font-weight: bold;
-
 }
 
 /* Styling på länken */
@@ -153,38 +147,35 @@ li a:hover{
  *                           Nuvarande Stad
  *========================================================================**/
 
-
- .current-city {
-  margin-bottom: 30px;
+.current-city {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: darkgray;
-  border-radius: 8px;
-  padding: 20px;
+  background-color: #000;
+  border-top: 5px solid #ffe203;
+  border-bottom: 5px solid #ffe203;
+  width: 100%; /* Se till att bredden täcker hela viewporten */
+  padding-bottom: 2.5rem;
 }
 
-.current-location-container{
+.current-location-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  gap: 20px; 
+  justify-content: center;
+  align-items: center;
 }
 
 .current-city h1 {
-  background-color: #ff9d23;
-  padding: 20px;
-  border-radius: 20px;
+  color: white;
 }
 
-.current-location-pollen{
+.current-location-pollen {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .pollen-list {
@@ -194,18 +185,20 @@ li a:hover{
   justify-content: center;
   text-decoration: none;
 }
+.pollen-info-text {
+  font: 1.5rem;
+}
 
-.pollen-info{
+.pollen-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: lightgray;
-  border: solid 1px black;
-  border-radius: 10px;
-  padding: 10px;
-  width: 150px; 
-  height: 150px; 
+  background-color: #d9d9d933;
+  padding: 30px;
+  width: 150px;
+  height: 150px;
+  color: #ffe203;
 }
 
 .pollen-info h2 {
@@ -219,8 +212,14 @@ li a:hover{
 }
 
 .pollen-info img {
+  width: 150px;
+  height: 150px;
+}
+
+.pollen-logo {
   width: 100px;
   height: 100px;
+  object-fit: cover;
 }
 
 /**========================================================================
@@ -230,159 +229,115 @@ li a:hover{
 /* HuvudKategori på andra städer sektionen: */
 
 .other-cities-section {
-  background-color: darkgray;
-  text-align: center;
-  border-radius: 8px;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 20px;
 }
 
-/* Header på andra städer sektionen */
+/* Header där Andra Städer text ligger */
 .other-cities-header {
-  background-color: #ff9d23;
+  background-color: #ffe203;
+  padding: 10px;
+}
 
-  border-radius: 20px;
-  margin: 30px auto 0;
+.other-cities-header h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: black;
   text-align: center;
-  width: 70%;
-  padding: 20px;
-}
-
-/* Sektionen där alla pollenartiklarna hamnar i en rad på mobilskärm 
-eller flera på rad på datorn */
-.other-cities-article-section {
-  background-color: darkgray;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  padding: 30px;
-  gap: 10px;
-}
-
-/* I själva artikeln där pollendatan står */
-.other-cities-article {
-  display: flex;
-  flex-direction: column;
-  background-color: lightgray;
-  width: 800px;
-  border-radius: 30px;
-  justify-content: space-between;
-  padding: 20px;
-  
-
-  min-height: 200px;
-}
-
-/* TextKategori  */
-
-/* Välj vilka städer du vill ska visas: */
-.other-cities-title {
-  /* Textstorlek */
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 20px;
-}
-
-/* Knappar och annat */
-
-/* Filter sektionen med alla nman på städer */
-.other-cities-filter {
-  max-width: 60%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Områden kring varje knapp */
-.other-cities-squares {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
+  font-weight: 600;
 }
 
 /* Styling för själva knappen */
+.other-cities-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 100%;
+  margin: 20px;
+}
+
 .other-cities-button {
-  background-color: #ffd65a;
-  color: black;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  transition: 0.4s ease;
-  border: solid 1px black;
+  background-color: black;
+  gap: 15px;
+  border: solid 2px yellow;
+  font-weight: 500;
 }
 
 /* Hovereffekt för knappen */
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
-  border-radius: 15px
+  background-color: black;
+  color: yellow;
 }
 
 /* Stilen som sker när varje stad väljs och är "aktiv" */
 .other-cities-button.active {
   color: white;
-  background-color: brown;
+  background-color: #ffe203;
+  border-color: black;
+  color: black;
   font-size: 1.6rem;
-  border-radius: 15px;
   font-weight: 600;
- 
 }
 
 /*========================================================================
  *                           Pollendatan
  *========================================================================**/
 
-/* Datan som hämtas från POLLENAPI och läggs in i varje  */
-/* Ruta för varje stad som väljs */
-.pollen-header {
-  background-color: #ff9d23;
-  border-radius: 20px;
-  margin: 0 auto;
-  padding: 0.0006em;
-  text-align: center;
-}
-
-.pollen-list {
+.pollen-data {
   display: flex;
-  flex-wrap: wrap; 
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-top: 30px;
-  border-radius: 20px;
 }
 
-.pollen-list ul {
+.pollen-data ul {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
 }
 
-.pollen-list li {
-  background-color: lightgray;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
+.pollen-data .pollen-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 150px;
-  
+  justify-content: center;
+  text-decoration: none;
+  background-color: #d9d9d933;
+  padding: 30px;
+  color: #ffe203;
 }
 
-.pollen-logo {
-  width: 100px;
-  height: 100px;
+.pollen-data .pollen-list .pollen-logo {
+  width: 150px;
+  height: 150px;
+}
+
+.pollen-data .pollen-list .pollen-name {
+  font-size: 1.5rem;
+}
+
+.pollen-data .pollen-list .pollen-level {
+  font-size: 1.2rem;
+  margin: 10px;
+}
+
+.pollen-data .city-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
 }
 
 /**========================================================================
@@ -395,16 +350,16 @@ eller flera på rad på datorn */
     flex-direction: column;
     text-align: center;
     padding: 15px;
-
   }
 
   .footer a {
     margin-top: 10px;
   }
 
-  .pollen-logo {
+  .pollen-type img {
     max-width: 100px;
     max-height: 100px;
+    background-color: black;
   }
 }
 
@@ -468,11 +423,13 @@ eller flera på rad på datorn */
   /* Stil */
   background: #3733FF;
   border: none;
+
   border-radius: 0px; /*rundade hörn */
   color: white;
   font-family: "Figtree", sans-serif;
   font-size: 15px;
   font-weight: 600;
+
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
