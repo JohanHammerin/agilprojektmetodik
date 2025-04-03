@@ -61,12 +61,18 @@ export function AboutPage() {
             </article>
           </div>
         </section>
-      </main>
-
+      </main> 
       <footer className="footer">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
-        <NavLink to="/">Tillbaka till Hem</NavLink>
+        <NavLink to="/">Hem</NavLink>
       </footer>
+
+     
+      
     </div>
+    
+    
+
+    
   );
 }

@@ -111,18 +111,26 @@ export function HomePage() {
 
   return (
     <div className="index-container">
-      <header className="header">
-        <ul>
+      
+      <div className="header">
+        <div className="header-logo-container">
+          <ul>
           <img src="/img/pklogowhite.png" alt="logo" className="logo" />
-        </ul>
-
-        <div className="header-text">
-          <h1>Snuvig?</h1>
-          <h2>
-            Få koll på dagens pollenhalter i ett nafs, vart du än befinner dig.
-          </h2>
+          </ul> 
         </div>
-      </header>
+       
+      <div className="hero-image-container"> 
+
+          <img
+            src="public\img-hero\hero-dark\Maskot darkmode web.png"
+            alt="hero"
+            className="hero-image"
+          /> 
+          
+      </div>
+
+        
+      </div>
 
       {/* Huvudsektion */}
 

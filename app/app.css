@@ -15,16 +15,20 @@ body {
   background-color: #000000;
 }
 
+/**========================================================================
+ *                           Header
+ *========================================================================**/
+
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  background-image: url(/Maskot\ darkmode\ web\ 1.png);
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
   padding: 20px;
-  margin: 0;
   width: 100%;
-  height: 600px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .logo {
@@ -53,6 +57,19 @@ h2.header-text {
   font-weight: normal;
   margin: 5px 0;
   color: white;
+}
+
+.hero-image-container {
+  width: 100%; 
+  max-width: 1000px; 
+  
+  
+}
+
+.hero-image {
+  width: 100%;
+  height: auto; /* Behåll bildens proportioner */
+  object-fit: cover; /* Gör att bilden täcker hela containern utan att förvrängas */
 }
 
 /**------------------------------------------------------------------------
@@ -128,25 +145,20 @@ li a:hover {
 }
 
 .footer {
-  /* Här kan ni ändra bakgrundsfärg */
   display: flex;
-  background-color: #ffd65a;
+  justify-content: space-between;
+  align-items: center;
   background-color: #ffe203;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  justify-content: space-between;
-
-  align-items: center;
-  /* Ändra textfärg */
   color: black;
   font-size: 15px;
-  padding: 10px;
-
+  padding: 10px 20px;
   font-weight: bold;
 }
 
 /* Text i footer */
-.footer p {
+.footer h3 {
   font-size: 20px;
   color: #292a2e;
   font-family: "Inter", sans-serif;
@@ -261,6 +273,10 @@ li a:hover {
   align-items: center;
   background-color: black;
   padding: 20px;
+  flex-grow: 1;
+  width: 100%;
+  margin-top: 2rem;
+  padding-bottom: 2.5rem;
 }
 
 /* Header där Andra Städer text ligger */
@@ -366,29 +382,6 @@ li a:hover {
   object-fit: cover;
 }
 
-/**========================================================================
- *                           Media Querries
- *========================================================================**/
-
-/* Iphone 14 Pro Max*/
-@media screen and (max-width: 430px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  .footer a {
-    margin-top: 10px;
-  }
-
-  .pollen-type img {
-    max-width: 100px;
-    max-height: 100px;
-    background-color: black;
-  }
-}
-
 button {
   background-color: red;
   color: white;
@@ -412,7 +405,7 @@ button:hover {
   background-color: #000;
   border-top: 5px solid #ffe203;
   border-bottom: 5px solid #ffe203;
-  width: 76%; /* Se till att bredden täcker hela viewporten */
+  width: 76%; 
   padding-bottom: 2.5rem;
   color: #ffe203;
 }
@@ -423,6 +416,8 @@ button:hover {
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+  flex-grow: 1;
+  
 }
 
 /* ACTION KNAPPEN */
@@ -462,4 +457,43 @@ button:hover {
 /* Aktiv (klickad) */
 .action-button:active {
   transform: scale(0.95); /* Tryck-effekt */
+}
+
+/**========================================================================
+ *                           Media Querries
+ *========================================================================**/
+
+/* Iphone 14 Pro Max*/
+@media screen and (max-width: 430px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .footer h3 {
+    font-size: 18px;
+  }
+
+  .footer a {
+    font-size: 14px;
+    padding-right: 0px;
+  }
+  
+
+  
+
+  .pollen-type img {
+    max-width: 100px;
+    max-height: 100px;
+    background-color: black;
+  }
+}
+
+/* Media Query för stora skärmar */
+@media (min-width: 769px) {
+  .hero-image {
+    height: 500px; 
+    width: 1700px;
+  }
 }
