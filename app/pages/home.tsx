@@ -1,12 +1,24 @@
+import { useEffect, useState, type SetStateAction } from "react";
+
 import { useEffect, useState } from "react";
 import { CityID } from "~/types/city-id";
+
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
-import { cityToggle } from "~/components/cityToggle";
+import { OtherCitySelect } from "~/components/otherCitySelecter";
 import { Button } from "../components/Button";
+import { OtherCities } from "~/types/other-city";
 
 export function HomePage() {
+
+  // State för att kunna ändra vilka städer som ska visas
+  // Under "Andra städer"
+  const [selectedCityId, setSelectedCityId] = useState<string>("");
+  const [otherCties, setOtherCities] = useState(false);
+  
+
+  // State för att se din nuvarande stad:
   // State för valda städer
   const [selectedCity, setSelectedCity] = useState<string[]>([]);
   // State för pollendata
@@ -21,6 +33,28 @@ export function HomePage() {
     latitude: "",
     longitude: "",
   });
+
+
+  const [pollenData, setPollenData] = useState<any>(null);
+
+  // State för att visa/dölja andra städer
+  const [showOtherCities, setShowOtherCities] = useState(false); 
+
+  useEffect(() => {
+    getPosition();
+  }, []);
+
+  useEffect(() => {
+    if (city.latitude && city.longitude) {
+      getGoogleAPIData(city.latitude, city.longitude);
+    }
+  }, [city]);
+
+  function toggleOtherCities() {
+    setShowOtherCities((prev) => !prev);
+  }
+
+  function getPosition() {
 
   // Hämtar användarens position
   function getPosition(): void {
@@ -76,6 +110,7 @@ export function HomePage() {
     }
   }
 
+
   // Returnerar bildikon för pollen
   const getImageIcon = (name: string) =>
     ({
@@ -97,6 +132,9 @@ export function HomePage() {
   function toggleOtherCities() {
     setShowOtherCities((prev) => !prev);
   }
+
+
+ 
 
   return (
     <div className="index-container">
@@ -148,38 +186,54 @@ export function HomePage() {
 
         {showOtherCities && (
           <section className="other-cities-section">
-            <h1>Andra städer</h1>
-            <div className="other-cities-filter">
-              <h3 className="other-cities-title">
-                Välj vilka städer du vill ska visas:
-              </h3>
-              <div className="other-cities-squares">
-                {CityID.map((city) => (
-                  <button
-                    key={city.regionId}
-                    onClick={() =>
-                      setSelectedCity((prev) => cityToggle(prev, city.regionId))
-                    }
-                    className={`other-cities-button ${
-                      selectedCity.includes(city.regionId) ? "active" : ""
-                    }`}
-                  >
-                    {city.name}
-                  </button>
-                ))}
+             <div className="other-cities-header">
+                <h2>Andra Städer</h2>
+              
               </div>
-            </div>
 
-            <section className="other-cities-article-section">
-              {CityID.filter((city) =>
-                selectedCity.includes(city.regionId)
-              ).map((city) => (
-                <article className="other-cities-article" key={city.regionId}>
-                  <PollenData regionId={city.regionId} cityName={city.name} />
-                </article>
-              ))}
-            </section>
+              <div className="other-cities-button-container">
+              {Object.keys(OtherCities).map((cityId) => {
+              const city = OtherCities[cityId];
+              
+              return (
+                
+                <button
+                key={cityId}
+                onClick={(e) => {
+                  e.preventDefault(); 
+                  setSelectedCityId(cityId); 
+                }}
+                className={`other-cities-button ${selectedCityId === cityId ? "active" : ""}`}
+              >
+                {OtherCities[cityId].cityname} 
+              </button>
+
+                
+              );
+              })}
+
+              </div>
+            
+            <div>
+
+            </div>
+              
+
+            <div className="pollen-data-container">
+              {Object.keys(OtherCities)
+                .filter((cityId) => selectedCityId === cityId)
+                .map((cityId) => (
+                  <PollenData
+                    key={cityId}
+                    cityname={OtherCities[cityId].cityname}
+                    image={OtherCities[cityId].image}
+                    regionId={cityId}
+                  />
+                ))}
+            </div>
+              
           </section>
+
         )}
       </main>
       <footer className="footer">
