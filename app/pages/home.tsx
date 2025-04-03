@@ -4,6 +4,7 @@ import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
+import { ActionButton } from "~/components/ActionButton";
 
 export function HomePage() {
   // State för att kunna ändra vilka städer som ska visas
@@ -23,6 +24,8 @@ export function HomePage() {
     latitude: "",
     longitude: "",
   });
+
+  const [showPollenSection, setShowPollenSection] = useState<boolean>(false); // State för actionknapp
 
   useEffect(() => {
     getPosition();
@@ -102,6 +105,10 @@ export function HomePage() {
       getGoogleAPIData(city.latitude, city.longitude);
   }, [city]);
 
+  function togglePollenSection(): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div className="index-container">
       <header className="header">
@@ -111,8 +118,9 @@ export function HomePage() {
 
         <div className="header-text">
           <h1>Snuvig?</h1>
-          <h2>Få koll på dagens pollenhalter i ett nafs, vart du än befinner dig.</h2>
-          <img src="/img/Frame 6082.png" alt="maskot" className="maskot" />
+          <h2>
+            Få koll på dagens pollenhalter i ett nafs, vart du än befinner dig.
+          </h2>
         </div>
       </header>
 

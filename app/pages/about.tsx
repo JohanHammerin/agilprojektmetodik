@@ -9,7 +9,7 @@ export function AboutPage() {
     <div className="index-container">
       <header className="header">
         <ul>
-          <img src="/img/pklogoblack.png" alt="logo" />
+          <img src="/img/pklogowhite.png" alt="logo" className="logo" />
         </ul>
       </header>
 
