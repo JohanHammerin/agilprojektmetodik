@@ -1,22 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
 
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background-color: #000000;
+  overflow-x: hidden;
+}
 .index-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  margin-bottom: 30px;
   font-family: "Figtree", sans-serif;
-  background: #f9f4f2;
-}
-.index-main {
-  width: 100%;
-  max-width: 1000px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 15px;
+  background-color: #000000;
 }
 
 .header {
@@ -25,7 +21,6 @@
   justify-content: center;
   align-items: center;
   background-color: darkgray;
-  border-radius: 8px;
   padding: 20px;
 }
 
@@ -59,14 +54,12 @@ header img {
   align-items: center;
   gap: 20px;
   margin: 20px;
-  border-radius: 20px;
 }
 
 /* Texten */
 .api-info h1 {
   background-color: #ff9d23;
   padding: 20px;
-  border-radius: 20px;
 }
 
 ul.api-info {
@@ -102,25 +95,12 @@ li a {
 
 li a:hover {
   color: purple;
- }
-
-
-
-
-
+}
 
 /* För NavLänkarna */
 
-
 .index-main {
   width: 100%;
-  
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  
-  
 }
 
 .index-container {
@@ -138,7 +118,6 @@ li a:hover {
   background-color: darkgray;
   width: 55%;
   justify-content: space-between;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   /* Ändra textfärg */
@@ -169,15 +148,15 @@ li a:hover {
  *========================================================================**/
 
 .current-city {
-  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #ffe203;
-
-  border-radius: 8px;
-  padding: 20px;
+  background-color: #000;
+  border-top: 5px solid #ffe203;
+  border-bottom: 5px solid #ffe203;
+  width: 100%; /* Se till att bredden täcker hela viewporten */
+  padding-bottom: 2.5rem;
 }
 
 .current-location-container {
@@ -185,13 +164,10 @@ li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 
 .current-city h1 {
-  background-color: #ff9d23;
-  padding: 20px;
-  border-radius: 20px;
+  color: white;
 }
 
 .current-location-pollen {
@@ -209,18 +185,20 @@ li a:hover {
   justify-content: center;
   text-decoration: none;
 }
+.pollen-info-text {
+  font: 1.5rem;
+}
 
 .pollen-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: lightgray;
-  border: solid 1px black;
-  border-radius: 10px;
-  padding: 10px;
+  background-color: #d9d9d933;
+  padding: 30px;
   width: 150px;
   height: 150px;
+  color: #ffe203;
 }
 
 .pollen-info h2 {
@@ -234,15 +212,13 @@ li a:hover {
 }
 
 .pollen-info img {
-  width: 100px;
-  height: 100p
-  x;
+  width: 150px;
+  height: 150px;
 }
 
 .pollen-logo {
   width: 100px;
   height: 100px;
-  border-radius: 20px;
   object-fit: cover;
 }
 
@@ -253,37 +229,21 @@ li a:hover {
 /* HuvudKategori på andra städer sektionen: */
 
 .other-cities-section {
-  
-  
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
-  border-radius: 8px;
   padding: 20px;
 }
-
-
-/* I själva artikeln där pollendatan står */
-.other-cities-article {
-  display: flex;
-  flex-direction: column;
-  background-color: lightgray;
-  width: 800px;
-  border-radius: 30px;
-  justify-content: space-between;
-  padding: 20px;
 
 /* Header där Andra Städer text ligger */
-.other-cities-header{
-  background-color: #ff9d23;
+.other-cities-header {
+  background-color: #ffe203;
   padding: 10px;
-  border-radius: 20px;
 }
 
-.other-cities-header h2{
+.other-cities-header h2 {
   font-size: 2rem;
   margin: 0;
   color: black;
@@ -293,54 +253,59 @@ li a:hover {
 
 /* Styling för själva knappen */
 .other-cities-button-container {
-  
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; 
-    align-content: center;
-    width: 100%; 
-    margin: 20px;
-  
-  
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 100%;
+  margin: 20px;
 }
 
-.other-cities-button{
+.other-cities-button {
   background-color: black;
   gap: 15px;
   border: solid 2px yellow;
   font-weight: 500;
-
 }
-
 
 /* Hovereffekt för knappen */
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
-  border-radius: 15px;
+  background-color: black;
+  color: yellow;
+}
+
+/* Stilen som sker när varje stad väljs och är "aktiv" */
+.other-cities-button.active {
+  color: white;
+  background-color: #ffe203;
+  border-color: black;
+  color: black;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 /*========================================================================
  *                           Pollendatan
  *========================================================================**/
 
- .pollen-data {
+.pollen-data {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 .pollen-data ul {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  align-items: center; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
-  max-width: 1200px; 
+  max-width: 1200px;
 }
 
 .pollen-data .pollen-list {
@@ -349,20 +314,17 @@ li a:hover {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background-color: lightgray;
-  border: solid 1px black;
-  border-radius: 10px;
-  padding: 10px;
+  background-color: #d9d9d933;
+  padding: 30px;
+  color: #ffe203;
 }
 
 .pollen-data .pollen-list .pollen-logo {
-  
   width: 150px;
   height: 150px;
 }
 
 .pollen-data .pollen-list .pollen-name {
-
   font-size: 1.5rem;
 }
 
@@ -375,7 +337,6 @@ li a:hover {
   width: 100%;
   max-width: 600px;
   height: auto;
-  border-radius: 20px;
   object-fit: cover;
 }
 
@@ -395,13 +356,11 @@ li a:hover {
     margin-top: 10px;
   }
 
-  .pollen-type img{
+  .pollen-type img {
     max-width: 100px;
     max-height: 100px;
     background-color: black;
-    border-radius: 30px;
   }
-  
 }
 
 button {
@@ -409,7 +368,6 @@ button {
   color: white;
   padding: 10px 20px;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
