@@ -1,3 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
+
+.index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-family: "Figtree", sans-serif;
+  background: #f9f4f2;
+}
+.index-main {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -37,7 +58,6 @@ header img {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: darkgray;
   margin: 20px;
   border-radius: 20px;
 }
@@ -54,7 +74,7 @@ ul.api-info {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .api-link {
@@ -62,10 +82,9 @@ ul.api-info {
   font-size: 1.2rem;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
-  
 }
 
-li{
+li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,18 +94,15 @@ li{
   margin: 10px 0;
 }
 
-li a{
+li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
-  
-  
 }
 
-li a:hover{
+li a:hover {
   color: purple;
-  
-}
+ }
 
 
 
@@ -130,7 +146,6 @@ li a:hover{
   font-size: 12px;
   padding: 0 25px;
   font-weight: bold;
-
 }
 
 /* Styling på länken */
@@ -153,24 +168,24 @@ li a:hover{
  *                           Nuvarande Stad
  *========================================================================**/
 
-
- .current-city {
+.current-city {
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: darkgray;
+  background-color: #ffe203;
+
   border-radius: 8px;
   padding: 20px;
 }
 
-.current-location-container{
+.current-location-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  gap: 20px; 
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .current-city h1 {
@@ -179,12 +194,12 @@ li a:hover{
   border-radius: 20px;
 }
 
-.current-location-pollen{
+.current-location-pollen {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .pollen-list {
@@ -195,7 +210,7 @@ li a:hover{
   text-decoration: none;
 }
 
-.pollen-info{
+.pollen-info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -204,8 +219,8 @@ li a:hover{
   border: solid 1px black;
   border-radius: 10px;
   padding: 10px;
-  width: 150px; 
-  height: 150px; 
+  width: 150px;
+  height: 150px;
 }
 
 .pollen-info h2 {
@@ -251,6 +266,16 @@ li a:hover{
 }
 
 
+/* I själva artikeln där pollendatan står */
+.other-cities-article {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  width: 800px;
+  border-radius: 30px;
+  justify-content: space-between;
+  padding: 20px;
+
 /* Header där Andra Städer text ligger */
 .other-cities-header{
   background-color: #ff9d23;
@@ -295,19 +320,6 @@ li a:hover{
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
   border-radius: 15px;
-  background-color: black;
-  color: yellow; 
-
-}
-
-/* Stilen som sker när varje stad väljs och är "aktiv" */
-.other-cities-button.active {
-  color: white;
-  background-color: brown;
-  font-size: 1.6rem;
-  border-radius: 15px;
-  
- 
 }
 
 /*========================================================================
@@ -316,7 +328,7 @@ li a:hover{
 
  .pollen-data {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   
@@ -377,7 +389,6 @@ li a:hover{
     flex-direction: column;
     text-align: center;
     padding: 15px;
-
   }
 
   .footer a {
