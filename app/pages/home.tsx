@@ -1,27 +1,28 @@
-import { useEffect, useState, type SetStateAction } from "react";
-import { CityID } from "~/types/city-id";
+import { useEffect, useState } from "react";
+
 import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
-import { cityToggle } from "~/components/cityToggle";
-
-/**------------------------------------------------------------------------
- *                           HuvudSidan
- *------------------------------------------------------------------------**/
+import { OtherCities } from "~/types/other-city";
 
 export function HomePage() {
   // State för att kunna ändra vilka städer som ska visas
   // Under "Andra städer"
-  const [selectedCity, setSelectedCity] = useState<string[]>([]);
+  const [selectedCityId, setSelectedCityId] = useState<string>("");
 
   // State för att se din nuvarande stad:
+  // State för valda städer
+  // State för pollendata
+  const [pollenData, setPollenData] = useState<
+    { name: string; value: string }[] | null
+  >(null);
+  // State för att visa/dölja andra städer
+  // State för nuvarande position
   const [city, setCity] = useState<City>({
-    name: "Nuvarande plats",
+    name: "",
     latitude: "",
     longitude: "",
   });
-
-  const [pollenData, setPollenData] = useState<any>(null);
 
   useEffect(() => {
     getPosition();
@@ -35,72 +36,84 @@ export function HomePage() {
 
   function getPosition() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setCity({
+            name: "Aktuella pollenhalter i mitt område",
+            latitude: position.coords.latitude.toString(),
+            longitude: position.coords.longitude.toString(),
+          });
+        },
+        () => alert("Kunde inte hämta din plats")
+      );
     } else {
       alert("Geolokalisering stöds inte");
     }
-
-    function success(position: {
-      coords: { latitude: number; longitude: number };
-    }) {
-      const latitude = position.coords.latitude.toString();
-      const longitude = position.coords.longitude.toString();
-
-      setCity({
-        name: "Nuvarande plats",
-        latitude: latitude,
-        longitude: longitude,
-      });
-    }
-
-    function error() {
-      alert("Kunde inte hämta din plats");
-    }
   }
 
+  // Hämtar polleninformation från Googles API
   async function getGoogleAPIData(latitude: string, longitude: string) {
     try {
       const apiUrl = `https://pollen.googleapis.com/v1/forecast:lookup?key=AIzaSyCtlLqFo0V5PsARcnkEztv1kBXBt0xhYQk&location.longitude=${longitude}&location.latitude=${latitude}&days=1`;
-
       const response = await fetch(apiUrl);
       const data = await response.json();
 
       if (!data.dailyInfo?.[0]) {
         console.warn("Ingen pollendata hittades.");
+        setPollenData(null);
         return;
       }
 
+      // Översättning av pollen-typer
       const pollenTranslation: Record<string, string> = {
         GRASS: "Gräs",
         TREE: "Träd",
         WEED: "Ogräs",
       };
 
-      const relevantPollen = data.dailyInfo[0].pollenTypeInfo?.filter(
-        (pollen: any) => ["GRASS", "TREE", "WEED"].includes(pollen.code)
-      );
+      // Filtrerar och extraherar relevant pollendata
+      const extractedData = data.dailyInfo[0].pollenTypeInfo
+        ?.filter((pollen: any) => pollenTranslation[pollen.code])
+        .map((pollen: any) => ({
+          name: pollenTranslation[pollen.code],
+          value: pollen.indexInfo?.value ?? 0,
+        }));
 
-      const extractedData = relevantPollen.map((pollen: any) => ({
-        name: pollenTranslation[pollen.code] || pollen.displayName,
-        value: pollen.indexInfo?.value ?? "Ingen data",
-      }));
-
-      setPollenData(extractedData);
+      setPollenData(extractedData || []);
     } catch (error) {
       console.error("Fel vid hämtning av pollendata:", error);
+      setPollenData(null);
     }
   }
+  const getImageIcon = (name: string, value: number) => {
+    if (value === 0) return `/Pollenikoner-dark-mode/${name} (Ingen).png`;
+    if (value >= 1 && value <= 2)
+      return `/Pollenikoner-dark-mode/${name} (Låg).png`;
+    if (value === 3) return `/Pollenikoner-dark-mode/${name} (Mellan).png`;
+    return `/Pollenikoner-dark-mode/${name} (Hög).png`;
+  };
+
+  // Hämtar position vid sidladdning
+  useEffect(getPosition, []);
+
+  // Hämtar polleninfo när positionen uppdateras
+  useEffect(() => {
+    if (city.latitude && city.longitude)
+      getGoogleAPIData(city.latitude, city.longitude);
+  }, [city]);
 
   return (
     <div className="index-container">
       <header className="header">
         <ul>
-          <img src="/img/pklogoblack.png" alt="logo" />
+          <img src="/img/pklogowhite.png" alt="logo" className="logo" />
         </ul>
-        <h2>
-          Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
-          pollenhalter i din närhet.
-        </h2>
+
+        <div className="header-text">
+          <h1>Snuvig?</h1>
+          <h2>Få koll på dagens pollenhalter i ett nafs, vart du än befinner dig.</h2>
+          <img src="/img/Frame 6082.png" alt="maskot" className="maskot" />
+        </div>
       </header>
 
       {/* Huvudsektion */}
@@ -110,16 +123,27 @@ export function HomePage() {
           <h1>{city.name}</h1>
 
           {pollenData ? (
-            <div>
+            <div className="current-location-container">
               <h3>Dagens pollenhalter:</h3>
-              <ul>
+
+              <div className="current-location-pollen">
                 {pollenData.map((pollen: any) => (
-                  <li key={pollen.name}>
-                    <strong>{pollen.name}</strong>:{" "}
-                    <strong>{pollen.value}</strong>
-                  </li>
+                  <div key={pollen.name} className="pollen-info">
+                    {/* Pollen ikon för Gräs eller Träd */}
+                    <div>
+                      <img
+                        src={getImageIcon(pollen.name, pollen.value)}
+                        alt="pollen-image"
+                      />
+                    </div>
+
+                    <div className="pollen-info-text">
+                      {/* Polleninformation från det aktuella stället */}
+                      <p>{pollen.name}</p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ) : (
             <p>Laddar pollendata...</p>
@@ -128,44 +152,46 @@ export function HomePage() {
 
         <section className="other-cities-section">
           <div className="other-cities-header">
-            <h1>Andra städer</h1>
+            <h2>Andra Städer</h2>
           </div>
 
-          <div className="other-cities-filter">
-            {/* Titel för menyn */}
-            <h3 className="other-cities-title">
-              Välj vilka städer du vill ska visas:
-            </h3>
+          <div className="other-cities-button-container">
+            {Object.keys(OtherCities).map((cityId) => {
+              const city = OtherCities[cityId];
 
-            <div className="other-cities-squares">
-              {CityID.map((city) => (
+              return (
                 <button
-                  key={city.regionId}
-                  onClick={() =>
-                    setSelectedCity((prev) => cityToggle(prev, city.regionId))
-                  }
+                  key={cityId}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedCityId(cityId);
+                  }}
                   className={`other-cities-button ${
-                    selectedCity.includes(city.regionId) ? "active" : ""
+                    selectedCityId === cityId ? "active" : ""
                   }`}
                 >
-                  {city.name}
+                  {OtherCities[cityId].cityname}
                 </button>
+              );
+            })}
+          </div>
+
+          <div></div>
+
+          <div className="pollen-data-container">
+            {Object.keys(OtherCities)
+              .filter((cityId) => selectedCityId === cityId)
+              .map((cityId) => (
+                <PollenData
+                  key={cityId}
+                  cityname={OtherCities[cityId].cityname}
+                  image={OtherCities[cityId].image}
+                  regionId={cityId}
+                />
               ))}
-            </div>
           </div>
         </section>
-
-        <section className="other-cities-article-section">
-          {CityID.filter((city) => selectedCity.includes(city.regionId)).map(
-            (city) => (
-              <article className="other-cities-article" key={city.regionId}>
-                <PollenData regionId={city.regionId} cityName={city.name} />
-              </article>
-            )
-          )}
-        </section>
       </main>
-
       <footer className="footer">
         <p>&#169;2025 Copyright Pollenkollen | All Rights Reserved</p>
         <NavLink to="/about">Om oss</NavLink>
