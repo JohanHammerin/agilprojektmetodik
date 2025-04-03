@@ -106,12 +106,14 @@ export function HomePage() {
     <div className="index-container">
       <header className="header">
         <ul>
-          <img src="/img/pklogoblack.png" alt="logo" />
+          <img src="/img/pklogowhite.png" alt="logo" className="logo" />
         </ul>
-        <h2>
-          Välkommen till Pollenkollen! Sidan där du snabbt och enkelt ser
-          pollenhalter i din närhet.
-        </h2>
+
+        <div className="header-text">
+          <h1>Snuvig?</h1>
+          <h2>Få koll på dagens pollenhalter i ett nafs, vart du än befinner dig.</h2>
+          <img src="/img/Frame 6082.png" alt="maskot" className="maskot" />
+        </div>
       </header>
 
       {/* Huvudsektion */}
