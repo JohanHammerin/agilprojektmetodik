@@ -73,6 +73,7 @@ header img {
   text-decoration: none;
   margin-left: 15px;
   transition: transform 0.3s ease-in-out;
+  font-family: "Inter", sans-serif;
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
