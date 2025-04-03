@@ -40,4 +40,3 @@ export const OtherCities: Record<string, OtherCityNameAndImage> = {
     image: "public/img-citiesviewLight/ÖSTERSUND.SKYLINE.png",
   },
 };
-
