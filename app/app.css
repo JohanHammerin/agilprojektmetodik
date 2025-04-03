@@ -45,16 +45,15 @@ header img {
   margin-bottom: 30px;
 }
 
-/* Styling för footer bakgrund + copyright text */
 .footer {
   background-color: #ffe203; 
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 100vw;
-  justify-content: space-between;
   display: flex;
   align-items: center;
-  padding: 0 25px;
+  justify-content: center; 
+  padding: 15px 25px; 
   position: fixed;
   bottom: 0;
   left: 0;
@@ -66,14 +65,16 @@ header img {
   font-size: 20px;
   color: #292a2e;
   font-family: "Inter", sans-serif;
+  margin: 0 auto; 
 }
 
 /* Styling på länken */
 .footer a { 
   text-decoration: none;
-  margin-left: 15px;
+  margin-left: auto; 
   transition: transform 0.3s ease-in-out;
   font-family: "Inter", sans-serif;
+  color:#292a2e;
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
