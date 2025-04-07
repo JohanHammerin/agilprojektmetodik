@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  background-color: #000000;
-  overflow-x: hidden;
+html, body {
+  
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hindrar horisontell scroll */
+  
 }
 .index-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,50 +134,95 @@ li a:hover {
 
 .index-main {
   width: 100%;
-}
-
-.index-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  margin-bottom: 30px;
+  gap: 20px;
+  
 }
 
-.footer {
+
+.footer-desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
+ 
+ 
   background-color: #ffe203;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  color: black;
-  font-size: 15px;
   padding: 10px 20px;
   font-weight: bold;
 }
 
 /* Text i footer */
-.footer h3 {
-  font-size: 20px;
+.footer-desktop h3 {
+  font-size: 1.2rem;
   color: #292a2e;
   font-family: "Inter", sans-serif;
 }
 
 /* Styling på länken */
-.footer a {
-  /* Ändra textfärg */
-  color: black;
+.footer-desktop a {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  padding: 2px;
+  color: #292a2e;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 1.2rem;
+  border: 2px solid #292a2e;
+  
   transition: transform 0.3s;
-  padding-right: 50px;
+ 
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
-.footer a:hover {
+.footer-desktop a:hover {
+  transform: scale(1.2);
+}
+
+.footer-mobile {
+  display: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+ 
+  background-color: #ffe203;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+/* Text i footer */
+.footer-mobile h3 {
+  font-size: 1.2rem;
+  color: #292a2e;
+  font-family: "Inter", sans-serif;
+}
+
+/* Styling på länken */
+.footer-mobile a {
+  
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  padding: 2px;
+  color: #292a2e;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid #292a2e;
+  
+  transition: transform 0.3s;
+ 
+}
+
+/* Ändrar textstorleken på länken när musen hovrar över*/
+.footer-desktop a:hover {
   transform: scale(1.2);
 }
 
@@ -216,13 +262,7 @@ li a:hover {
   gap: 20px;
 }
 
-.pollen-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
+
 .pollen-info-text {
   font: 1.5rem;
 }
@@ -232,10 +272,9 @@ li a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d933;
   padding: 30px;
-  width: 150px;
-  height: 150px;
+  max-width: 150px;
+  max-height: 150px;
   color: #ffe203;
 }
 
@@ -249,15 +288,9 @@ li a:hover {
   margin: 10px;
 }
 
-.pollen-info img {
-  width: 150px;
-  height: 150px;
-}
-
-.pollen-logo {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+.pollen-image {
+  width: 70px;
+  height: 70px;
 }
 
 /**========================================================================
@@ -269,14 +302,12 @@ li a:hover {
 .other-cities-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  padding: 20px;
-  flex-grow: 1;
   width: 100%;
-  margin-top: 2rem;
-  padding-bottom: 2.5rem;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 50px;
 }
 
 /* Header där Andra Städer text ligger */
@@ -309,8 +340,8 @@ li a:hover {
 .other-cities-button {
   background-color: black;
   gap: 15px;
-  border: solid 2px yellow;
   font-weight: 500;
+  max-width: 500px;
 }
 
 /* Hovereffekt för knappen */
@@ -334,20 +365,30 @@ li a:hover {
  *                           Pollendatan
  *========================================================================**/
 
-.pollen-data {
+ .pollen-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.pollen-data-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap:20px;
+  width: 100%;
 }
 
-.pollen-data ul {
+.pollen-list-container{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  max-width: 1200px;
+  flex-wrap: wrap;
 }
 
 .pollen-data .pollen-list {
@@ -356,26 +397,19 @@ li a:hover {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background-color: #d9d9d933;
-  padding: 30px;
+  padding: 20px;
   color: #ffe203;
+  max-width: 150px;
+  max-height: 150px;
 }
 
-.pollen-data .pollen-list .pollen-logo {
-  width: 150px;
-  height: 150px;
+.pollen-logo{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
-.pollen-data .pollen-list .pollen-name {
-  font-size: 1.5rem;
-}
-
-.pollen-data .pollen-list .pollen-level {
-  font-size: 1.2rem;
-  margin: 10px;
-}
-
-.pollen-data .city-image {
+.city-image {
   width: 100%;
   max-width: 600px;
   height: auto;
@@ -465,33 +499,38 @@ button:hover {
 
 /* Iphone 14 Pro Max*/
 @media screen and (max-width: 430px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
+  .current-location-pollen{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
   }
 
-  .footer h3 {
-    font-size: 18px;
-  }
-
-  .footer a {
-    font-size: 14px;
-    padding-right: 0px;
+  .pollen-info {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
   }
   
 
-  
+  .footer-desktop{
+    display: none;
+  }
 
-  .pollen-type img {
-    max-width: 100px;
-    max-height: 100px;
-    background-color: black;
+  .footer-mobile{
+    display: flex;
   }
 }
 
 /* Media Query för stora skärmar */
 @media (min-width: 769px) {
+  .pollen-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  
+
   .hero-image {
     height: 500px; 
     width: 1700px;

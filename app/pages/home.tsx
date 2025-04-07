@@ -138,7 +138,8 @@ export function HomePage() {
                   <div key={pollen.name} className="pollen-info">
                     {/* Pollen ikon för Gräs eller Träd */}
                     <div>
-                      <img
+                      <img 
+                        className="pollen-image"
                         src={getImageIcon(pollen.name, pollen.value)}
                         alt="pollen-image"
                       />
@@ -183,9 +184,8 @@ export function HomePage() {
             })}
           </div>
 
-          <div></div>
-
           <div className="pollen-data-container">
+            
             {Object.keys(OtherCities)
               .filter((cityId) => selectedCityId === cityId)
               .map((cityId) => (
@@ -199,8 +199,12 @@ export function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="footer">
+      <footer className="footer-desktop">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
+        <NavLink to="/about">Om oss</NavLink>
+      </footer>
+
+      <footer className="footer-mobile">
         <NavLink to="/about">Om oss</NavLink>
       </footer>
     </div>
