@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  background-color: #000000;
-  overflow-x: hidden;
+html, body {
+  
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hindrar horisontell scroll */
+  
 }
 .index-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,16 +134,14 @@ li a:hover {
 
 .index-main {
   width: 100%;
-}
-
-.index-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 20px;
-  margin-bottom: 30px;
+  gap: 20px;
+  
 }
+
 
 .footer {
   display: flex;
@@ -216,13 +215,7 @@ li a:hover {
   gap: 20px;
 }
 
-.pollen-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
+
 .pollen-info-text {
   font: 1.5rem;
 }
@@ -232,7 +225,6 @@ li a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #d9d9d933;
   padding: 30px;
   width: 150px;
   height: 150px;
@@ -254,12 +246,6 @@ li a:hover {
   height: 150px;
 }
 
-.pollen-logo {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-
 /**========================================================================
  *                           Andra Städer - DIV
  *========================================================================**/
@@ -269,14 +255,12 @@ li a:hover {
 .other-cities-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  padding: 20px;
-  flex-grow: 1;
   width: 100%;
-  margin-top: 2rem;
-  padding-bottom: 2.5rem;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 50px
 }
 
 /* Header där Andra Städer text ligger */
@@ -311,6 +295,7 @@ li a:hover {
   gap: 15px;
   border: solid 2px yellow;
   font-weight: 500;
+  max-width: 500px;
 }
 
 /* Hovereffekt för knappen */
@@ -334,20 +319,33 @@ li a:hover {
  *                           Pollendatan
  *========================================================================**/
 
-.pollen-data {
+ .pollen-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.pollen-data-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap:20px;
+  border: dotted 3px red;
+  width: 100%;
 }
 
-.pollen-data ul {
+.pollen-list-container{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  max-width: 1200px;
+  flex-wrap: wrap;
+  border:solid 2px yellow;
 }
 
 .pollen-data .pollen-list {
@@ -356,26 +354,19 @@ li a:hover {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background-color: #d9d9d933;
-  padding: 30px;
+  padding: 20px;
   color: #ffe203;
+  max-width: 150px;
+  max-height: 150px;
 }
 
-.pollen-data .pollen-list .pollen-logo {
-  width: 150px;
-  height: 150px;
+.pollen-logo{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
-.pollen-data .pollen-list .pollen-name {
-  font-size: 1.5rem;
-}
-
-.pollen-data .pollen-list .pollen-level {
-  font-size: 1.2rem;
-  margin: 10px;
-}
-
-.pollen-data .city-image {
+.city-image {
   width: 100%;
   max-width: 600px;
   height: auto;
@@ -465,6 +456,35 @@ button:hover {
 
 /* Iphone 14 Pro Max*/
 @media screen and (max-width: 430px) {
+  .pollen-name{
+   
+
+  }
+  .pollen-list{
+    
+  }
+
+  .pollen-logo{
+    
+  }
+
+  .pollen-type img {
+    
+  }
+
+  /* Knappar för städerna i andra städer sektionen */
+  .other-cities-button-container{
+      
+    }
+
+  .other-cities-button{
+    
+  }
+
+  .other-cities-button.active{
+    
+  }
+
   .footer {
     flex-direction: column;
     text-align: center;
@@ -478,15 +498,6 @@ button:hover {
   .footer a {
     font-size: 14px;
     padding-right: 0px;
-  }
-  
-
-  
-
-  .pollen-type img {
-    max-width: 100px;
-    max-height: 100px;
-    background-color: black;
   }
 }
 

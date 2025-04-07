@@ -94,7 +94,7 @@ export function PollenData({
     <div className="pollen-data">
       {image && <img src={image} alt={cityname} className="city-image" />}
 
-      <ul>
+      <ul className="pollen-list-container">
         {pollenLevelsOverZero.map((item) => {
           const pollen = PollenTypes[item.pollenId];
 
