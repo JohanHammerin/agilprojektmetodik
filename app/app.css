@@ -226,8 +226,8 @@ li a:hover {
   align-items: center;
   justify-content: center;
   padding: 30px;
-  width: 150px;
-  height: 150px;
+  max-width: 150px;
+  max-height: 150px;
   color: #ffe203;
 }
 
@@ -241,9 +241,9 @@ li a:hover {
   margin: 10px;
 }
 
-.pollen-info img {
-  width: 150px;
-  height: 150px;
+.pollen-image {
+  width: 70px;
+  height: 70px;
 }
 
 /**========================================================================
@@ -260,7 +260,7 @@ li a:hover {
   align-items: center;
   text-align: center;
   justify-content: center;
-  padding: 50px
+  padding: 50px;
 }
 
 /* Header där Andra Städer text ligger */
@@ -293,7 +293,6 @@ li a:hover {
 .other-cities-button {
   background-color: black;
   gap: 15px;
-  border: solid 2px yellow;
   font-weight: 500;
   max-width: 500px;
 }
@@ -334,7 +333,6 @@ li a:hover {
   justify-content: center;
   align-items: center;
   gap:20px;
-  border: dotted 3px red;
   width: 100%;
 }
 
@@ -343,9 +341,7 @@ li a:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   flex-wrap: wrap;
-  border:solid 2px yellow;
 }
 
 .pollen-data .pollen-list {
@@ -456,34 +452,19 @@ button:hover {
 
 /* Iphone 14 Pro Max*/
 @media screen and (max-width: 430px) {
-  .pollen-name{
-   
-
-  }
-  .pollen-list{
+  .current-location-pollen{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     
   }
 
-  .pollen-logo{
-    
+  .pollen-info {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
   }
-
-  .pollen-type img {
-    
-  }
-
-  /* Knappar för städerna i andra städer sektionen */
-  .other-cities-button-container{
-      
-    }
-
-  .other-cities-button{
-    
-  }
-
-  .other-cities-button.active{
-    
-  }
+  
 
   .footer {
     flex-direction: column;
@@ -503,6 +484,12 @@ button:hover {
 
 /* Media Query för stora skärmar */
 @media (min-width: 769px) {
+  .pollen-image {
+    width: 150px;
+    height: 150px;
+  }
+
+
   .hero-image {
     height: 500px; 
     width: 1700px;
