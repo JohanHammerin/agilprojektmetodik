@@ -72,10 +72,6 @@ export function AboutPage() {
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
         <NavLink to="/">Hem</NavLink>
       </footer>
-
-      <footer className="footer-mobile">
-        <NavLink to="/">Hem</NavLink>
-      </footer>
     </div>
   );
 }
