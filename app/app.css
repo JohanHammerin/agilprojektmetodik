@@ -327,7 +327,7 @@ li a:hover {
   flex-wrap: wrap;
   align-content: center;
   width: 100%;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .other-cities-button {
@@ -391,8 +391,6 @@ li a:hover {
   text-decoration: none;
   padding: 20px;
   color: #ffe203;
-  max-width: 150px;
-  max-height: 150px;
 }
 
 .pollen-logo {
@@ -406,6 +404,7 @@ li a:hover {
   max-width: 600px;
   height: auto;
   object-fit: cover;
+  margin-top: 25px;
 }
 
 button {
