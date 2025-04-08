@@ -76,9 +76,7 @@ export function PollenData({
         setpollenLevelsOverZero(
           uniqueData.filter((item: PollenData) => item.level > 0)
         );
-        setpollenLevelsZero(
-          uniqueData.filter((item: PollenData) => item.level === 0)
-        );
+        
       } catch (error) {
         console.error("Error när du hämtade datan", error);
       } finally {
@@ -101,20 +99,25 @@ export function PollenData({
               <p className="pollen-name">
                 <strong>{pollen.name}</strong>
               </p>
+
               <img
                 src={pollen.images[getLevelText(item.level)]}
                 alt={pollen.name}
                 className="pollen-image"
               />
 
-              <p className="pollen-name">
+              <p className="pollen-level">
                 <strong>{getLevelText(item.level)}</strong>
               </p>
             </li>
           );
         })}
       </ul>
+      <div> 
       {image && <img src={image} alt={cityname} className="city-image" />}
+
+      </div>
+      
     </div>
   );
 }
