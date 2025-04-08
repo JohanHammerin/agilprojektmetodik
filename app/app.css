@@ -1,11 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
 
-html, body {
-  
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Hindrar horisontell scroll */
-  
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hindrar horisontell scroll */
 }
 .index-container {
   height: 100%;
@@ -16,34 +15,36 @@ html, body {
   background-color: #000000;
 }
 
+.hide {
+  display: none;
+}
+
 /**========================================================================
  *                           Header
  *========================================================================**/
 
-.header {
-  display: flex;
+header {
+display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #000000;
-  padding: 20px;
   width: 100%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  
+  padding: 20px;
+}
+
+header img {
+  width: 100%; /* Gör att bilden anpassar sig till skärmens bredd */
+  height: auto; /* Behåller bildens proportioner */
 }
 
 .logo {
   width: 200px;
 }
 
-.header ul {
+header ul {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.header-text {
-  color: white;
+  flex-direction: column;
 }
 
 h1.header-text {
@@ -61,10 +62,8 @@ h2.header-text {
 }
 
 .hero-image-container {
-  width: 100%; 
-  max-width: 1000px; 
-  
-  
+  width: 100%;
+  max-width: 1000px;
 }
 
 .hero-image {
@@ -139,21 +138,14 @@ li a:hover {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  
 }
 
-<<<<<<< Updated upstream
-
 .footer-desktop {
-=======
-.footer{
->>>>>>> Stashed changes
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
- 
- 
+
   background-color: #ffe203;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -162,14 +154,14 @@ li a:hover {
 }
 
 /* Text i footer */
-.footer h3 {
+.footer-desktop h3 {
   font-size: 1.2rem;
   color: #292a2e;
   font-family: "Inter", sans-serif;
 }
 
 /* Styling på länken */
-.footer a {
+.footer-desktop a {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
@@ -178,24 +170,22 @@ li a:hover {
   text-decoration: none;
   font-size: 1.2rem;
   border: 2px solid #292a2e;
-  
+
   transition: transform 0.3s;
- 
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
-.footera:hover {
+.footer-desktop a:hover {
   transform: scale(1.2);
 }
 
-<<<<<<< Updated upstream
 .footer-mobile {
   display: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   align-content: center;
- 
+
   background-color: #ffe203;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -212,7 +202,6 @@ li a:hover {
 
 /* Styling på länken */
 .footer-mobile a {
-  
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
@@ -221,19 +210,14 @@ li a:hover {
   text-decoration: none;
   font-size: 1.2rem;
   border: 2px solid #292a2e;
-  
+
   transition: transform 0.3s;
- 
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
 .footer-desktop a:hover {
   transform: scale(1.2);
 }
-=======
-
-
->>>>>>> Stashed changes
 
 /**========================================================================
  *                           Nuvarande Stad
@@ -245,7 +229,6 @@ li a:hover {
   justify-content: center;
   align-items: center;
   background-color: #000;
-  border-top: 5px solid #ffe203;
   border-bottom: 5px solid #ffe203;
   width: 100%; /* Se till att bredden täcker hela viewporten */
   padding-bottom: 2.5rem;
@@ -270,7 +253,6 @@ li a:hover {
   align-items: center;
   gap: 20px;
 }
-
 
 .pollen-info-text {
   font: 1.5rem;
@@ -343,20 +325,14 @@ li a:hover {
   flex-wrap: wrap;
   align-content: center;
   width: 100%;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .other-cities-button {
   background-color: black;
-  color: #ffe203;
-  padding: 5px 10px; 
-  cursor: pointer;
-  font-size: 1.2rem; 
-  font-weight: 600;
+  gap: 15px;
+  font-weight: 500;
   max-width: 500px;
-  transition: 1s ease;
-  border: solid 1px black; 
-  border-color: #ffe203;
 }
 
 /* Hovereffekt för knappen */
@@ -372,33 +348,32 @@ li a:hover {
   background-color: #ffe203;
   border-color: black;
   color: black;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 /*========================================================================
  *                           Pollendatan
  *========================================================================**/
 
- .pollen-data {
+.pollen-data {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  
 }
 
-.pollen-data-container{
+.pollen-data-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:20px;
+  gap: 20px;
   width: 100%;
 }
 
-.pollen-list-container{
+.pollen-list-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -414,11 +389,9 @@ li a:hover {
   text-decoration: none;
   padding: 20px;
   color: #ffe203;
-  max-width: 150px;
-  max-height: 150px;
 }
 
-.pollen-logo{
+.pollen-logo {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -429,6 +402,7 @@ li a:hover {
   max-width: 600px;
   height: auto;
   object-fit: cover;
+  margin-top: 25px;
 }
 
 button {
@@ -454,7 +428,7 @@ button:hover {
   background-color: #000;
   border-top: 5px solid #ffe203;
   border-bottom: 5px solid #ffe203;
-  width: 76%; 
+  width: 76%;
   padding-bottom: 2.5rem;
   color: #ffe203;
 }
@@ -466,7 +440,6 @@ button:hover {
   justify-content: center;
   margin-top: 2rem;
   flex-grow: 1;
-  
 }
 
 /* ACTION KNAPPEN */
@@ -512,67 +485,6 @@ button:hover {
  *                           Media Querries
  *========================================================================**/
 
-<<<<<<< Updated upstream
-/* Iphone 14 Pro Max*/
-@media screen and (max-width: 430px) {
-  .current-location-pollen{
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    
-  }
-
-  .pollen-info {
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-  }
-  
-
-  .footer-desktop{
-    display: none;
-  }
-
-  .footer-mobile{
-    display: flex;
-  }
-}
-
-=======
-/* Media Query för små skärmar */
-@media (max-width: 768px) {
-  .footer h3 {
-    font-size: 1rem;
-    color: #292a2e;
-    font-family: "Inter", sans-serif;
-  }
-
-  .pollen-image {
-    width: 100px;
-    height: 100px;
-  }
-
-  .hero-image {
-    height: 300px;
-    width: 100%;
-  }
-
-  .pollen-info {
-    max-width: 100px;
-    max-height: 100px;
-  }
-
-  .pollen-info h2 {
-    font-size: 1.2rem;
-  }
-
-  .pollen-info p {
-    font-size: 1rem;
-  }
-}
-
-
->>>>>>> Stashed changes
 /* Media Query för stora skärmar */
 @media (min-width: 769px) {
   .pollen-image {
@@ -580,10 +492,8 @@ button:hover {
     height: 150px;
   }
 
-  
-
   .hero-image {
-    height: 500px; 
+    height: 500px;
     width: 1700px;
   }
 }
