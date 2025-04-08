@@ -25,6 +25,7 @@ export function HomePage() {
     longitude: "",
   });
 
+  const [locationFlag, setLocationFlag] = useState<boolean>(false);
   const [showPollenSection, setShowPollenSection] = useState<boolean>(false); // State för actionknapp
 
   useEffect(() => {
@@ -46,6 +47,7 @@ export function HomePage() {
             latitude: position.coords.latitude.toString(),
             longitude: position.coords.longitude.toString(),
           });
+          setLocationFlag(true);
         },
         () => alert("Kunde inte hämta din plats")
       );
@@ -88,22 +90,15 @@ export function HomePage() {
       setPollenData(null);
     }
   }
-  const getImageIcon = (name: string, value: number) => {
-    if (value === 0) return `/Pollenikoner-dark-mode/${name} (Ingen).png`;
-    if (value >= 1 && value <= 2)
+  const getImageIcon = (name: string, value: number | string) => {
+    const numValue = Number(value);
+
+    if (numValue === 0) return `/Pollenikoner-dark-mode/${name} (Ingen).png`;
+    if (numValue >= 1 && numValue <= 2)
       return `/Pollenikoner-dark-mode/${name} (Låg).png`;
-    if (value === 3) return `/Pollenikoner-dark-mode/${name} (Mellan).png`;
+    if (numValue === 3) return `/Pollenikoner-dark-mode/${name} (Mellan).png`;
     return `/Pollenikoner-dark-mode/${name} (Hög).png`;
   };
-
-  // Hämtar position vid sidladdning
-  useEffect(getPosition, []);
-
-  // Hämtar polleninfo när positionen uppdateras
-  useEffect(() => {
-    if (city.latitude && city.longitude)
-      getGoogleAPIData(city.latitude, city.longitude);
-  }, [city]);
 
   function togglePollenSection(): void {
     throw new Error("Function not implemented.");
@@ -111,50 +106,54 @@ export function HomePage() {
 
   return (
     <div className="index-container">
-      <header className="header">
+      {/* Header start */}
+      <header>
         <ul>
-          <img src="/img/pklogowhite.png" alt="logo" className="logo" />
+          <li>
+            <a href="/">
+              <img src="img/Frame 6137.png" alt="logo" className="logo" />
+            </a>
+          </li>
+          <li>
+            <img src="/hero/darkmode-hero-desktop.png" alt="" />
+          </li>
         </ul>
-
-        <div className="header-text">
-          <h1>Snuvig?</h1>
-          <h2>
-            Få koll på dagens pollenhalter i ett nafs, vart du än befinner dig.
-          </h2>
-        </div>
       </header>
 
       {/* Huvudsektion */}
 
       <main className="index-main">
-        <section className="current-city">
+        <section className={`current-city ${!locationFlag ? "hide" : ""}`}>
           <h1>{city.name}</h1>
 
-          {pollenData ? (
-            <div className="current-location-container">
-              <h3>Dagens pollenhalter:</h3>
-
-              <div className="current-location-pollen">
-                {pollenData.map((pollen: any) => (
-                  <div key={pollen.name} className="pollen-info">
-                    {/* Pollen ikon för Gräs eller Träd */}
-                    <div>
-                      <img
-                        src={getImageIcon(pollen.name, pollen.value)}
-                        alt="pollen-image"
-                      />
+          {locationFlag ? (
+            pollenData ? (
+              <div className="current-location-container">
+                <h3>Dagens pollenhalter:</h3>
+                <div className="current-location-pollen">
+                  {pollenData.map((pollen: any) => (
+                    <div key={pollen.name} className="pollen-info">
+                      <div className="pollen-info-text">
+                        <p>
+                          <strong>{pollen.name}</strong>
+                        </p>
+                      </div>
+                      <div>
+                        <img
+                          className="pollen-image"
+                          src={getImageIcon(pollen.name, pollen.value)}
+                          alt="pollen-image"
+                        />
+                      </div>
                     </div>
-
-                    <div className="pollen-info-text">
-                      {/* Polleninformation från det aktuella stället */}
-                      <p>{pollen.name}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <p>Laddar pollendata...</p>
+            )
           ) : (
-            <p>Laddar pollendata...</p>
+            <p></p>
           )}
         </section>
 
@@ -184,8 +183,6 @@ export function HomePage() {
             })}
           </div>
 
-          <div></div>
-
           <div className="pollen-data-container">
             {Object.keys(OtherCities)
               .filter((cityId) => selectedCityId === cityId)
@@ -200,8 +197,12 @@ export function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="footer">
+      <footer className="footer-desktop">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
+        <NavLink to="/about">Om oss</NavLink>
+      </footer>
+
+      <footer className="footer-mobile">
         <NavLink to="/about">Om oss</NavLink>
       </footer>
     </div>
