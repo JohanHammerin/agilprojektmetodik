@@ -381,7 +381,7 @@ li a:hover {
   flex-wrap: wrap;
 }
 
-.pollen-data .pollen-list {
+.pollen-list{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -484,6 +484,30 @@ button:hover {
 /**========================================================================
  *                           Media Querries
  *========================================================================**/
+/* Media Query för mobila enheter */
+@media (max-width: 768px) {
+  .pollen-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .hero-image {
+    height: 300px;
+    width: 100%;
+  }
+
+  .footer-desktop {
+    display: none;
+  }
+
+  .footer-mobile {
+    display: flex;
+  }
+
+  .current-city h1 {
+    font-size: 1.5rem;
+  }
+}
 
 /* Media Query för stora skärmar */
 @media (min-width: 769px) {
