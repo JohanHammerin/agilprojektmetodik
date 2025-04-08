@@ -92,25 +92,29 @@ export function PollenData({
   // Returnera
   return (
     <div className="pollen-data">
-      {image && <img src={image} alt={cityname} className="city-image" />}
-
-      <ul>
+      <ul className="pollen-list-container">
         {pollenLevelsOverZero.map((item) => {
           const pollen = PollenTypes[item.pollenId];
 
           return (
             <li key={item.pollenId} className="pollen-list">
+              <p className="pollen-name">
+                <strong>{pollen.name}</strong>
+              </p>
               <img
                 src={pollen.images[getLevelText(item.level)]}
                 alt={pollen.name}
-                className="pollen-logo"
+                className="pollen-image"
               />
 
-              <span className="pollen-name">{pollen.name}</span>
+              <p className="pollen-name">
+                <strong>{getLevelText(item.level)}</strong>
+              </p>
             </li>
           );
         })}
       </ul>
+      {image && <img src={image} alt={cityname} className="city-image" />}
     </div>
   );
 }
