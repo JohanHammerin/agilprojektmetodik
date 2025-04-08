@@ -107,15 +107,18 @@ export function HomePage() {
   return (
     <div className="index-container">
       {/* Header start */}
-      <div className="header">
-        <div className="header-logo-container">
-          <ul>
-            <img src="/img/pklogowhite.png" alt="logo" className="logo" />
-          </ul>
-        </div>
-
-        {/* Header slut */}
-      </div>
+      <header>
+        <ul>
+          <li>
+            <a href="/">
+              <img src="img/Frame 6137.png" alt="logo" className="logo" />
+            </a>
+          </li>
+          <li>
+            <img src="/hero/darkmode-hero-desktop.png" alt="" />
+          </li>
+        </ul>
+      </header>
 
       {/* Huvudsektion */}
 
