@@ -199,12 +199,8 @@ export function HomePage() {
           </div>
         </section>
       </main>
-      <footer className="footer-desktop">
+      <footer className="footer">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
-        <NavLink to="/about">Om oss</NavLink>
-      </footer>
-
-      <footer className="footer-mobile">
         <NavLink to="/about">Om oss</NavLink>
       </footer>
     </div>
