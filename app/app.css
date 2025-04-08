@@ -142,8 +142,12 @@ li a:hover {
   
 }
 
+<<<<<<< Updated upstream
 
 .footer-desktop {
+=======
+.footer{
+>>>>>>> Stashed changes
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -158,14 +162,14 @@ li a:hover {
 }
 
 /* Text i footer */
-.footer-desktop h3 {
+.footer h3 {
   font-size: 1.2rem;
   color: #292a2e;
   font-family: "Inter", sans-serif;
 }
 
 /* Styling på länken */
-.footer-desktop a {
+.footer a {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
@@ -180,10 +184,11 @@ li a:hover {
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
-.footer-desktop a:hover {
+.footera:hover {
   transform: scale(1.2);
 }
 
+<<<<<<< Updated upstream
 .footer-mobile {
   display: none;
   display: flex;
@@ -225,6 +230,10 @@ li a:hover {
 .footer-desktop a:hover {
   transform: scale(1.2);
 }
+=======
+
+
+>>>>>>> Stashed changes
 
 /**========================================================================
  *                           Nuvarande Stad
@@ -339,9 +348,15 @@ li a:hover {
 
 .other-cities-button {
   background-color: black;
-  gap: 15px;
-  font-weight: 500;
+  color: #ffe203;
+  padding: 5px 10px; 
+  cursor: pointer;
+  font-size: 1.2rem; 
+  font-weight: 600;
   max-width: 500px;
+  transition: 1s ease;
+  border: solid 1px black; 
+  border-color: #ffe203;
 }
 
 /* Hovereffekt för knappen */
@@ -357,8 +372,8 @@ li a:hover {
   background-color: #ffe203;
   border-color: black;
   color: black;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 /*========================================================================
@@ -523,6 +538,41 @@ button:hover {
   }
 }
 
+=======
+/* Media Query för små skärmar */
+@media (max-width: 768px) {
+  .footer h3 {
+    font-size: 1rem;
+    color: #292a2e;
+    font-family: "Inter", sans-serif;
+  }
+
+  .pollen-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .hero-image {
+    height: 300px;
+    width: 100%;
+  }
+
+  .pollen-info {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .pollen-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .pollen-info p {
+    font-size: 1rem;
+  }
+}
+
+
+>>>>>>> Stashed changes
 /* Media Query för stora skärmar */
 @media (min-width: 769px) {
   .pollen-image {

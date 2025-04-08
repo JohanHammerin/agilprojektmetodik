@@ -61,6 +61,7 @@ export function AboutPage() {
             </article>
           </div>
         </section>
+<<<<<<< Updated upstream
       </main> 
       <footer className="footer-desktop">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
@@ -73,6 +74,13 @@ export function AboutPage() {
 
      
       
+=======
+      </main>
+      <footer className="footer">
+        <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
+        <NavLink to="/">Hem</NavLink>
+      </footer>
+>>>>>>> Stashed changes
     </div>
     
     
