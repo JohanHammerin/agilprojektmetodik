@@ -232,6 +232,7 @@ li a:hover {
 
 .current-city {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -492,6 +493,48 @@ button:hover {
 .action-button:active {
   transform: scale(0.95); /* Tryck-effekt */
 }
+/**------------------------------------------------------------------------
+ *                           Questionmark-funktionen
+ *------------------------------------------------------------------------**/
+
+ .questionmark-button-container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 100%;
+  
+  
+  margin-right: 50px;
+  box-sizing: border-box;
+ }
+
+ .questionmark-popup-window{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe203;
+  position: absolute;
+  top: 50%; 
+  left: 70%; 
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  max-width: 600px;
+  max-height: 400px;
+  color: black;
+ }
+
+ .questionmark-popup-window h2{
+  font-size: 1.5rem;
+  margin: 10px;
+ }
 
 /**========================================================================
  *                           Media Querries

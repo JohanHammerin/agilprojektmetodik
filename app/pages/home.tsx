@@ -5,6 +5,7 @@ import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
 import { ActionButton } from "~/components/ActionButton";
+import { QuestionmarkBoxCurrentCity } from "~/components/questionmark-Box-Current-City";
 
 export function HomePage() {
   // State för att kunna ändra vilka städer som ska visas
@@ -152,10 +153,18 @@ export function HomePage() {
                   </div>
                 ))}
               </div>
+
+              
             </div>
           ) : (
             <p>Laddar pollendata...</p>
           )}
+
+            <div className="questionmark-button-container">
+                
+                <QuestionmarkBoxCurrentCity />
+
+            </div>
         </section>
 
         <section className="other-cities-section">
@@ -196,6 +205,11 @@ export function HomePage() {
                   regionId={cityId}
                 />
               ))}
+          </div>
+          <div className="questionmark-button-container">
+                
+                <QuestionmarkBoxCurrentCity />
+
           </div>
         </section>
       </main>
