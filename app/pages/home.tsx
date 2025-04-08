@@ -130,15 +130,17 @@ export function HomePage() {
                 <div className="current-location-pollen">
                   {pollenData.map((pollen: any) => (
                     <div key={pollen.name} className="pollen-info">
+                      <div className="pollen-info-text">
+                        <p>
+                          <strong>{pollen.name}</strong>
+                        </p>
+                      </div>
                       <div>
                         <img
                           className="pollen-image"
                           src={getImageIcon(pollen.name, pollen.value)}
                           alt="pollen-image"
                         />
-                      </div>
-                      <div className="pollen-info-text">
-                        <p>{pollen.name}</p>
                       </div>
                     </div>
                   ))}
