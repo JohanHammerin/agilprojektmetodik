@@ -157,6 +157,9 @@ export function HomePage() {
 
       <main className="index-main">
         <section className={`current-city ${!locationFlag ? "hide" : ""}`}>
+          <div className="questionmark-container">
+            <QuestionmarkBoxCurrentCity />
+          </div>
           <h1>{city.name}</h1>
 
           {locationFlag ? (
