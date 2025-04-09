@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
 
-html, body {
-  
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Hindrar horisontell scroll */
-  
+html,
+body {
+  height: 100%;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hindrar horisontell scroll */
 }
 .index-container {
   height: 100%;
@@ -16,34 +17,36 @@ html, body {
   background-color: #000000;
 }
 
+.hide {
+  display: none;
+}
+
 /**========================================================================
  *                           Header
  *========================================================================**/
 
-.header {
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #000000;
-  padding: 20px;
   width: 100%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  
+  padding: 20px;
+}
+
+header img {
+  width: 100%; /* Gör att bilden anpassar sig till skärmens bredd */
+  height: auto; /* Behåller bildens proportioner */
 }
 
 .logo {
   width: 200px;
 }
 
-.header ul {
+header ul {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.header-text {
-  color: white;
+  flex-direction: column;
 }
 
 h1.header-text {
@@ -61,10 +64,8 @@ h2.header-text {
 }
 
 .hero-image-container {
-  width: 100%; 
-  max-width: 1000px; 
-  
-  
+  width: 100%;
+  max-width: 1000px;
 }
 
 .hero-image {
@@ -139,17 +140,14 @@ li a:hover {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  
 }
-
 
 .footer-desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
- 
- 
+
   background-color: #ffe203;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -174,9 +172,8 @@ li a:hover {
   text-decoration: none;
   font-size: 1.2rem;
   border: 2px solid #292a2e;
-  
+
   transition: transform 0.3s;
- 
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
@@ -190,7 +187,7 @@ li a:hover {
   justify-content: flex-end;
   align-items: center;
   align-content: center;
- 
+
   background-color: #ffe203;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -207,7 +204,6 @@ li a:hover {
 
 /* Styling på länken */
 .footer-mobile a {
-  
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
@@ -216,9 +212,8 @@ li a:hover {
   text-decoration: none;
   font-size: 1.2rem;
   border: 2px solid #292a2e;
-  
+
   transition: transform 0.3s;
- 
 }
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
@@ -230,19 +225,6 @@ li a:hover {
  *                           Nuvarande Stad
  *========================================================================**/
 
-.current-city {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-  border-top: 5px solid #ffe203;
-  border-bottom: 5px solid #ffe203;
-  width: 100%; /* Se till att bredden täcker hela viewporten */
-  padding-bottom: 2.5rem;
-  margin-top: 2rem;
-}
-
 .current-location-container {
   display: flex;
   flex-direction: column;
@@ -251,6 +233,9 @@ li a:hover {
 }
 
 .current-city h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
 
@@ -261,7 +246,6 @@ li a:hover {
   align-items: center;
   gap: 20px;
 }
-
 
 .pollen-info-text {
   font: 1.5rem;
@@ -324,7 +308,7 @@ li a:hover {
   flex-wrap: wrap;
   align-content: center;
   width: 100%;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .other-cities-button {
@@ -355,7 +339,7 @@ li a:hover {
  *                           Pollendatan
  *========================================================================**/
 
- .pollen-data {
+.pollen-data {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -365,16 +349,16 @@ li a:hover {
   gap: 50px;
 }
 
-.pollen-data-container{
+.pollen-data-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:20px;
+  gap: 20px;
   width: 100%;
 }
 
-.pollen-list-container{
+.pollen-list-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -390,11 +374,9 @@ li a:hover {
   text-decoration: none;
   padding: 20px;
   color: #ffe203;
-  max-width: 150px;
-  max-height: 150px;
 }
 
-.pollen-logo{
+.pollen-logo {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -405,6 +387,7 @@ li a:hover {
   max-width: 600px;
   height: auto;
   object-fit: cover;
+  margin-top: 25px;
 }
 
 button {
@@ -430,7 +413,7 @@ button:hover {
   background-color: #000;
   border-top: 5px solid #ffe203;
   border-bottom: 5px solid #ffe203;
-  width: 76%; 
+  width: 76%;
   padding-bottom: 2.5rem;
   color: #ffe203;
 }
@@ -442,7 +425,6 @@ button:hover {
   justify-content: center;
   margin-top: 2rem;
   flex-grow: 1;
-  
 }
 
 /* ACTION KNAPPEN */
@@ -569,10 +551,8 @@ button:hover {
     height: 150px;
   }
 
-  
-
   .hero-image {
-    height: 500px; 
+    height: 500px;
     width: 1700px;
   }
 }

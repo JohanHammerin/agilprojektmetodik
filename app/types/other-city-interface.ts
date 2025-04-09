@@ -2,7 +2,6 @@
 // och hämta bilden för den specifika staden i andra städer-sektionen
 
 export interface OtherCityNameAndImage {
-    
-    cityname: string; 
-    image: string;
+  cityname: string;
+  image: string;
 }

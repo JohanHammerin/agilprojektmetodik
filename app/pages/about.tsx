@@ -7,10 +7,16 @@ import { NavLink } from "react-router";
 export function AboutPage() {
   return (
     <div className="index-container">
-      <header className="header">
-        <ul>
-          <img src="/img/pklogowhite.png" alt="logo" className="logo" />
-        </ul>
+      <header>
+        <div className="header-logo-container">
+          <ul>
+            <a href="/">
+              <img src="/img/Frame 6137.png" alt="logo" className="logo" />
+            </a>
+          </ul>
+
+          {/* Header slut */}
+        </div>
       </header>
 
       <main className="info-main">
@@ -61,22 +67,11 @@ export function AboutPage() {
             </article>
           </div>
         </section>
-      </main> 
+      </main>
       <footer className="footer-desktop">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
         <NavLink to="/">Hem</NavLink>
       </footer>
-
-      <footer className="footer-mobile">
-        <NavLink to="/">Hem</NavLink>
-      </footer>
-
-     
-      
     </div>
-    
-    
-
-    
   );
 }
