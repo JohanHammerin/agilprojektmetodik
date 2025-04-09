@@ -1,14 +1,42 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 /**------------------------------------------------------------------------
  *                           Funktion som gör att det visas en popup med information
  *------------------------------------------------------------------------**/
 
 export function QuestionmarkBoxOtherCities() {
     const [showTooltip, setShowTooltip] = useState(false);
-
     
-    return (
-        <><div  className="questionmark-container">
+        
+        const containerRef = useRef<HTMLDivElement | null>(null);
+      
+        useEffect(() => {
+         
+          function handleClickOutside(event: MouseEvent) {
+            if (
+              containerRef.current && 
+              !containerRef.current.contains(event.target as Node)
+            ) {
+              setShowTooltip(false); // Stäng popup
+            }
+          }
+      
+          
+          if (showTooltip) {
+            document.addEventListener("mousedown", handleClickOutside);
+          }
+      
+          
+          return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+          };
+        }, [showTooltip]);
+    
+        
+        return (
+            <>
+            <div 
+            ref={containerRef}                
+            className="questionmark-container">
             <img 
                 src="/questionmarkExampel/question-mark-stylized-cartoon-sticker-260nw-1171619098.webp"
                 alt="Questionmark"
