@@ -140,6 +140,7 @@ li a:hover {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  border-top: solid 5px #ffe203;
 }
 
 .footer-desktop {
@@ -295,6 +296,7 @@ li a:hover {
   align-items: center;
   text-align: center;
   justify-content: center;
+  border-top: solid 5px #ffe203;
 
 }
 
@@ -329,10 +331,9 @@ li a:hover {
 .other-cities-button.active {
   color: white;
   background-color: #ffe203;
-  border-color: black;
+  border-color: solid 2 px black;
   color: black;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /*========================================================================
@@ -511,6 +512,10 @@ button:hover {
 
 /* Iphone 14 Pro Max*/
 @media screen and (max-width: 430px) {
+  .pollen-image {
+    width: 50px;
+    height: 50px;
+  }
   questionmark-popup-window{
     max-width: 300px;
     max-height: 200px;

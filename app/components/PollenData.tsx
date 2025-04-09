@@ -114,7 +114,6 @@ export function PollenData({
               alt={pollen.name}
               className="pollen-image"
             />
-            <span className="pollen-name">{pollen.name}</span>
             <span className="pollen-name">{getLevelText(item.level)}</span>
           
           </li>
