@@ -18,10 +18,12 @@ export function QuestionmarkBoxOtherCities() {
                     height: "50px",
                     cursor: "pointer",
                   
+                    
+                    
                 }}
             />
             {showTooltip && (
-                <div className="questionmark-popup-window-OtherCities">
+                <div className="othercity-questionmark-popup-window">
                     <h2>Denna sektion hämtar data från Googles pollen-API, som om du har godkänt platstjänster  
                         använder din plats (longitud och latitud) för att ge en prognos inom en radie av cirka 
                         en kvadratkilometer.API:et tar endast hänsyn till tre huvudkategorier av pollen: gräs, ogräs och träd. 

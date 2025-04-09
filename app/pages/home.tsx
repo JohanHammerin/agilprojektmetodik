@@ -4,8 +4,8 @@ import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
-import { ActionButton } from "~/components/ActionButton";
 import { QuestionmarkBoxCurrentCity } from "~/components/questionmark-Box-Current-City";
+import { QuestionmarkBoxOtherCities } from "~/components/questionmark-Box-OtherCities";
 
 export function HomePage() {
   // State för att kunna ändra vilka städer som ska visas
@@ -127,7 +127,11 @@ export function HomePage() {
       {/* Huvudsektion */}
 
       <main className="index-main">
+        
         <section className="current-city">
+        <div className="othercity-questionmark-button-container">
+              <QuestionmarkBoxCurrentCity />
+        </div>
           <h1>{city.name}</h1>
 
           {pollenData ? (
@@ -159,18 +163,22 @@ export function HomePage() {
           ) : (
             <p>Laddar pollendata...</p>
           )}
-
-            <div className="questionmark-button-container">
-                
-                <QuestionmarkBoxCurrentCity />
-
-            </div>
         </section>
 
         <section className="other-cities-section">
-          <div className="other-cities-header">
+        <div className="othercity-questionmark-button-container">
+            <QuestionmarkBoxOtherCities />
+            <div>
             <h2>Andra Städer</h2>
-          </div>
+            </div>
+      
+
+          
+              
+      
+            
+        </div>
+          
 
           <div className="other-cities-button-container">
             {Object.keys(OtherCities).map((cityId) => {
@@ -206,11 +214,7 @@ export function HomePage() {
                 />
               ))}
           </div>
-          <div className="questionmark-button-container">
-                
-                <QuestionmarkBoxCurrentCity />
-
-          </div>
+          
         </section>
       </main>
       <footer className="footer-desktop">
@@ -218,9 +222,7 @@ export function HomePage() {
         <NavLink to="/about">Om oss</NavLink>
       </footer>
 
-      <footer className="footer-mobile">
-        <NavLink to="/about">Om oss</NavLink>
-      </footer>
+      
     </div>
   );
 }
