@@ -8,18 +8,16 @@ export function QuestionmarkBoxCurrentCity() {
 
     
     return (
-        <>
+        <><div  className="questionmark-container">
             <img 
                 src="/questionmarkExampel/question-mark-stylized-cartoon-sticker-260nw-1171619098.webp"
                 alt="Questionmark"
                 onClick={() => setShowTooltip(!showTooltip)}
                 style={{
-                    width: "50px",
-                    height: "50px",
+                    width: "20px",
+                    height: "20px",
                     cursor: "pointer",
-                  
-                    
-                    
+            
                 }}
             />
             {showTooltip && (
@@ -36,6 +34,7 @@ export function QuestionmarkBoxCurrentCity() {
                         Vi har försökt balansera detta så gott det går, men viss skillnad i nivåbedömning kan förekomma.</h2>
                 </div>
             )}
+        </div>
         </>
     );
 }

@@ -8,7 +8,7 @@ export function QuestionmarkBoxOtherCities() {
 
     
     return (
-        <>
+        <><div  className="questionmark-container">
             <img 
                 src="/questionmarkExampel/question-mark-stylized-cartoon-sticker-260nw-1171619098.webp"
                 alt="Questionmark"
@@ -17,13 +17,11 @@ export function QuestionmarkBoxOtherCities() {
                     width: "50px",
                     height: "50px",
                     cursor: "pointer",
-                  
-                    
                     
                 }}
             />
             {showTooltip && (
-                <div className="othercity-questionmark-popup-window">
+                <div className="questionmark-popup-window">
                     <h2>Denna sektion hämtar data från Googles pollen-API, som om du har godkänt platstjänster  
                         använder din plats (longitud och latitud) för att ge en prognos inom en radie av cirka 
                         en kvadratkilometer.API:et tar endast hänsyn till tre huvudkategorier av pollen: gräs, ogräs och träd. 
@@ -36,6 +34,8 @@ export function QuestionmarkBoxOtherCities() {
                         Vi har försökt balansera detta så gott det går, men viss skillnad i nivåbedömning kan förekomma.</h2>
                 </div>
             )}
+        </div>
+            
         </>
     );
 }

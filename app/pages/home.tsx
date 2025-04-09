@@ -130,7 +130,9 @@ export function HomePage() {
         
         <section className="current-city">
         <div className="othercity-questionmark-button-container">
-              <QuestionmarkBoxCurrentCity />
+       
+            <QuestionmarkBoxOtherCities />
+        
         </div>
           <h1>{city.name}</h1>
 
@@ -166,18 +168,13 @@ export function HomePage() {
         </section>
 
         <section className="other-cities-section">
-        <div className="othercity-questionmark-button-container">
-            <QuestionmarkBoxOtherCities />
-            <div>
-            <h2>Andra Städer</h2>
-            </div>
-      
-
           
-              
-      
-            
+        <div className="othercity-questionmark-button-container">
+       
+            <QuestionmarkBoxOtherCities />
+        
         </div>
+        <h2 className="other-city-header">Andra Städer</h2>
           
 
           <div className="other-cities-button-container">
