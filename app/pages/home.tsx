@@ -5,6 +5,7 @@ import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
 import { ActionButton } from "~/components/ActionButton";
+import  ThemeToggleButton  from "~/components/ThemeToggleButton";
 
 export function HomePage() {
   // State för att kunna ändra vilka städer som ska visas
@@ -114,6 +115,10 @@ export function HomePage() {
               <img src="img/Frame 6137.png" alt="logo" className="logo" />
             </a>
           </li>
+          <ThemeToggleButton
+        lightIcon={<img src="" alt="Dark mode" width={5} height={5} />}
+        darkIcon={<img src="" alt="Light mode" width={5} height={5} />}
+      />
           <li>
             <img src="/hero/darkmode-hero-desktop.png" alt="" />
           </li>

@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
 
+/* Darkmode variabler (standard) */
+:root {
+  --yellow: #ffe203;
+  --white: white;
+  --black: black;
+}
+
+/* Lightmode variabler */
+body.light {
+  --yellow: gray;
+  --white: black;
+  --black: white;
+}
+
 html,
 body {
   margin: 0;
@@ -12,7 +26,7 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: "Figtree", sans-serif;
-  background-color: #000000;
+  background-color: var(--black);
 }
 
 .hide {
@@ -51,14 +65,14 @@ h1.header-text {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
-  color: white;
+  color: var(--white);
 }
 
 h2.header-text {
   font-size: 28px;
   font-weight: normal;
   margin: 5px 0;
-  color: white;
+  color: var(--white);
 }
 
 .hero-image-container {
@@ -87,9 +101,9 @@ h2.header-text {
 
 /* Texten */
 .api-info h1 {
-  background-color: #ffe203;
+  background-color: var(--yellow);
   padding: 20px;
-  color: black;
+  color: var(--black);
 }
 
 ul.api-info {
@@ -98,7 +112,7 @@ ul.api-info {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #ffe203;
+  color: var(--yellow);
 }
 
 .api-link {
@@ -106,7 +120,7 @@ ul.api-info {
   font-size: 1.2rem;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
-  color: #ffe203;
+  color: var(--yellow);
 }
 
 li {
@@ -122,7 +136,7 @@ li {
 li a {
   text-decoration: none;
   font-weight: 600;
-  color: #ffe203;
+  color: var(--yellow);
 }
 
 li a:hover {
@@ -146,7 +160,7 @@ li a:hover {
   align-items: center;
   align-content: center;
 
-  background-color: #ffe203;
+  background-color: var(--yellow);
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   padding: 10px 20px;
@@ -156,7 +170,7 @@ li a:hover {
 /* Text i footer */
 .footer-desktop h3 {
   font-size: 1.2rem;
-  color: #292a2e;
+  color: var(--black);
   font-family: "Inter", sans-serif;
 }
 
@@ -166,10 +180,10 @@ li a:hover {
   justify-content: flex-end;
   margin-right: 20px;
   padding: 2px;
-  color: #292a2e;
+  color: var(--black);
   text-decoration: none;
   font-size: 1.2rem;
-  border: 2px solid #292a2e;
+  border: 2px solid var(--black);
 
   transition: transform 0.3s;
 }
@@ -186,7 +200,7 @@ li a:hover {
   align-items: center;
   align-content: center;
 
-  background-color: #ffe203;
+  background-color: var(--yellow);
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   padding: 10px 20px;
@@ -196,7 +210,7 @@ li a:hover {
 /* Text i footer */
 .footer-mobile h3 {
   font-size: 1.2rem;
-  color: #292a2e;
+  color: var(--black);
   font-family: "Inter", sans-serif;
 }
 
@@ -206,10 +220,10 @@ li a:hover {
   justify-content: flex-end;
   margin-right: 20px;
   padding: 2px;
-  color: #292a2e;
+  color: var(--black);
   text-decoration: none;
   font-size: 1.2rem;
-  border: 2px solid #292a2e;
+  border: 2px solid var(--black);
 
   transition: transform 0.3s;
 }
@@ -228,8 +242,8 @@ li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #000;
-  border-bottom: 5px solid #ffe203;
+  background-color: var(--black);
+  border-bottom: 5px solid var(--yellow);
   width: 100%; /* Se till att bredden täcker hela viewporten */
   padding-bottom: 2.5rem;
   margin-top: 2rem;
@@ -243,7 +257,7 @@ li a:hover {
 }
 
 .current-city h1 {
-  color: white;
+  color: var(--white);
 }
 
 .current-location-pollen {
@@ -266,7 +280,7 @@ li a:hover {
   padding: 30px;
   max-width: 150px;
   max-height: 150px;
-  color: #ffe203;
+  color: var(--yellow);
 }
 
 .pollen-info h2 {
@@ -303,14 +317,14 @@ li a:hover {
 
 /* Header där Andra Städer text ligger */
 .other-cities-header {
-  background-color: #ffe203;
+  background-color: var(--yellow);
   padding: 10px;
 }
 
 .other-cities-header h2 {
   font-size: 2rem;
   margin: 0;
-  color: black;
+  color: var(--black);
   text-align: center;
   font-weight: 600;
 }
@@ -329,7 +343,7 @@ li a:hover {
 }
 
 .other-cities-button {
-  background-color: black;
+  background-color: var(--black);
   gap: 15px;
   font-weight: 500;
   max-width: 500px;
@@ -338,16 +352,16 @@ li a:hover {
 /* Hovereffekt för knappen */
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
-  background-color: black;
-  color: yellow;
+  background-color: var(--black);
+  color: var(--yellow);
 }
 
 /* Stilen som sker när varje stad väljs och är "aktiv" */
 .other-cities-button.active {
-  color: white;
-  background-color: #ffe203;
-  border-color: black;
-  color: black;
+  color: var(--white);
+  background-color: var(--yellow);
+  border-color: var(--black);
+  color: var(--black);
   font-size: 1.6rem;
   font-weight: 600;
 }
@@ -388,7 +402,7 @@ li a:hover {
   justify-content: center;
   text-decoration: none;
   padding: 20px;
-  color: #ffe203;
+  color: var(--yellow);
 }
 
 .pollen-logo {
@@ -407,7 +421,7 @@ li a:hover {
 
 button {
   background-color: red;
-  color: white;
+  color: var(--white);
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -417,7 +431,7 @@ button {
 }
 
 button:hover {
-  background-color: yellow;
+  background-color: var(--yellow);
 }
 
 .info-section {
@@ -425,12 +439,12 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #000;
-  border-top: 5px solid #ffe203;
-  border-bottom: 5px solid #ffe203;
+  background-color: var(--black);
+  border-top: 5px solid var(--yellow);
+  border-bottom: 5px solid var(--yellow);
   width: 76%;
   padding-bottom: 2.5rem;
-  color: #ffe203;
+  color: var(--yellow);
 }
 
 .info-main {
@@ -462,7 +476,7 @@ button:hover {
   background-color: #3733ff;
   border: none;
   border-radius: 0px; /*rundade hörn */
-  color: white;
+  color: var(--white);
   font-family: "Figtree", sans-serif;
   font-size: 15px;
   font-weight: 600;
