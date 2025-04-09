@@ -4,7 +4,8 @@ import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
-import { ActionButton } from "~/components/ActionButton";
+import { QuestionmarkBoxCurrentCity } from "~/components/Current-City-API-Information";
+import { QuestionmarkBoxOtherCities } from "~/components/Other-City-API-Information";
 
 export function HomePage() {
   // State för att kunna ändra vilka städer som ska visas
@@ -193,9 +194,10 @@ export function HomePage() {
         </section>
 
         <section className="other-cities-section">
-          <div className="other-cities-header">
-            <h2>Andra Städer</h2>
-          </div>
+          
+        
+        <h2 className="other-city-header">Andra Städer</h2>
+          
 
           <div className="other-cities-button-container">
             {Object.keys(OtherCities).map((cityId) => {
@@ -230,6 +232,7 @@ export function HomePage() {
                 />
               ))}
           </div>
+          
         </section>
       </main>
       <footer className="footer-desktop">

@@ -283,6 +283,10 @@ li a:hover {
 
 /* HuvudKategori på andra städer sektionen: */
 
+.other-city-header{
+  color: white;
+}
+
 .other-cities-section {
   display: flex;
   flex-direction: column;
@@ -291,21 +295,7 @@ li a:hover {
   align-items: center;
   text-align: center;
   justify-content: center;
-  padding: 50px;
-}
 
-/* Header där Andra Städer text ligger */
-.other-cities-header {
-  background-color: #ffe203;
-  padding: 10px;
-}
-
-.other-cities-header h2 {
-  font-size: 2rem;
-  margin: 0;
-  color: black;
-  text-align: center;
-  font-weight: 600;
 }
 
 /* Styling för själva knappen */
@@ -355,6 +345,8 @@ li a:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding-top: 100px;
+  gap: 50px;
 }
 
 .pollen-data-container {
@@ -473,10 +465,84 @@ button:hover {
 .action-button:active {
   transform: scale(0.95); /* Tryck-effekt */
 }
+/**------------------------------------------------------------------------
+ *                           Questionmark-funktionen
+ *------------------------------------------------------------------------**/
+
+ /* Allmän för allt som ligger i frågetecken */
+ /* Funkar för båda */
+
+.questionmark-container{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #000;
+  
+
+}
+
+
+ .questionmark-popup-window{
+  margin-top: 10px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe203;
+  border-radius: 10px;
+  max-width: 700px;
+  max-height: 400px;
+  color: black;
+  
+ }
+
+ .questionmark-popup-window h2{
+  font-size: 1.3rem;
+  margin: 10px;
+  color: black;
+ }
 
 /**========================================================================
  *                           Media Querries
  *========================================================================**/
+
+/* Iphone 14 Pro Max*/
+@media screen and (max-width: 430px) {
+  questionmark-popup-window{
+    max-width: 300px;
+    max-height: 200px;
+  }
+
+  questionmark-popup-window h2{
+    font-size: 1rem;
+  }
+
+
+  .current-location-pollen{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .pollen-info {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+  
+
+  .footer-desktop{
+    display: none;
+  }
+
+  .footer-mobile{
+    display: flex;
+  }
+}
 
 /* Media Query för stora skärmar */
 @media (min-width: 769px) {
