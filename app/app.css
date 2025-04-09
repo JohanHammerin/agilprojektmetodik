@@ -233,6 +233,9 @@ li a:hover {
 }
 
 .current-city h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
 }
 

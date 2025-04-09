@@ -39,7 +39,7 @@ export function HomePage() {
   }, [city]);
 
   function getPosition() {
-    if (navigator.geolocation) {
+    if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setCity({
@@ -49,10 +49,35 @@ export function HomePage() {
           });
           setLocationFlag(true);
         },
-        () => alert("Kunde inte hämta din plats")
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              alert(
+                "Du har nekat tillåtelse att använda plats. Aktivera det i webbläsarinställningar."
+              );
+              break;
+            case error.POSITION_UNAVAILABLE:
+              alert("Platsinformation inte tillgänglig.");
+              break;
+            case error.TIMEOUT:
+              alert(
+                "Det tog för lång tid att hämta plats. Försök igen genom att ladda om sidan."
+              );
+              break;
+            default:
+              alert("Ett okänt fel uppstod vid hämtning av plats.");
+              break;
+          }
+          setLocationFlag(false);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000, // max 5 sek att hämta plats
+          maximumAge: 60000, // acceptera cachead plats från senaste minuten
+        }
       );
     } else {
-      alert("Geolokalisering stöds inte");
+      alert("Geolokalisering stöds inte av din webbläsare.");
     }
   }
 
