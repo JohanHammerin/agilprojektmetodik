@@ -111,7 +111,7 @@ ul.api-info {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #ffe203;
+  color:#ffe203
 }
 
 .api-link {
@@ -120,6 +120,7 @@ ul.api-info {
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
   color: #ffe203;
+  align-items: center;
 }
 
 li {
@@ -432,7 +433,7 @@ button:hover {
   background-color: #000;
   border-top: 5px solid #ffe203;
   border-bottom: 5px solid #ffe203;
-  width: 76%; /* Se till att bredden täcker hela viewporten */
+  width: 100%; /* Se till att bredden täcker hela viewporten */
   padding-bottom: 2.5rem;
   color: #ffe203;
 }
