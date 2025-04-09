@@ -4,7 +4,7 @@ import type { OtherCityNameAndImage } from "~/types/other-city-interface";
 import type { PollenCityAndRegion, PollenData } from "~/types/pollen-interface";
 // För att få ID -> Namn och bild
 import { PollenTypes } from "~/types/pollen-types";
-import { QuestionmarkBoxCurrentCity } from "./questionmark-Box-Current-City";
+import { QuestionmarkBoxCurrentCity } from "./Current-City-API-Information";
 
 export function PollenData({
   cityname,

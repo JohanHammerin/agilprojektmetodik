@@ -314,23 +314,6 @@ li a:hover {
 
 }
 
-
-.othercity-questionmark-button-container{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  
-  gap: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-
-.othercity-questionmark-button-container h2{
-  color: white;
-}
-
 /* Styling för själva knappen */
 .other-cities-button-container {
   display: flex;
@@ -508,45 +491,27 @@ button:hover {
  /* Funkar för båda */
 
 .questionmark-container{
-  margin-top: 150px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   background-color: #000;
   
-  border: 3px solid #ffe203;
-  
-  
 
 }
 
 
-
-
- .other-city-questionmark-button-container{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-end;
-  width: 50%;
-  
-  margin-right: 50px;
-  box-sizing: border-box;
-  color: black
-  
- }
-
  .questionmark-popup-window{
+  margin-top: 10px;
   display: flex;
   text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #ffe203;
-  padding: 10px;
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 700px;
   max-height: 400px;
   color: black;
   

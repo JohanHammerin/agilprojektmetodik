@@ -14,10 +14,10 @@ export function QuestionmarkBoxCurrentCity() {
                 alt="Questionmark"
                 onClick={() => setShowTooltip(!showTooltip)}
                 style={{
-                    width: "20px",
-                    height: "20px",
+                    width: "50px",
+                    height: "50px",
                     cursor: "pointer",
-            
+                    
                 }}
             />
             {showTooltip && (
@@ -35,6 +35,7 @@ export function QuestionmarkBoxCurrentCity() {
                 </div>
             )}
         </div>
+            
         </>
     );
 }

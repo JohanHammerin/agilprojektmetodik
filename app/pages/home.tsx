@@ -4,8 +4,8 @@ import type { City } from "~/types/city";
 import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
-import { QuestionmarkBoxCurrentCity } from "~/components/questionmark-Box-Current-City";
-import { QuestionmarkBoxOtherCities } from "~/components/questionmark-Box-OtherCities";
+import { QuestionmarkBoxCurrentCity } from "~/components/Current-City-API-Information";
+import { QuestionmarkBoxOtherCities } from "~/components/Other-City-API-Information";
 
 export function HomePage() {
   // State för att kunna ändra vilka städer som ska visas
@@ -113,7 +113,7 @@ export function HomePage() {
   return (
     <div className="index-container">
       
-      {/* Header start */}
+    
       <div className="header">
         <div className="header-logo-container">
           <ul>
@@ -121,7 +121,7 @@ export function HomePage() {
           </ul> 
         </div>
 
-      {/* Header slut */}
+      
       </div>
 
       {/* Huvudsektion */}
@@ -129,9 +129,9 @@ export function HomePage() {
       <main className="index-main">
         
         <section className="current-city">
-        <div className="othercity-questionmark-button-container">
+        <div className="questionmark-button-container">
        
-            <QuestionmarkBoxOtherCities />
+            <QuestionmarkBoxCurrentCity />
         
         </div>
           <h1>{city.name}</h1>
