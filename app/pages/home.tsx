@@ -100,6 +100,13 @@ export function HomePage() {
     return `/Pollenikoner-dark-mode/${name} (Hög).png`;
   };
 
+  const calculatePollenLevel = (value: number) => {
+    if (value === 0) return "ingen";
+    else if (value < 3) return "låg";
+    else if (value == 3) return "mellan";
+    else return "hög";
+  };
+
   function togglePollenSection(): void {
     throw new Error("Function not implemented.");
   }
@@ -145,6 +152,9 @@ export function HomePage() {
                           alt="pollen-image"
                         />
                       </div>
+                      <p>
+                        <strong>{calculatePollenLevel(pollen.value)}</strong>
+                      </p>
                     </div>
                   ))}
                 </div>
