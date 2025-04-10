@@ -24,13 +24,13 @@ export function AboutPage() {
               Javautveckling som tillsammans har skapat Pollenkollen. Vår vision
               är att göra det enkelt för dig som användare att snabbt få
               information om pollenhalter i olika städer och med vår applikation
-              kan du hålla sig uppdaterad om pollenutvecklingen i din närhet.
+              kan du hålla dig uppdaterad om pollenutvecklingen i din närhet.
             </h1>
           </article>
           <article>
             <h1>
               Vi har arbetat för att kombinera användarvänlig design med
-              pålitlig och aktuell polleninformation så att våra användare
+              pålitlig och aktuell polleninformation så att du som användare
               enkelt kan fatta informerade beslut för en bättre och mer bekväm
               vardag.
             </h1>
