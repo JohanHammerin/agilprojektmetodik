@@ -4,6 +4,8 @@ import type { OtherCityNameAndImage } from "~/types/other-city-interface";
 import type { PollenCityAndRegion, PollenData } from "~/types/pollen-interface";
 // För att få ID -> Namn och bild
 import { PollenTypes } from "~/types/pollen-types";
+import { QuestionmarkBoxCurrentCity } from "./Current-City-API-Information";
+import { QuestionmarkBoxOtherCities } from "./Other-City-API-Information";
 
 export function PollenData({
   cityname,
@@ -106,7 +108,6 @@ export function PollenData({
                 alt={pollen.name}
                 className="pollen-image"
               />
-
               <p className="pollen-name">
                 <strong>{getLevelText(item.level)}</strong>
               </p>
@@ -114,6 +115,11 @@ export function PollenData({
           );
         })}
       </ul>
+
+      <div className="othercity-questionmark-button-container">
+        <QuestionmarkBoxOtherCities />
+      </div>
+
       {image && <img src={image} alt={cityname} className="city-image" />}
     </div>
   );
