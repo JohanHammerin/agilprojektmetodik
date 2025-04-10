@@ -5,6 +5,9 @@ import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
 import { ActionButton } from "~/components/ActionButton";
  
+import { QuestionmarkBoxCurrentCity } from "~/components/Current-City-API-Information";
+import { QuestionmarkBoxOtherCities } from "~/components/Other-City-API-Information";
+
 export function HomePage() {
   const [selectedCityId, setSelectedCityId] = useState<string>("");
   const [pollenData, setPollenData] = useState<{ name: string; value: string }[] | null>(null);
@@ -25,7 +28,7 @@ export function HomePage() {
   }, [city]);
  
   function getPosition() {
-    if (navigator.geolocation) {
+    if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           setCity({
@@ -35,10 +38,35 @@ export function HomePage() {
           });
           setLocationFlag(true);
         },
-        () => alert("Kunde inte hämta din plats")
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              alert(
+                "Du har nekat tillåtelse att använda plats. Aktivera det i webbläsarinställningar."
+              );
+              break;
+            case error.POSITION_UNAVAILABLE:
+              alert("Platsinformation inte tillgänglig.");
+              break;
+            case error.TIMEOUT:
+              alert(
+                "Det tog för lång tid att hämta plats. Försök igen genom att ladda om sidan."
+              );
+              break;
+            default:
+              alert("Ett okänt fel uppstod vid hämtning av plats.");
+              break;
+          }
+          setLocationFlag(false);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000, // max 10 sek att hämta plats
+          maximumAge: 60000, // acceptera cachead plats från senaste minuten
+        }
       );
     } else {
-      alert("Geolokalisering stöds inte");
+      alert("Geolokalisering stöds inte av din webbläsare.");
     }
   }
  
@@ -93,60 +121,70 @@ export function HomePage() {
     if (numValue === 3) return `/Pollenikoner-dark-mode/${name} (Mellan).png`;
     return `/Pollenikoner-dark-mode/${name} (Hög).png`;
   };
- 
+
+
+  const calculatePollenLevel = (value: number) => {
+    if (value === 0) return "ingen";
+    else if (value < 3) return "låg";
+    else if (value == 3) return "mellan";
+    else return "hög";
+  };
+
+  function togglePollenSection(): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <div className="index-container">
       {/* Header */}
       <header>
-        <ul>
-          <li>
-            <a href="/">
-              <img src="img/Frame 6137.png" alt="logo" className="logo" />
-            </a>
-          </li>
-          <li>
-            <img src="/hero/darkmode-hero-desktop.png" alt="hero" />
-          </li>
-        </ul>
-        <div className="header-text">
-          <p>Få koll på dagens pollenhalter i ett nafs, vart du än befinner dig</p>
-        </div>
-        <div className="header-action-button">
+
+        <a href="/">
+          <img src="img/Frame 6137.png" alt="logo" className="logo" />
+        </a>
+         <div className="header-action-button">
           <ActionButton
             text={showPollenSection ? "Dölj pollenhalter" : "Se pollenhalter i ditt område"}
             onClick={togglePollenSection}
           />
         </div>
+        <img src="/hero/darkmode-hero-desktop.png" alt="Maskot" />
       </header>
  
       {/* Main Content */}
       <main className="index-main">
-        {/* Current City Pollen Info */}
-        <section
-          className={`current-city ${!locationFlag || !showPollenSection ? "hide" : ""}`}
-          ref={pollenSectionRef}
-        >
-          <h1>{city.name}</h1>
-          {pollenData ? (
-            <div className="current-location-container">
-              <h3>Dagens pollenhalter:</h3>
-              <div className="current-location-pollen">
-                {pollenData.map((pollen) => (
-                  <div key={pollen.name} className="pollen-info">
-                    <div className="pollen-info-text">
+
+        <section className={`current-city ${!locationFlag || !showPollenSection ? "hide" : ""}`}>
+          <h1 className="city-name">{city.name}</h1>
+
+          {locationFlag ? (
+            pollenData ? (
+              <div className="current-location-container">
+                <h3>Dagens pollenhalter:</h3>
+                <div className="current-location-pollen">
+                  {pollenData.map((pollen: any) => (
+                    <div key={pollen.name} className="pollen-info">
+                      <div className="pollen-info-text">
+                        <p>
+                          <strong>{pollen.name}</strong>
+                        </p>
+                      </div>
+                      <div>
+                        <img
+                          className="pollen-image"
+                          src={getImageIcon(pollen.name, pollen.value)}
+                          alt="pollen-image"
+                        />
+                      </div>
                       <p>
-                        <strong>{pollen.name}</strong>
+                        <strong>{calculatePollenLevel(pollen.value)}</strong>
                       </p>
                     </div>
-                    <div>
-                      <img
-                        className="pollen-image"
-                        src={getImageIcon(pollen.name, pollen.value)}
-                        alt={pollen.name}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className="questionmark-container">
+                  <QuestionmarkBoxCurrentCity />
+                </div>
               </div>
             </div>
           ) : (
@@ -156,10 +194,9 @@ export function HomePage() {
  
         {/* Other Cities Section */}
         <section className="other-cities-section">
-          <div className="other-cities-header">
-            <h2>Andra Städer</h2>
-          </div>
- 
+
+          <h2 className="other-city-header">Andra Städer</h2>
+
           <div className="other-cities-button-container">
             {Object.keys(OtherCities).map((cityId) => (
               <button
@@ -195,10 +232,7 @@ export function HomePage() {
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
         <NavLink to="/about">Om oss</NavLink>
       </footer>
- 
-      <footer className="footer-mobile">
-        <NavLink to="/about">Om oss</NavLink>
-      </footer>
+
     </div>
   );
 }
