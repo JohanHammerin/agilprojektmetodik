@@ -390,46 +390,7 @@ li a:hover {
   max-width: 600px;
   height: auto;
   object-fit: cover;
-<<<<<<< Updated upstream
   margin-top: 25px;
-=======
-}
-
-/**========================================================================
- *                           Media Querries
- *========================================================================**/
-
-/* Iphone 14 Pro Max*/
-@media screen and (max-width: 430px) {
-  .footer {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px;
-  }
-
-  .footer a {
-    margin-top: 10px;
-  }
-
-  .pollen-type img {
-    max-width: 100px;
-    max-height: 100px;
-    background-color: black;
-  }
-
-  .info-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    border-top: 5px solid #ffe203;
-    border-bottom: 5px solid #ffe203;
-    width: 100%;
-    padding-bottom: 2.5rem;
-    color: #ffe203;
-  }
->>>>>>> Stashed changes
 }
 
 button {
@@ -455,13 +416,7 @@ button:hover {
   background-color: #000;
   border-top: 5px solid #ffe203;
   border-bottom: 5px solid #ffe203;
-<<<<<<< Updated upstream
-
   width: 100%; /* Se till att bredden täcker hela viewporten */
-
-=======
-  width: 100%; /* Bredden täcker hela viewporten */
->>>>>>> Stashed changes
   padding-bottom: 2.5rem;
   color: #ffe203;
 }
