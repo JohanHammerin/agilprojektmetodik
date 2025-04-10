@@ -88,7 +88,7 @@ ul.api-info {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color:#ffe203
+  color: #ffe203;
 }
 
 .api-link {
@@ -130,6 +130,7 @@ li a:hover {
   border-top: solid 5px #ffe203;
 }
 
+/*Home.tsx*/
 .footer-desktop {
   display: flex;
   justify-content: space-between;
@@ -138,7 +139,6 @@ li a:hover {
   width: 100vw;
   padding: 10px 20px;
   font-weight: bold;
-  position: relative;
   bottom: 0;
 }
 
@@ -164,6 +164,43 @@ li a:hover {
 
 /* Ändrar textstorleken på länken när musen hovrar över*/
 .footer-desktop a:hover {
+  transform: scale(1.2);
+}
+/*About.tsx*/
+.footer-desktop-about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffe203;
+  width: 100vw;
+  padding: 10px 20px;
+  font-weight: bold;
+  bottom: 0;
+  position: absolute;
+}
+
+/* Text i footer */
+.footer-desktop-about h3 {
+  font-size: 1.2rem;
+  color: #292a2e;
+  font-family: "Inter", sans-serif;
+}
+
+/* Styling på länken */
+.footer-desktop-about a {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  padding: 2px;
+  color: #292a2e;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: 2px solid #292a2e;
+  transition: transform 0.3s;
+}
+
+/* Ändrar textstorleken på länken när musen hovrar över*/
+.footer-desktop-about a:hover {
   transform: scale(1.2);
 }
 
@@ -401,6 +438,10 @@ li a:hover {
   color: #ffe203;
 }
 
+.info-section article {
+  width: 70%;
+}
+
 .info-main {
   display: flex;
   flex-direction: column;
@@ -496,6 +537,13 @@ li a:hover {
     height: 75px;
   }
 
+  .footer-desktop h3 {
+    font-size: 10px;
+  }
+  .footer-desktop a {
+    font-size: 10px;
+  }
+
   .logo {
     width: 100px;
   }
@@ -523,14 +571,6 @@ li a:hover {
     height: 100px;
     padding: 10px;
   }
-
-  .footer-desktop {
-    font-size: 1rem;
-  }
-
-  .footer-mobile {
-    display: flex;
-  }
 }
 
 /* Media Query för stora skärmar */
@@ -543,6 +583,24 @@ li a:hover {
 @media (max-width: 256px) {
   .city-name {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .footer-desktop h3 {
+    font-size: 17px;
+  }
+  .footer-desktop a {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 515px) {
+  .footer-desktop h3 {
+    font-size: 14px;
+  }
+  .footer-desktop a {
+    font-size: 14px;
   }
 }
 

@@ -64,7 +64,7 @@ export function AboutPage() {
           </div>
         </section>
       </main>
-      <footer className="footer-desktop">
+      <footer className="footer-desktop-about">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
         <NavLink to="/">Hem</NavLink>
       </footer>
