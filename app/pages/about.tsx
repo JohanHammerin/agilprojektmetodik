@@ -7,7 +7,7 @@ import { NavLink } from "react-router";
 export function AboutPage() {
   return (
     <div className="index-container">
-      <header>
+      <header className="header-logo">
         <a href="/">
           <img src="/img/Frame 6137.png" alt="logo" className="logo" />
         </a>
@@ -37,31 +37,25 @@ export function AboutPage() {
           </article>
         </section>
 
-        <section className="api-section">
-          <div className="api-info">
-            <h1>API:er vi använder</h1>
-            <article>
-              <ul className="api-list">
-                <li>
-                  <a
-                    href="https://pollenrapporten.se/omwebbplatsen/attanvandapollenprognoserna.4.314e02dd13d69872ec0201.html"
-                    target="_black"
-                    rel="noreferrer"
-                  >
-                    PollenAPI - Pollenrapporten
-                  </a>
+        <section className="api-info">
+          <h1>API:er vi använder</h1>
+          <article className="api-links">
+            <a
+              href="https://pollenrapporten.se/omwebbplatsen/attanvandapollenprognoserna.4.314e02dd13d69872ec0201.html"
+              target="_black"
+              rel="noreferrer"
+            >
+              <p>PollenAPI - Pollenrapporten</p>
+            </a>
 
-                  <a
-                    href="https://developers.google.com/maps/documentation/pollen/overview"
-                    target="_black"
-                    rel="noreferrer"
-                  >
-                    PlatsinfoAPI - Google
-                  </a>
-                </li>
-              </ul>
-            </article>
-          </div>
+            <a
+              href="https://developers.google.com/maps/documentation/pollen/overview"
+              target="_black"
+              rel="noreferrer"
+            >
+              <p>PlatsinfoAPI - Google</p>
+            </a>
+          </article>
         </section>
       </main>
       <footer className="footer-desktop-about">

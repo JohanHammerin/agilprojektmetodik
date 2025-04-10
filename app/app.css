@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
- 
+
 html,
 body {
   height: 100%;
@@ -16,49 +16,50 @@ body {
   background-color: #000000;
 }
 
- 
 .hide {
   display: none;
+}
 
 .header {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: flex-start;
+  align-items: center;
   padding: 20px;
   margin: 0;
   width: 100%;
   height: 600px;
 }
- 
+
 /**========================================================================
  *                           Header
  *========================================================================**/
- 
+
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 100vw;
 }
- 
+
 header img {
   width: 100vw; /* Gör att bilden anpassar sig till skärmens bredd */
   height: auto; /* Behåller bildens proportioner */
 }
- 
+
 .logo {
   width: 200px;
+  margin-bottom: 10px;
 }
- 
- 
+
 h1.header-text {
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px;
   color: white;
 }
- 
+
 h2.header-text {
   font-size: 28px;
   font-weight: normal;
@@ -71,11 +72,15 @@ h2.header-text {
   height: auto; /* Behåll bildens proportioner */
   object-fit: cover; /* Gör att bilden täcker hela containern utan att förvrängas */
 }
- 
+
 /**------------------------------------------------------------------------
  *                           Om oss sidan
  *------------------------------------------------------------------------**/
- 
+
+/**------------------------------------------------------------------------
+ *                           Om oss sidan
+ *------------------------------------------------------------------------**/
+
 .api-info {
   display: flex;
   flex-direction: column;
@@ -83,33 +88,27 @@ h2.header-text {
   align-items: center;
   gap: 20px;
   margin: 20px;
+  padding-bottom: 15%;
 }
- 
-/* Texten */
+
 .api-info h1 {
   background-color: #ffe203;
   padding: 20px;
   color: black;
 }
- 
-ul.api-info {
+
+.api-links {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
-  color: #ffe203;
 }
- 
-.api-link {
+
+.api-links a {
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: color 0.3s ease, transform 0.3s ease;
   color: #ffe203;
-  align-items: center;
 }
- 
+
 li {
   display: flex;
   flex-direction: column;
@@ -120,10 +119,8 @@ li {
   list-style-type: none;
   font-size: 1.2rem;
   margin: 10px 0;
- 
-
 }
- 
+
 li a {
   text-decoration: none;
   font-weight: 600;
@@ -132,23 +129,21 @@ li a {
   align-items: center;
   text-align: center;
 }
- 
+
 li a:hover {
   color: white;
 }
- 
+
 /* För NavLänkarna */
- 
+
 .index-main {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   border-top: solid 5px #ffe203;
 }
-
 
 /*Home.tsx*/
 .footer-desktop {
@@ -161,8 +156,9 @@ li a:hover {
   padding: 10px 20px;
   font-weight: bold;
   bottom: 0;
+  padding-right: 50px;
 }
- 
+
 /* Text i footer */
 .footer-desktop h3 {
   font-size: 1.2rem;
@@ -171,7 +167,15 @@ li a:hover {
   text-align: center;
   flex-grow: 1; /* Detta gör att h3 expanderar och tar upp allt ledigt utrymme */
 }
- 
+
+.footer-desktop-about h3 {
+  font-size: 1.2rem;
+  color: #292a2e;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  flex-grow: 1; /* Detta gör att h3 expanderar och tar upp allt ledigt utrymme */
+}
+
 /* Styling på länken */
 .footer-desktop a {
   display: flex;
@@ -182,14 +186,13 @@ li a:hover {
   text-decoration: none;
   font-size: 1.2rem;
   border: 2px solid #292a2e;
-
   transition: transform 0.3s;
 }
- 
+
 .footer-desktop a {
   margin-left: auto; /* kommer att tvinga länken att placeras längst åt höger */
 }
- 
+
 /* Ändrar textstorleken på länken när musen hovrar över*/
 .footer-desktop a:hover {
   transform: scale(1.2);
@@ -198,27 +201,23 @@ li a:hover {
 /*About.tsx*/
 .footer-desktop-about {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   background-color: #ffe203;
   width: 100vw;
   padding: 10px 20px;
   font-weight: bold;
   bottom: 0;
-  position: absolute;
-}
-
-/* Text i footer */
-.footer-desktop-about h3 {
-  font-size: 1.2rem;
-  color: #292a2e;
-  font-family: "Inter", sans-serif;
+  position: sticky;
+  margin-bottom: 0;
 }
 
 /* Styling på länken */
 .footer-desktop-about a {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
   margin-right: 20px;
   padding: 2px;
   color: #292a2e;
@@ -247,14 +246,14 @@ li a:hover {
   position: absolute;
   bottom: 0;
 }
- 
+
 /* Text i footer */
 .footer-mobile h3 {
   font-size: 1.2rem;
   color: #292a2e;
   font-family: "Inter", sans-serif;
 }
- 
+
 /* Styling på länken */
 .footer-mobile a {
   display: flex;
@@ -268,16 +267,15 @@ li a:hover {
 
   transition: transform 0.3s;
 }
- 
+
 /* Ändrar textstorleken på länken när musen hovrar över*/
 .footer-desktop a:hover {
   transform: scale(1.2);
 }
- 
+
 /**========================================================================
  *                           Nuvarande Stad
  *========================================================================**/
-
 
 .current-location-container {
   display: flex;
@@ -285,20 +283,33 @@ li a:hover {
   justify-content: center;
   align-items: center;
 }
- 
+
+.header-logo {
+  margin: 10px;
+}
+
+.info-no-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+}
+
 .city-name {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
- 
+
 .current-city h1 {
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
 }
- 
+
 .current-location-pollen {
   display: flex;
   flex-wrap: wrap;
@@ -306,11 +317,11 @@ li a:hover {
   align-items: center;
   gap: 20px;
 }
- 
+
 .pollen-info-text {
   font: 1.5rem;
 }
- 
+
 .pollen-info {
   display: flex;
   flex-direction: column;
@@ -321,28 +332,27 @@ li a:hover {
   max-height: 150px;
   color: #ffe203;
 }
- 
+
 .pollen-info h2 {
   font-size: 1.5rem;
   margin: 10px;
 }
- 
+
 .pollen-info p {
   font-size: 1.2rem;
   margin: 10px;
 }
- 
+
 .pollen-image {
   width: 70px;
   height: 70px;
 }
- 
+
 /**========================================================================
  *                           Andra Städer - DIV
  *========================================================================**/
- 
-/* HuvudKategori på andra städer sektionen: */
 
+/* HuvudKategori på andra städer sektionen: */
 
 .other-city-header {
   color: white;
@@ -356,10 +366,9 @@ li a:hover {
   align-items: center;
   text-align: center;
   justify-content: center;
-
   border-top: solid 5px #ffe203;
 }
- 
+
 /* Styling för själva knappen */
 .other-cities-button-container {
   display: flex;
@@ -373,7 +382,7 @@ li a:hover {
 
   margin-bottom: 50px;
 }
- 
+
 .other-cities-button {
   background-color: black;
 
@@ -386,7 +395,7 @@ li a:hover {
   border: solid 1px black;
   border-color: #ffe203;
 }
- 
+
 /* Hovereffekt för knappen */
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
@@ -396,17 +405,17 @@ li a:hover {
   border-color: #ffe203;
   border: 5px solid #ffe203;
 }
- 
+
 /* Stilen som sker när varje stad väljs och är "aktiv" */
 .other-cities-button.active {
   background-color: #ffe203;
   color: black;
 }
- 
+
 /*========================================================================
  *                           Pollendatan
  *========================================================================**/
- 
+
 .pollen-data {
   display: flex;
   flex-direction: column;
@@ -415,7 +424,7 @@ li a:hover {
   width: 100%;
   padding-top: 20px;
 }
- 
+
 .pollen-data-container {
   display: flex;
   flex-direction: column;
@@ -424,7 +433,7 @@ li a:hover {
   gap: 20px;
   width: 100%;
 }
- 
+
 .pollen-list-container {
   display: flex;
   flex-direction: row;
@@ -433,7 +442,7 @@ li a:hover {
   flex-wrap: wrap;
   margin-right: 25px;
 }
- 
+
 .pollen-data .pollen-list {
   display: flex;
   flex-direction: column;
@@ -444,7 +453,6 @@ li a:hover {
   color: #ffe203;
 }
 
-
 .pollen-name {
   margin-top: 20px;
 }
@@ -454,7 +462,7 @@ li a:hover {
   height: 100px;
   object-fit: cover;
 }
- 
+
 .city-image {
   width: 100%;
   max-width: 600px;
@@ -462,7 +470,6 @@ li a:hover {
   object-fit: cover;
   margin-top: 25px;
 }
-
 
 .info-section {
   display: flex;
@@ -475,7 +482,7 @@ li a:hover {
 
   width: 100%; /* Se till att bredden täcker hela viewporten */
   padding-bottom: 2.5rem;
-  color: #ffe203;
+  color: white;
 }
 
 .info-section article {
@@ -490,7 +497,7 @@ li a:hover {
   margin-top: 2rem;
   flex-grow: 1;
 }
- 
+
 /* ACTION KNAPPEN */
 .action-button {
   display: flex;
@@ -499,17 +506,11 @@ li a:hover {
   justify-content: center;
   padding: 12px 28px;
   gap: 8px;
-  isolation: isolate;
- 
+
   /* Storlek & position */
   width: 250px;
   height: 45px;
-  position: relative; /* Gör att du kan använda left */
-  left: -370px; /* Värde för att flytta knappen mer åt vänster */
-  top: -250px;
-  right: 150px;
- 
- 
+
   /* Stil */
   background-color: #3733ff;
   border: none;
@@ -521,13 +522,13 @@ li a:hover {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
- 
+
 /* Hover-effekt */
 .action-button:hover {
   transform: scale(1.05); /* Växer vid hover */
   background: #2a20e0; /* Lite mörkare blå */
 }
- 
+
 /* Aktiv (klickad) */
 .action-button:active {
   transform: scale(0.95); /* Tryck-effekt */
@@ -547,12 +548,20 @@ li a:hover {
   justify-content: flex-end;
   align-items: center;
   background-color: #000;
+  margin-bottom: 20px;
+}
+
+.questionmark-container img {
+  border: 5px solid #ffe203;
+  border-radius: 100%;
+  padding: 15px;
+  background-color: #292a2e;
 }
 
 .questionmark-popup-window {
   margin-top: 10px;
   display: flex;
-  text-align: center;
+  text-align: start;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -562,6 +571,7 @@ li a:hover {
   max-height: 400px;
   color: black;
   margin: 5px 10px;
+  padding: 15px;
 }
 
 .questionmark-popup-window h2 {
@@ -585,6 +595,13 @@ li a:hover {
     font-size: 10px;
   }
   .footer-desktop a {
+    font-size: 10px;
+  }
+
+  .footer-desktop-about h3 {
+    font-size: 10px;
+  }
+  .footer-desktop-about a {
     font-size: 10px;
   }
 
@@ -637,9 +654,22 @@ li a:hover {
   .footer-desktop a {
     font-size: 17px;
   }
+
+  .footer-desktop-about h3 {
+    font-size: 17px;
+  }
+  .footer-desktop-about a {
+    font-size: 17px;
+  }
 }
 
 @media (max-width: 515px) {
+  .footer-desktop-about h3 {
+    font-size: 14px;
+  }
+  .footer-desktop-about a {
+    font-size: 14px;
+  }
   .footer-desktop h3 {
     font-size: 14px;
   }
@@ -654,10 +684,9 @@ li a:hover {
     width: 150px;
     height: 150px;
   }
- 
+
   .hero-image {
     height: 500px;
     width: 1700px;
   }
 }
- 

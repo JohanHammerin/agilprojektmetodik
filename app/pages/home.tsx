@@ -4,29 +4,49 @@ import { PollenData } from "~/components/PollenData";
 import { NavLink } from "react-router";
 import { OtherCities } from "~/types/other-city";
 import { ActionButton } from "~/components/ActionButton";
- 
 import { QuestionmarkBoxCurrentCity } from "~/components/Current-City-API-Information";
-import { QuestionmarkBoxOtherCities } from "~/components/Other-City-API-Information";
 
 export function HomePage() {
   const [selectedCityId, setSelectedCityId] = useState<string>("");
-  const [pollenData, setPollenData] = useState<{ name: string; value: string }[] | null>(null);
-  const [city, setCity] = useState<City>({ name: "", latitude: "", longitude: "" });
+  const [pollenData, setPollenData] = useState<
+    { name: string; value: string }[] | null
+  >(null);
+  const [city, setCity] = useState<City>({
+    name: "",
+    latitude: "",
+    longitude: "",
+  });
   const [locationFlag, setLocationFlag] = useState<boolean>(false);
-  const [showPollenSection, setShowPollenSection] = useState<boolean>(false); // Initialt false för att dölja sektionen
- 
+  const [showPollenSection, setShowPollenSection] = useState<boolean>(false);
+  const [hasClickedLocationButton, setHasClickedLocationButton] =
+    useState<boolean>(false);
+
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 530); // Ny state för att hålla reda på skärmstorleken
   const pollenSectionRef = useRef<HTMLDivElement>(null);
- 
+
+  // Uppdatera skärmstorleken vid fönsterändring
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 530);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     getPosition();
   }, []);
- 
+
   useEffect(() => {
     if (city.latitude && city.longitude) {
       getGoogleAPIData(city.latitude, city.longitude);
     }
   }, [city]);
- 
+
   function getPosition() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
@@ -38,74 +58,54 @@ export function HomePage() {
           });
           setLocationFlag(true);
         },
-        (error) => {
-          switch (error.code) {
-            case error.PERMISSION_DENIED:
-              alert(
-                "Du har nekat tillåtelse att använda plats. Aktivera det i webbläsarinställningar."
-              );
-              break;
-            case error.POSITION_UNAVAILABLE:
-              alert("Platsinformation inte tillgänglig.");
-              break;
-            case error.TIMEOUT:
-              alert(
-                "Det tog för lång tid att hämta plats. Försök igen genom att ladda om sidan."
-              );
-              break;
-            default:
-              alert("Ett okänt fel uppstod vid hämtning av plats.");
-              break;
-          }
+        () => {
           setLocationFlag(false);
         },
         {
           enableHighAccuracy: true,
-          timeout: 5000, // max 10 sek att hämta plats
-          maximumAge: 60000, // acceptera cachead plats från senaste minuten
+          timeout: 10000,
+          maximumAge: 60000,
         }
       );
-    } else {
-      alert("Geolokalisering stöds inte av din webbläsare.");
     }
   }
- 
+
   async function getGoogleAPIData(latitude: string, longitude: string) {
     try {
       const apiUrl = `https://pollen.googleapis.com/v1/forecast:lookup?key=AIzaSyCtlLqFo0V5PsARcnkEztv1kBXBt0xhYQk&location.longitude=${longitude}&location.latitude=${latitude}&days=1`;
       const response = await fetch(apiUrl);
       const data = await response.json();
- 
+
       if (!data.dailyInfo?.[0]) {
         setPollenData(null);
         return;
       }
- 
+
       const pollenTranslation: Record<string, string> = {
         GRASS: "Gräs",
         TREE: "Träd",
         WEED: "Ogräs",
       };
- 
+
       const extractedData = data.dailyInfo[0].pollenTypeInfo
         ?.filter((pollen: any) => pollenTranslation[pollen.code])
         .map((pollen: any) => ({
           name: pollenTranslation[pollen.code],
           value: pollen.indexInfo?.value ?? 0,
         }));
- 
+
       setPollenData(extractedData || []);
     } catch (error) {
       console.error("Fel vid hämtning av pollendata:", error);
       setPollenData(null);
     }
   }
- 
+
   const togglePollenSection = () => {
+    setHasClickedLocationButton(true);
     setShowPollenSection((prev) => {
       const newState = !prev;
       if (newState && pollenSectionRef.current) {
-        // Scrolla ner till pollensektionen när den ska visas
         setTimeout(() => {
           pollenSectionRef.current?.scrollIntoView({ behavior: "smooth" });
         }, 300);
@@ -113,88 +113,106 @@ export function HomePage() {
       return newState;
     });
   };
- 
+
   const getImageIcon = (name: string, value: number | string) => {
     const numValue = Number(value);
     if (numValue === 0) return `/Pollenikoner-dark-mode/${name} (Ingen).png`;
-    if (numValue >= 1 && numValue <= 2) return `/Pollenikoner-dark-mode/${name} (Låg).png`;
+    if (numValue >= 1 && numValue <= 2)
+      return `/Pollenikoner-dark-mode/${name} (Låg).png`;
     if (numValue === 3) return `/Pollenikoner-dark-mode/${name} (Mellan).png`;
     return `/Pollenikoner-dark-mode/${name} (Hög).png`;
   };
 
-
   const calculatePollenLevel = (value: number) => {
     if (value === 0) return "ingen";
     else if (value < 3) return "låg";
-    else if (value == 3) return "mellan";
+    else if (value === 3) return "mellan";
     else return "hög";
   };
 
-  function togglePollenSection(): void {
-    throw new Error("Function not implemented.");
-  }
-
   return (
     <div className="index-container">
-      {/* Header */}
       <header>
+        <section className="header-logo">
+          <a href="/">
+            <img src="img/Frame 6137.png" alt="logo" className="logo" />
+          </a>
+        </section>
+        {!locationFlag ? (
+          <div className="info-no-location">
+            <p></p>
+          </div>
+        ) : (
+          <div className="header-action-button">
+            <ActionButton
+              text={
+                showPollenSection
+                  ? "Dölj pollenhalter"
+                  : "Se pollenhalter i ditt område"
+              }
+              onClick={togglePollenSection}
+            />
+          </div>
+        )}
 
-        <a href="/">
-          <img src="img/Frame 6137.png" alt="logo" className="logo" />
-        </a>
-         <div className="header-action-button">
-          <ActionButton
-            text={showPollenSection ? "Dölj pollenhalter" : "Se pollenhalter i ditt område"}
-            onClick={togglePollenSection}
-          />
-        </div>
-        <img src="/hero/darkmode-hero-desktop.png" alt="Maskot" />
+        {/* Byt bild beroende på skärmstorlek */}
+        <img
+          src={
+            isMobile
+              ? "/hero/darkmode-hero-mobile.png"
+              : "/hero/darkmode-hero-desktop.png"
+          }
+          alt="Maskot"
+        />
       </header>
- 
-      {/* Main Content */}
       <main className="index-main">
-
-        <section className={`current-city ${!locationFlag || !showPollenSection ? "hide" : ""}`}>
+        <section
+          ref={pollenSectionRef}
+          className={`current-city ${!showPollenSection ? "hide" : ""}`}
+        >
           <h1 className="city-name">{city.name}</h1>
 
-          {locationFlag ? (
-            pollenData ? (
-              <div className="current-location-container">
-                <h3>Dagens pollenhalter:</h3>
-                <div className="current-location-pollen">
-                  {pollenData.map((pollen: any) => (
-                    <div key={pollen.name} className="pollen-info">
-                      <div className="pollen-info-text">
-                        <p>
-                          <strong>{pollen.name}</strong>
-                        </p>
-                      </div>
-                      <div>
-                        <img
-                          className="pollen-image"
-                          src={getImageIcon(pollen.name, pollen.value)}
-                          alt="pollen-image"
-                        />
-                      </div>
+          {locationFlag && pollenData ? (
+            <div className="current-location-container">
+              <h3>Dagens pollenhalter:</h3>
+              <div className="current-location-pollen">
+                {pollenData.map((pollen: any) => (
+                  <div key={pollen.name} className="pollen-info">
+                    <div className="pollen-info-text">
                       <p>
-                        <strong>{calculatePollenLevel(pollen.value)}</strong>
+                        <strong>{pollen.name}</strong>
                       </p>
                     </div>
-                  ))}
-                </div>
-                <div className="questionmark-container">
-                  <QuestionmarkBoxCurrentCity />
-                </div>
+                    <div>
+                      <img
+                        className="pollen-image"
+                        src={getImageIcon(pollen.name, pollen.value)}
+                        alt="pollen-image"
+                      />
+                    </div>
+                    <p>
+                      <strong>{calculatePollenLevel(pollen.value)}</strong>
+                    </p>
+                  </div>
+                ))}
               </div>
+              <QuestionmarkBoxCurrentCity />
             </div>
-          ) : (
-            <p>Laddar pollendata...</p>
-          )}
+          ) : null}
         </section>
- 
-        {/* Other Cities Section */}
-        <section className="other-cities-section">
 
+        {/* Ny sektion för text om platsinfo */}
+        {!locationFlag && (
+          <section className="no-location-info">
+            <h2 className="info-no-location">
+              Denna sektion behöver din platsinfo för att kunna hämta aktuella
+              pollenhalter på din plats. Testa att aktivera platstjänster
+              alternativt välj en av städerna nedanför.
+            </h2>
+          </section>
+        )}
+
+        <section className="other-cities-section">
           <h2 className="other-city-header">Andra Städer</h2>
 
           <div className="other-cities-button-container">
@@ -205,13 +223,15 @@ export function HomePage() {
                   e.preventDefault();
                   setSelectedCityId(cityId);
                 }}
-                className={`other-cities-button ${selectedCityId === cityId ? "active" : ""}`}
+                className={`other-cities-button ${
+                  selectedCityId === cityId ? "active" : ""
+                }`}
               >
                 {OtherCities[cityId].cityname}
               </button>
             ))}
           </div>
- 
+
           <div className="pollen-data-container">
             {Object.keys(OtherCities)
               .filter((cityId) => selectedCityId === cityId)
@@ -226,13 +246,11 @@ export function HomePage() {
           </div>
         </section>
       </main>
- 
-      {/* Footer */}
+
       <footer className="footer-desktop">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
         <NavLink to="/about">Om oss</NavLink>
       </footer>
-
     </div>
   );
 }
