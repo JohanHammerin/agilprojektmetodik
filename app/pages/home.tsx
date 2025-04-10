@@ -73,7 +73,7 @@ export function HomePage() {
         },
         {
           enableHighAccuracy: true,
-          timeout: 5000, // max 5 sek att hämta plats
+          timeout: 5000, // max 10 sek att hämta plats
           maximumAge: 60000, // acceptera cachead plats från senaste minuten
         }
       );
@@ -141,16 +141,10 @@ export function HomePage() {
     <div className="index-container">
       {/* Header start */}
       <header>
-        <ul>
-          <li>
-            <a href="/">
-              <img src="img/Frame 6137.png" alt="logo" className="logo" />
-            </a>
-          </li>
-          <li>
-            <img src="/hero/darkmode-hero-desktop.png" alt="" />
-          </li>
-        </ul>
+        <a href="/">
+          <img src="img/Frame 6137.png" alt="logo" className="logo" />
+        </a>
+        <img src="/hero/darkmode-hero-desktop.png" alt="Maskot" />
       </header>
 
       {/* Huvudsektion */}
@@ -160,7 +154,7 @@ export function HomePage() {
           <div className="questionmark-container">
             <QuestionmarkBoxCurrentCity />
           </div>
-          <h1>{city.name}</h1>
+          <h1 className="city-name">{city.name}</h1>
 
           {locationFlag ? (
             pollenData ? (
@@ -197,10 +191,7 @@ export function HomePage() {
         </section>
 
         <section className="other-cities-section">
-          
-        
-        <h2 className="other-city-header">Andra Städer</h2>
-          
+          <h2 className="other-city-header">Andra Städer</h2>
 
           <div className="other-cities-button-container">
             {Object.keys(OtherCities).map((cityId) => {
@@ -235,7 +226,6 @@ export function HomePage() {
                 />
               ))}
           </div>
-          
         </section>
       </main>
       <footer className="footer-desktop">

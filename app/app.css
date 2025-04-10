@@ -9,7 +9,6 @@ body {
   overflow-x: hidden; /* Hindrar horisontell scroll */
 }
 .index-container {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,24 +28,18 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  padding: 20px;
+  width: 100vw;
 }
 
 header img {
-  width: 100%; /* Gör att bilden anpassar sig till skärmens bredd */
+  width: 100vw; /* Gör att bilden anpassar sig till skärmens bredd */
   height: auto; /* Behåller bildens proportioner */
 }
 
 .logo {
   width: 200px;
-}
-
-header ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  padding: 0;
+  margin-top: 20px;
 }
 
 h1.header-text {
@@ -63,13 +56,8 @@ h2.header-text {
   color: white;
 }
 
-.hero-image-container {
-  width: 100%;
-  max-width: 1000px;
-}
-
 .hero-image {
-  width: 100%;
+  width: 100vw;
   height: auto; /* Behåll bildens proportioner */
   object-fit: cover; /* Gör att bilden täcker hela containern utan att förvrängas */
 }
@@ -115,10 +103,8 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
   list-style-type: none;
   font-size: 1.2rem;
-  margin: 10px 0;
 }
 
 li a {
@@ -147,13 +133,12 @@ li a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-content: center;
-
   background-color: #ffe203;
-  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  width: 100vw;
   padding: 10px 20px;
   font-weight: bold;
+  position: relative;
+  bottom: 0;
 }
 
 /* Text i footer */
@@ -173,7 +158,6 @@ li a:hover {
   text-decoration: none;
   font-size: 1.2rem;
   border: 2px solid #292a2e;
-
   transition: transform 0.3s;
 }
 
@@ -183,17 +167,17 @@ li a:hover {
 }
 
 .footer-mobile {
-  display: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   align-content: center;
-
   background-color: #ffe203;
   box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   padding: 10px 20px;
   font-weight: bold;
+  position: absolute;
+  bottom: 0;
 }
 
 /* Text i footer */
@@ -213,7 +197,6 @@ li a:hover {
   text-decoration: none;
   font-size: 1.2rem;
   border: 2px solid #292a2e;
-
   transition: transform 0.3s;
 }
 
@@ -231,6 +214,12 @@ li a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.city-name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .current-city h1 {
@@ -284,7 +273,7 @@ li a:hover {
 
 /* HuvudKategori på andra städer sektionen: */
 
-.other-city-header{
+.other-city-header {
   color: white;
 }
 
@@ -297,7 +286,6 @@ li a:hover {
   text-align: center;
   justify-content: center;
   border-top: solid 5px #ffe203;
-
 }
 
 /* Styling för själva knappen */
@@ -310,7 +298,7 @@ li a:hover {
   flex-wrap: wrap;
   align-content: center;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .other-cities-button {
@@ -471,22 +459,19 @@ button:hover {
  *                           Questionmark-funktionen
  *------------------------------------------------------------------------**/
 
- /* Allmän för allt som ligger i frågetecken */
- /* Funkar för båda */
+/* Allmän för allt som ligger i frågetecken */
+/* Funkar för båda */
 
-.questionmark-container{
+.questionmark-container {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   background-color: #000;
-  
-
 }
 
-
- .questionmark-popup-window{
+.questionmark-popup-window {
   margin-top: 10px;
   display: flex;
   text-align: center;
@@ -498,14 +483,13 @@ button:hover {
   max-width: 700px;
   max-height: 400px;
   color: black;
-  
- }
+}
 
- .questionmark-popup-window h2{
+.questionmark-popup-window h2 {
   font-size: 1.3rem;
   margin: 10px;
   color: black;
- }
+}
 
 /**========================================================================
  *                           Media Querries
@@ -518,21 +502,22 @@ button:hover {
     height: 50px;
   }
 
-  .questionmark-popup-window{
-    width: 90%;
-    
+  footer {
+    background-color: #000;
   }
 
-  .questionmark-popup-window h2{
+  .questionmark-popup-window {
+    width: 90%;
+  }
+
+  .questionmark-popup-window h2 {
     font-size: 1rem;
   }
 
-
-  .current-location-pollen{
+  .current-location-pollen {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
   }
 
   .pollen-info {
@@ -540,14 +525,26 @@ button:hover {
     height: 100px;
     padding: 10px;
   }
-  
 
-  .footer-desktop{
-    display: none;
+  .footer-desktop {
+    font-size: 1rem;
   }
 
-  .footer-mobile{
+  .footer-mobile {
     display: flex;
+  }
+}
+
+/* Media Query för stora skärmar */
+@media (max-width: 382px) {
+  .city-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 256px) {
+  .city-name {
+    font-size: 0.8rem;
   }
 }
 
