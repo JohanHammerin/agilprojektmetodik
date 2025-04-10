@@ -21,21 +21,7 @@ export function HomePage() {
   const [hasClickedLocationButton, setHasClickedLocationButton] =
     useState<boolean>(false);
 
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 530); // Ny state för att hålla reda på skärmstorleken
   const pollenSectionRef = useRef<HTMLDivElement>(null);
-
-  // Uppdatera skärmstorleken vid fönsterändring
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 530);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     getPosition();
@@ -155,15 +141,7 @@ export function HomePage() {
           </div>
         )}
 
-        {/* Byt bild beroende på skärmstorlek */}
-        <img
-          src={
-            isMobile
-              ? "/hero/darkmode-hero-mobile.png"
-              : "/hero/darkmode-hero-desktop.png"
-          }
-          alt="Maskot"
-        />
+        <img src="/hero/darkmode-hero-desktop.png" alt="Maskot" />
       </header>
       <main className="index-main">
         <section
