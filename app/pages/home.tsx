@@ -151,9 +151,6 @@ export function HomePage() {
 
       <main className="index-main">
         <section className={`current-city ${!locationFlag ? "hide" : ""}`}>
-          <div className="questionmark-container">
-            <QuestionmarkBoxCurrentCity />
-          </div>
           <h1 className="city-name">{city.name}</h1>
 
           {locationFlag ? (
@@ -180,6 +177,9 @@ export function HomePage() {
                       </p>
                     </div>
                   ))}
+                </div>
+                <div className="questionmark-container">
+                  <QuestionmarkBoxCurrentCity />
                 </div>
               </div>
             ) : (

@@ -114,7 +114,7 @@ li a {
 }
 
 li a:hover {
-  color: purple;
+  color: white;
 }
 
 /* För NavLänkarna */
@@ -303,25 +303,29 @@ li a:hover {
 
 .other-cities-button {
   background-color: black;
-  gap: 15px;
-  font-weight: 500;
-  max-width: 500px;
+  color: #ffe203;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: 0.4s ease;
+  border: solid 1px black;
+  border-color: #ffe203;
 }
 
 /* Hovereffekt för knappen */
 /* Alltså vad som händer när man har muspekaren över knappen */
 .other-cities-button:hover {
   background-color: black;
-  color: yellow;
+  color: #ffe203;
+  border-color: #ffe203;
+  border: 5px solid #ffe203;
 }
 
 /* Stilen som sker när varje stad väljs och är "aktiv" */
 .other-cities-button.active {
-  color: white;
   background-color: #ffe203;
-  border-color: solid 2 px black;
   color: black;
-  font-weight: 500;
 }
 
 /*========================================================================
@@ -335,7 +339,6 @@ li a:hover {
   justify-content: center;
   width: 100%;
   padding-top: 20px;
-  gap: 50px;
 }
 
 .pollen-data-container {
@@ -366,6 +369,10 @@ li a:hover {
   color: #ffe203;
 }
 
+.pollen-name {
+  margin-top: 20px;
+}
+
 .pollen-logo {
   width: 100px;
   height: 100px;
@@ -378,21 +385,6 @@ li a:hover {
   height: auto;
   object-fit: cover;
   margin-top: 25px;
-}
-
-button {
-  background-color: red;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: yellow;
 }
 
 .info-section {
@@ -463,7 +455,7 @@ button:hover {
 /* Funkar för båda */
 
 .questionmark-container {
-  margin-top: 10px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -483,6 +475,7 @@ button:hover {
   max-width: 700px;
   max-height: 400px;
   color: black;
+  margin: 5px 10px;
 }
 
 .questionmark-popup-window h2 {
@@ -498,8 +491,12 @@ button:hover {
 /* Iphone 14 Pro Max*/
 @media screen and (max-width: 430px) {
   .pollen-image {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
+  }
+
+  .logo {
+    width: 100px;
   }
 
   footer {

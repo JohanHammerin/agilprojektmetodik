@@ -8,15 +8,11 @@ export function AboutPage() {
   return (
     <div className="index-container">
       <header>
-        <div className="header-logo-container">
-          <ul>
-            <a href="/">
-              <img src="/img/Frame 6137.png" alt="logo" className="logo" />
-            </a>
-          </ul>
+        <a href="/">
+          <img src="/img/Frame 6137.png" alt="logo" className="logo" />
+        </a>
 
-          {/* Header slut */}
-        </div>
+        {/* Header slut */}
       </header>
 
       <main className="info-main">

@@ -82,7 +82,7 @@ export const PollenTypes: Record<string, PollenTypeAndImage> = {
     },
   },
   "2a2a2a2a-2a2a-4a2a-aa2a-2a313a323330": {
-    name: "Sälg och viden",
+    name: "Sälg",
     images: {
       ingen: "/Pollenikoner-dark-mode/Vide (Ingen).png",
       låg: "/Pollenikoner-dark-mode/Vide (Låg).png",
