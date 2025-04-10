@@ -8,15 +8,11 @@ export function AboutPage() {
   return (
     <div className="index-container">
       <header>
-        <div className="header-logo-container">
-          <ul>
-            <a href="/">
-              <img src="/img/Frame 6137.png" alt="logo" className="logo" />
-            </a>
-          </ul>
+        <a href="/">
+          <img src="/img/Frame 6137.png" alt="logo" className="logo" />
+        </a>
 
-          {/* Header slut */}
-        </div>
+        {/* Header slut */}
       </header>
 
       <main className="info-main">
@@ -28,13 +24,13 @@ export function AboutPage() {
               Javautveckling som tillsammans har skapat Pollenkollen. Vår vision
               är att göra det enkelt för dig som användare att snabbt få
               information om pollenhalter i olika städer och med vår applikation
-              kan du hålla sig uppdaterad om pollenutvecklingen i din närhet.
+              kan du hålla dig uppdaterad om pollenutvecklingen i din närhet.
             </h1>
           </article>
           <article>
             <h1>
               Vi har arbetat för att kombinera användarvänlig design med
-              pålitlig och aktuell polleninformation så att våra användare
+              pålitlig och aktuell polleninformation så att du som användare
               enkelt kan fatta informerade beslut för en bättre och mer bekväm
               vardag.
             </h1>
@@ -68,7 +64,7 @@ export function AboutPage() {
           </div>
         </section>
       </main>
-      <footer className="footer-desktop">
+      <footer className="footer-desktop-about">
         <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
         <NavLink to="/">Hem</NavLink>
       </footer>
