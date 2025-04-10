@@ -48,10 +48,23 @@ display: flex;
 header img {
   width: 100%; /* Gör att bilden anpassar sig till skärmens bredd */
   height: auto; /* Behåller bildens proportioner */
+
 }
 
+/* Hur man hanterar bilder från darkmode till lightmode */
 .logo {
   width: 200px;
+  content: url("img/Frame 6137.png");
+}
+
+/* Lightmode logga */
+body.light .logo {
+  width: 200px;
+  content: url("img/pklogoblack 3.png");
+}
+
+.theme-button {
+  margin-left: auto;
 }
 
 header ul {
@@ -420,7 +433,6 @@ li a:hover {
 }
 
 button {
-  background-color: red;
   color: var(--white);
   padding: 10px 20px;
   border: none;

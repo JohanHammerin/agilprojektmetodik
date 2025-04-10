@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import ThemeToggleButton from "~/components/ThemeToggleButton";
 
 /**------------------------------------------------------------------------
  *                          AboutSidan
@@ -14,6 +15,9 @@ export function AboutPage() {
               <img src="/img/Frame 6137.png" alt="logo" className="logo" />
             </a>
           </ul>
+          <li className="theme-button">
+            <ThemeToggleButton />
+          </li>
 
           {/* Header slut */}
         </div>

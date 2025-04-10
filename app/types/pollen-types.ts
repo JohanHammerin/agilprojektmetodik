@@ -11,7 +11,7 @@ import type { PollenTypeAndImage } from "./pollen-interface";
 export const PollenTypes: Record<string, PollenTypeAndImage> = {
   "2a2a2a2a-2a2a-4a2a-aa2a-2a313a323236": {
     name: "Al",
-    images: {
+    images: { 
       ingen: "/Pollenikoner-dark-mode/Al (Ingen).png",
       låg: "/Pollenikoner-dark-mode/Al (Låg).png",
       mellan: "/Pollenikoner-dark-mode/Al (Mellan).png",
