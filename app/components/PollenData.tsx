@@ -4,6 +4,8 @@ import type { OtherCityNameAndImage } from "~/types/other-city-interface";
 import type { PollenCityAndRegion, PollenData } from "~/types/pollen-interface";
 // För att få ID -> Namn och bild
 import { PollenTypes } from "~/types/pollen-types";
+import { QuestionmarkBoxCurrentCity } from "./Current-City-API-Information";
+import { QuestionmarkBoxOtherCities } from "./Other-City-API-Information";
 
 export function PollenData({
   cityname,
@@ -92,25 +94,38 @@ export function PollenData({
   // Returnera
   return (
     <div className="pollen-data">
-      {image && <img src={image} alt={cityname} className="city-image" />}
-
-      <ul>
+      <div className="othercity-questionmark-button-container">
+       
+       <QuestionmarkBoxOtherCities /> 
+       
+      </div>
+      <ul className="pollen-list-container">
+        
         {pollenLevelsOverZero.map((item) => {
           const pollen = PollenTypes[item.pollenId];
 
-          return (
-            <li key={item.pollenId} className="pollen-list">
-              <img
-                src={pollen.images[getLevelText(item.level)]}
-                alt={pollen.name}
-                className="pollen-logo"
-              />
-
-              <span className="pollen-name">{pollen.name}</span>
-            </li>
-          );
+        return (
+          <li key={item.pollenId} className="pollen-list">
+            <p className="pollen-name">
+              <strong>{pollen.name}</strong>
+            </p>
+            <img
+              src={pollen.images[getLevelText(item.level)]}
+              alt={pollen.name}
+              className="pollen-image"
+            />
+            <span className="pollen-name">{getLevelText(item.level)}</span>
+          
+          </li>
+        );
         })}
       </ul>
+      
+      
+
+      
+      {image && <img src={image} alt={cityname} className="city-image" />}
+      
     </div>
   );
 }
