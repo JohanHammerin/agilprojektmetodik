@@ -22,6 +22,8 @@ export function HomePage() {
     useState<boolean>(false);
 
   const pollenSectionRef = useRef<HTMLDivElement>(null);
+  const otherCitySectionRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     getPosition();
@@ -200,7 +202,11 @@ export function HomePage() {
                 onClick={(e) => {
                   e.preventDefault();
                   setSelectedCityId(cityId);
+                  setTimeout(() => {
+                    otherCitySectionRef.current?.scrollIntoView({ behavior: "smooth" });
+                  }, 200); // Vänta lite så innehållet hinner visas
                 }}
+                
                 className={`other-cities-button ${
                   selectedCityId === cityId ? "active" : ""
                 }`}
@@ -210,7 +216,7 @@ export function HomePage() {
             ))}
           </div>
 
-          <div className="pollen-data-container">
+          <div ref={otherCitySectionRef} className="pollen-data-container">
             {Object.keys(OtherCities)
               .filter((cityId) => selectedCityId === cityId)
               .map((cityId) => (
