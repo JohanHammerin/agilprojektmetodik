@@ -1,13 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lexend:wght@100..900&display=swap");
 
-html,
-body {
-  height: 100%;
-  background-color: black;
+html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Hindrar horisontell scroll */
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; 
 }
+
 .index-container {
   display: flex;
   flex-direction: column;
@@ -29,6 +29,7 @@ body {
   margin: 0;
   width: 100%;
   height: 600px;
+  
 }
 
 /**========================================================================
@@ -40,18 +41,22 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
+  width: 100%;
 }
 
+/* Maskotbilden */
 header img {
-  width: 100vw; /* Gör att bilden anpassar sig till skärmens bredd */
+  width: 100%; /* Gör att bilden anpassar sig till skärmens bredd */
   height: auto; /* Behåller bildens proportioner */
+  max-height: 800px;
 }
 
 .logo {
   width: 200px;
   margin-bottom: 10px;
 }
+
+
 
 h1.header-text {
   font-size: 36px;
@@ -68,9 +73,10 @@ h2.header-text {
 }
 
 .hero-image {
-  width: 100vw;
-  height: auto; /* Behåll bildens proportioner */
-  object-fit: cover; /* Gör att bilden täcker hela containern utan att förvrängas */
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 /**------------------------------------------------------------------------
@@ -99,14 +105,26 @@ h2.header-text {
 
 .api-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* 🔄 Gör att länkarna ligger på rad */
   align-items: center;
-  justify-content: center;
+  gap: 15px; /* 🧍‍♂️🧍 Mellanrum mellan länkarna */
+  margin-top: 20px;
 }
 
-.api-links a {
+.api-link {
+  padding: 8px 16px;
   text-decoration: none;
+  font-weight: 600;
   color: #ffe203;
+  border: 2px solid #ffe203;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.api-link:hover {
+  transform: scale(1.1);
+  background-color: #292a2e;
+  color: white;
 }
 
 li {
@@ -146,13 +164,14 @@ li a:hover {
 }
 
 /*Home.tsx*/
+.footer-desktop-about,
 .footer-desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   background-color: #ffe203;
-  width: 100vw;
+  width: 100%;
   padding: 10px 20px;
   font-weight: bold;
   bottom: 0;
@@ -160,6 +179,7 @@ li a:hover {
 }
 
 /* Text i footer */
+.footer-desktop-about,
 .footer-desktop h3 {
   font-size: 1.2rem;
   color: #292a2e;
@@ -198,19 +218,7 @@ li a:hover {
   transform: scale(1.2);
 }
 
-/*About.tsx*/
-.footer-desktop-about {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: #ffe203;
-  width: 100vw;
-  padding: 10px 20px;
-  font-weight: bold;
-  bottom: 0;
-  position: sticky;
-  margin-bottom: 0;
-}
+
 
 /* Styling på länken */
 .footer-desktop-about a {
@@ -284,9 +292,7 @@ li a:hover {
   align-items: center;
 }
 
-.header-logo {
-  margin: 10px;
-}
+
 
 .info-no-location {
   display: flex;
@@ -602,7 +608,9 @@ li a:hover {
     font-size: 10px;
   }
   .footer-desktop-about a {
+    padding: 4px;
     font-size: 10px;
+    margin-right: 10px;
   }
 
   .logo {
@@ -631,6 +639,19 @@ li a:hover {
     width: 100px;
     height: 100px;
     padding: 10px;
+  }
+
+  .api-link {
+    font-size: 1rem;
+    padding: 6px 12px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .api-info h1 {
+    font-size: 1.1rem;
+    padding: 10px;
+    text-align: center;
   }
 }
 

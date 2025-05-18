@@ -15,7 +15,7 @@ export const OtherCities: Record<string, OtherCityNameAndImage> = {
     cityname: "Jönköping",
     image: "/img-citiesviewLight/JÖNKÖPING.SKYLINE.png",
   },
-  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a39": {
+  "2a2a2a2a-2a2a-4a2a-aa2a-2a2a2a303a30": {
     cityname: "Malmö",
     image: "/img-citiesviewLight/MALMÖ.SKYLINE.png",
   },

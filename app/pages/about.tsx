@@ -40,28 +40,19 @@ export function AboutPage() {
         <section className="api-info">
           <h1>API:er vi använder</h1>
           <article className="api-links">
-            <a
-              href="https://pollenrapporten.se/omwebbplatsen/attanvandapollenprognoserna.4.314e02dd13d69872ec0201.html"
-              target="_black"
-              rel="noreferrer"
-            >
-              <p>PollenAPI - Pollenrapporten</p>
-            </a>
-
-            <a
-              href="https://developers.google.com/maps/documentation/pollen/overview"
-              target="_black"
-              rel="noreferrer"
-            >
-              <p>PlatsinfoAPI - Google</p>
-            </a>
-          </article>
-        </section>
-      </main>
-      <footer className="footer-desktop-about">
-        <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
-        <NavLink to="/">Hem</NavLink>
-      </footer>
-    </div>
-  );
-}
+            <a className="api-link" href="https://pollenrapporten.se/omwebbplatsen/attanvandapollenprognoserna.4.314e02dd13d69872ec0201.html" target="_blank" rel="noreferrer">
+            PollenAPI - Pollenrapporten
+             </a>
+              <a className="api-link" href="https://developers.google.com/maps/documentation/pollen/overview" target="_blank" rel="noreferrer">
+               PlatsinfoAPI - Google
+                </a>
+                </article>
+                </section>
+                </main>
+                <footer className="footer-desktop-about">
+                  <h3>&#169;2025 Copyright Pollenkollen | All Rights Reserved</h3>
+                  <NavLink to="/">Hem</NavLink>
+                  </footer>
+                  </div>
+                   )
+                  }

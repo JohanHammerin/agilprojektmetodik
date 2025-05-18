@@ -42,7 +42,7 @@ export const PollenTypes: Record<string, PollenTypeAndImage> = {
       ingen: "/Pollenikoner-dark-mode/Björk (Ingen).png",
       låg: "/Pollenikoner-dark-mode/Björk (Låg).png",
       mellan: "/Pollenikoner-dark-mode/Björk (Mellan).png",
-      hög: "/Pollenikoner-dark-mode/Björk  (Hög).png",
+      hög: "/Pollenikoner-dark-mode/Björk (Hög).png",
     },
   },
   "2a2a2a2a-2a2a-4a2a-aa2a-2a313a323233": {
@@ -58,16 +58,17 @@ export const PollenTypes: Record<string, PollenTypeAndImage> = {
     name: "Bok",
     images: {
       ingen: "/Pollenikoner-dark-mode/Bok (Ingen).png",
-      låg: "/Pollenikoner-dark-mode/Bok  (Låg).png",
+      låg: "/Pollenikoner-dark-mode/Bok (Låg).png",
       mellan: "/Pollenikoner-dark-mode/Bok  (Mellan).png",
-      hög: "/Pollenikoner-dark-mode/Bok (Hög).png",
+      
+      hög: "/ollenikoner-dark-mode/Bok (Hög).png",
     },
   },
   "2a2a2a2a-2a2a-4a2a-aa2a-2a313a323433": {
     name: "Gräs",
     images: {
       ingen: "/Pollenikoner-dark-mode/Gräs (Ingen).png",
-      låg: "/Pollenikoner-dark-mode/Gräs  (Låg).png",
+      låg: "/Pollenikoner-dark-mode/Gräs (Låg).png",
       mellan: "/Pollenikoner-dark-mode/Gräs (Mellan).png",
       hög: "/Pollenikoner-dark-mode/Gräs (Hög).png",
     },
@@ -78,7 +79,7 @@ export const PollenTypes: Record<string, PollenTypeAndImage> = {
       ingen: "/Pollenikoner-dark-mode/Ek (Ingen).png",
       låg: "/Pollenikoner-dark-mode/Ek (Låg).png",
       hög: "/Pollenikoner-dark-mode/Ek (Hög).png",
-      mellan: "/Pollenikoner-dark-mode/Ek (Mellan).png",
+      mellan: "/Pollenikoner-dark-mode/Ek (Låg).png",
     },
   },
   "2a2a2a2a-2a2a-4a2a-aa2a-2a313a323330": {
